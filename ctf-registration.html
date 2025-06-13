@@ -1,0 +1,1768 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Cyber Nerd | CTF Championship</title>
+  <link rel="icon" type="image/png" href="photos/logo circle.png" sizes="32x32">
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Rubik+Glitch&family=Rajdhani:wght@300;400;500;600;700&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+  
+  <!-- Font Awesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+
+
+  <!-- Your Firebase app logic -->
+  <script type="module" src="app.js"></script>
+
+
+  
+
+  <style>
+      /* Reset and Base Styles */
+      * {
+          margin: 0;
+          padding: 0;
+          box-sizing: border-box;
+      }
+
+      html {
+          scroll-behavior: smooth;
+      }
+
+      body {
+          width: 100%;
+          height: 100vh;
+          background-color: rgb(0, 0, 0);
+          color: white;
+          font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+          overflow-x: hidden;
+          position: relative;
+      }
+
+      /* Background Effects */
+      .grid-lines {
+          position: fixed;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background-image: 
+              linear-gradient(to right, rgba(15, 235, 26, 0.05) 1px, transparent 1px),
+              linear-gradient(to bottom, rgba(15, 235, 26, 0.05) 1px, transparent 1px);
+          background-size: 20px 20px;
+          z-index: -1;
+      }
+
+      .noise {
+          position: fixed;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH4AoLFygDXsLWtgAAAB1pVFh0Q29tbWVudAAAAAAAQ3JlYXRlZCB3aXRoIEdJTVBkLmUHAAAGHElEQVRo3u2abYxcVRnHf8+5d+7M7Ox7d7vb3e1uW1q6lAKlLwEKVAi0CjZSQUhMxKgfMCbGGD9oYjQavxgTDUEgBIlRPhSLQqkKVAi0dKGl0NKXbWm3u9vd7ftOZ+7MnXvPeXxzb9lSsrR3y8ZNnGRyM3PPzD3nd57zf/7PM1dprfkfGTq+QAghMQDRWvsBBSitdez9Vy0E4Pu+FkKIWCzmCCHE/PnzHdu2xfHjx0Wr1RKe5wkppThy5IjQWuN5nhZCiMOHD4tYLCa01kQiEe15nvA8TwghxMGDB0U0GhVaa6LRqPY8TwQCAbFv3z4Ri8W01ppEIqE9zxOWZYk9e/aIeDyutdZks1ntui62bYsdO3aIZDKptdaUy2XXdV1s2xZbt24VqVRKa61pNBqu67pYliU2b94s0um01lq7ruu6rotpmrz++usik8lorTVKKdd1XQzD4NVXX6VQKGitNZZlua7rYhjGrIAYs/EjQggJYJqmBJBSytl6rnNdGIZpAEgpZ/U5Z+VHlFJordFa43me1lqjtcbzPD3bAKZpaq01nufpWCymlVJ4nqcty9JSShzH0UII6vW6TiQSSClpt9s6EokgpaRer+tUKoWUkna7rZPJJFJKWq2WTqfTSClpNps6k8kgpaTRaOhsNouUkna7rXO5HFJKGo2GzufzSClpt9t6wYIFSCmx7dlJlDMCMQxDCiGQUkrDMKRhGNIwDGmaprQsS1qWJW3blrZty0gkIiORiIzH4zIej8tUKiVTqZTMZDIyk8nIfD4v8/m8LBQKslAoyIULF8qFCxfKYrEoi8WiXLRokVy0aJFcsmSJXLJkiVy2bJlctmyZXL58uVy+fLlcsWKFXLFihVy5cqVcuLKlXLVqlVy1apVcvXq1XL16tVyzZo1cs2aNXLt2rVy7dq1ct26dXLdunVy/fr1cv369XLDhg1yw4YNcuPGjXLjxo1y06ZNctOmTXLz5s1y8+bN8qWXXpIvvfSS3LJli9yyZYvcunWr3Lp1q9y2bZvctm2bfPnll+XLL78sX3nlFfnKK6/I7du3y+3bt8sdO3bIHTt2yJ07d8qdO3fKXbt2yV27dsndu3fL3bt3yz179sg9e/bIvXv3yr1798p9+/bJffv2yf3798v9+/fLAwcOyAMHDsiDBw/KgwcPykOHDslDhw7Jw4cPy8OHD8sjR47II0eOyKNHj8qjR4KY8eOyWPHjsnjx4/L48ePyxMnTsgTJ07IkydPypMnT8pTp07JU6dOydOnT8vTp0/LM2fOyDNnzshz587Jc+fOyfPnz8vz58/LCxcuyAsXLsiLFy/KixcvysuXL8vLly/LK1euyCtXrsgPP/xQfvjhh/Lq1avyxo0b8saNG/LWrVvy1q1b8vbt2/L27dvy7t278u7du/LevXvy3r178v79+/L+/fvywYMH8sGDB/Lhw4fy4cOH8tGjR/LRo0fy8ePH8vHjx/LJkyfyyZMn8unTp/Lp06fy2bNn8tmzZ/L58+fy+fPn8sWLF/LFixfy5cuX8uXLl/LVV1+Vr776qnzttdfka6+9Jl9//XX5+uuvy7feeku+9dZb8u2335Zvv/22fOedd+Q777wj3333Xfnuu+/K9957T7733nvy/fffl++//778wQ9+IH/wgx/IH/7wh/KHP/yh/PDDD+WHH34of/zjH8sf//jH8ic/+Yn8yU9+In/605/Kn/70p/JnP/uZ/NnPfiZ//vOfy5///Ofyl7/8pfzlL38pf/WrX8lf/epX8te//rX89a9/LX/zm9/I3/zmN/K3v/2t/O1vfyt/97vfyd/97nfyD3/4g/zDH/4g//jHP8o//vGP8k9/+pP805/+JP/85z/LP//5z/Ivf/mL/Mtf/iL/+te/yr/+9a/yb3/7m/zb3/4m//73v8u///3v8h//+If8xz/+If/5z3/Kf/7zn/Jf//qX/Ne//iX//e9/y3//+9/yP//5j/zPf/4j//vf/8r//ve/8n//+5/8+OOP5ccffyw/+eQT+cknn8hPP/1Ufvrpp/Kzzz6Tn332mfz888/l559/Lr/44gv5xRdfyC+//FJ++eWX8quvvpJfffWV/Prrr+XXX38tv/nmG/nNN9/Ib7/9Vn777bfyu+++k9999538/vvv5ffffy9/+MMfyh/+8Ifyhz/8ofzRj34kf/SjH8kf//jH8sc//rH8yU9+In/yk5/In/70p/KnP/2p/NnPfiZ/9rOfyZ///Ofy5z//ufzFL34hf/GLX8hf/vKX8pe//KX81a9+JX/1q1/JX//61/LXv/61/M1vfiN/85vfyN/+9rfyt7/9rfzd734nf/e738nf//738ve//738wx/+IP/whz/IP/7xj/KPf/yj/NOf/iT/9Kc/yT//+c/yz3/+s/zLX/4i/wvGfwHWzOqxQjyIEQAAAABJRU5ErkJggg==');
+          opacity: 0.03;
+          z-index: -1;
+          pointer-events: none;
+      }
+
+      .scan-line {
+          position: fixed;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 5px;
+          background: linear-gradient(90deg, 
+              transparent 0%, 
+              rgba(15, 235, 26, 0.2) 20%, 
+              rgba(15, 235, 26, 0.5) 50%, 
+              rgba(15, 235, 26, 0.2) 80%, 
+              transparent 100%);
+          animation: scan-line 4s linear infinite;
+          pointer-events: none;
+          z-index: 10;
+      }
+
+      .matrix-rain {
+          position: fixed;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          z-index: -1;
+          opacity: 0.15;
+          pointer-events: none;
+      }
+
+      @keyframes scan-line {
+          0% { transform: translateY(-100%); }
+          100% { transform: translateY(100vh); }
+      }
+
+      .container {
+          max-width: 1200px;
+          margin: 40px auto;
+          padding: 0 20px;
+          position: relative;
+      }
+
+      /* Header Styles */
+      .header {
+          position: relative;
+          padding: 30px;
+          margin-bottom: 30px;
+          border-radius: 10px 10px 0 0;
+          background: linear-gradient(180deg, rgba(0,20,0,0.9) 0%, rgba(0,10,0,0.7) 100%);
+          border: 1px solid rgba(15, 235, 26, 0.3);
+          border-bottom: 2px solid rgb(15, 235, 26);
+          box-shadow: 0 0 30px rgba(15, 235, 26, 0.2);
+          overflow: hidden;
+      }
+
+      .header::before {
+          content: "";
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          height: 2px;
+          background: linear-gradient(90deg, transparent, rgb(15, 235, 26), transparent);
+      }
+
+      .header-content {
+          position: relative;
+          z-index: 2;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+      }
+
+      .logo {
+          width: 170px;
+          height: 170px;
+          margin-bottom: 20px;
+          border-radius: 50%;
+      }
+
+      .logo a img {
+          width: 100%;
+          height: 100%;
+          transition: all 0.3s;
+          border-radius: 50%;
+      }
+
+      .logo a img:hover {
+          box-shadow: 0px 0px 30px rgb(15, 235, 26), 0px 0px 30px rgb(15, 235, 26);
+          border-radius: 50%;
+      }
+
+
+      .title {
+          font-family: 'Rubik Glitch', system-ui;
+          font-size: 3rem;
+          font-weight: lighter;
+          color: #ffffff;
+          text-transform: uppercase;
+          letter-spacing: 3px;
+          margin-bottom: 10px;
+          text-shadow: 0 0 10px rgba(15, 235, 26, 0.7), 0 0 20px rgba(15, 235, 26, 0.5);
+          text-align: center;
+      }
+
+      .subtitle {
+          font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+          font-size: 1.2rem;
+          color: rgb(15, 235, 26);
+          letter-spacing: 2px;
+          text-transform: uppercase;
+          margin-bottom: 20px;
+          text-align: center;
+      }
+
+      /* Countdown Timer */
+      .countdown-container {
+          display: flex;
+          justify-content: center;
+          margin: 20px 0;
+          gap: 15px;
+      }
+
+      .countdown-item {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          min-width: 80px;
+      }
+
+      .countdown-value {
+          font-family: 'Share Tech Mono', monospace;
+          font-size: 2.5rem;
+          color: white;
+          background: rgba(0, 0, 0, 0.7);
+          border: 1px solid rgb(15, 235, 26);
+          border-radius: 5px;
+          padding: 10px;
+          width: 100%;
+          text-align: center;
+          box-shadow: 0 0 15px rgba(15, 235, 26, 0.3);
+          position: relative;
+          overflow: hidden;
+      }
+
+      .countdown-value::before {
+          content: "";
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 2px;
+          background: linear-gradient(90deg, transparent, rgb(15, 235, 26), transparent);
+          animation: countdown-line 2s infinite;
+      }
+
+      @keyframes countdown-line {
+          0% { transform: translateX(-100%); }
+          100% { transform: translateX(100%); }
+      }
+
+      .countdown-label {
+          font-family: 'Rubik Glitch', system-ui;
+          font-size: 0.9rem;
+          color: rgb(15, 235, 26);
+          margin-top: 5px;
+          font-weight: lighter;
+      }
+
+      .event-details {
+          display: flex;
+          justify-content: space-between;
+          width: 100%;
+          margin-top: 20px;
+          padding-top: 20px;
+          border-top: 1px solid rgba(15, 235, 26, 0.2);
+          flex-wrap: wrap;
+      }
+
+      .event-detail {
+          text-align: center;
+          padding: 0 15px;
+          margin-bottom: 10px;
+          flex: 1 1 200px;
+      }
+
+      .event-detail-label {
+          font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+          font-size: 0.8rem;
+          color: rgb(15, 235, 26);
+          margin-bottom: 5px;
+      }
+
+      .event-detail-value {
+          font-family: 'Rubik Glitch', system-ui;
+          font-size: 1.2rem;
+          color: white;
+          font-weight: lighter;
+      }
+
+      /* Main Content */
+      .main-content {
+          background: rgba(0, 10, 0, 0.8);
+          border-radius: 0 0 10px 10px;
+          padding: 30px;
+          box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+          border: 1px solid rgba(15, 235, 26, 0.3);
+          border-top: none;
+          position: relative;
+          overflow: hidden;
+      }
+
+      .main-content::before {
+          content: "";
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background: 
+              radial-gradient(circle at 50% 50%, rgba(15, 235, 26, 0.05) 0%, transparent 80%),
+              radial-gradient(circle at 80% 20%, rgba(0, 255, 255, 0.03) 0%, transparent 50%);
+          pointer-events: none;
+      }
+
+      /* Tabs */
+      .tabs {
+          display: flex;
+          margin-bottom: 30px;
+          border-bottom: 1px solid rgba(15, 235, 26, 0.3);
+          position: relative;
+      }
+
+      .tab {
+          padding: 15px 25px;
+          background: transparent;
+          border: none;
+          color: white;
+          font-family: 'Rubik Glitch', system-ui;
+          font-size: 1.2rem;
+          cursor: pointer;
+          position: relative;
+          overflow: hidden;
+          transition: all 0.3s ease;
+          font-weight: lighter;
+      }
+
+      .tab::before {
+          content: "";
+          position: absolute;
+          bottom: 0;
+          left: 50%;
+          transform: translateX(-50%);
+          width: 0;
+          height: 3px;
+          background: rgb(15, 235, 26);
+          transition: all 0.3s ease;
+      }
+
+      .tab:hover::before, .tab.active::before {
+          width: 80%;
+      }
+
+      .tab.active {
+          color: rgb(15, 235, 26);
+          text-shadow: 0 0 10px rgba(15, 235, 26, 0.5);
+      }
+
+      .tab-content {
+          display: none;
+      }
+
+      .tab-content.active {
+          display: block;
+          animation: fadeIn 0.5s ease;
+      }
+
+      @keyframes fadeIn {
+          from { opacity: 0; transform: translateY(10px); }
+          to { opacity: 1; transform: translateY(0); }
+      }
+
+      /* Registration Form */
+      .registration-form {
+          max-width: 800px;
+          margin: 0 auto;
+          padding: 20px;
+          background: rgba(0, 0, 0, 0.7);
+          border-radius: 10px;
+          border: 1px solid rgba(15, 235, 26, 0.3);
+          box-shadow: 0 0 20px rgba(15, 235, 26, 0.2);
+          position: relative;
+          overflow: hidden;
+      }
+
+      .registration-form::after {
+          content: "";
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background: linear-gradient(45deg, 
+              rgba(15, 235, 26, 0.05) 25%, 
+              transparent 25%, 
+              transparent 50%, 
+              rgba(15, 235, 26, 0.05) 50%, 
+              rgba(15, 235, 26, 0.05) 75%, 
+              transparent 75%, 
+              transparent);
+          background-size: 20px 20px;
+          pointer-events: none;
+          z-index: 0;
+          opacity: 0.2;
+      }
+
+      .form-title {
+          font-family: 'Rubik Glitch', system-ui;
+          font-size: 1.8rem;
+          color: white;
+          margin-bottom: 20px;
+          text-align: center;
+          font-weight: lighter;
+          text-shadow: 0 0 10px rgba(15, 235, 26, 0.5);
+          position: relative;
+          z-index: 1;
+      }
+
+      .form-group {
+          margin-bottom: 20px;
+          position: relative;
+          z-index: 1;
+      }
+
+      .form-label {
+          display: block;
+          font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+          font-size: 1rem;
+          color: white;
+          margin-bottom: 8px;
+      }
+
+      .form-input {
+          width: 100%;
+          padding: 12px 15px;
+          background-color: rgba(0, 0, 0, 0.7);
+          border: 1px solid rgb(15, 235, 26);
+          border-radius: 5px;
+          color: white;
+          font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+          font-size: 1rem;
+          transition: all 0.3s ease;
+      }
+
+      .form-input:focus {
+          outline: none;
+          box-shadow: 0 0 15px rgba(15, 235, 26, 0.4);
+          border-color: rgb(15, 235, 26);
+      }
+
+      .form-input.error {
+          border-color: #ff3333;
+          box-shadow: 0 0 15px rgba(255, 51, 51, 0.4);
+      }
+
+      .error-message {
+          color: #ff3333;
+          font-size: 0.85rem;
+          margin-top: 5px;
+          display: none;
+      }
+
+      /* Enhanced Specialty Select */
+      .specialty-container {
+          position: relative;
+          width: 100%;
+      }
+
+      .form-select {
+          width: 100%;
+          padding: 12px 15px;
+          background-color: rgba(0, 0, 0, 0.7);
+          border: 1px solid rgb(15, 235, 26);
+          border-radius: 5px;
+          color: white;
+          font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+          font-size: 1rem;
+          transition: all 0.3s ease;
+          appearance: none;
+          background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='rgb(15, 235, 26)' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+          background-repeat: no-repeat;
+          background-position: right 15px center;
+          background-size: 15px;
+          cursor: pointer;
+      }
+
+      .form-select:focus {
+          outline: none;
+          box-shadow: 0 0 15px rgba(15, 235, 26, 0.4);
+          border-color: rgb(15, 235, 26);
+      }
+
+      .specialty-container::before {
+          content: "";
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          border-radius: 5px;
+          pointer-events: none;
+          background: linear-gradient(90deg, 
+              rgba(15, 235, 26, 0.1) 0%, 
+              transparent 20%, 
+              transparent 80%, 
+              rgba(15, 235, 26, 0.1) 100%);
+          z-index: 1;
+      }
+
+      .specialty-container::after {
+          content: "";
+          position: absolute;
+          bottom: -2px;
+          left: 0;
+          width: 100%;
+          height: 2px;
+          background: linear-gradient(90deg, 
+              transparent, 
+              rgba(15, 235, 26, 0.5), 
+              transparent);
+          pointer-events: none;
+          opacity: 0;
+          transition: opacity 0.3s ease;
+      }
+
+      .specialty-container:hover::after {
+          opacity: 1;
+      }
+
+      .form-select option {
+          background-color: rgba(0, 0, 0, 0.9);
+          color: white;
+          padding: 10px;
+      }
+
+      .form-radio-group {
+          display: flex;
+          gap: 20px;
+          margin-top: 10px;
+          flex-wrap: wrap;
+      }
+
+      .form-radio-label {
+          display: flex;
+          align-items: center;
+          cursor: pointer;
+          transition: all 0.3s ease;
+          padding: 8px 15px;
+          border-radius: 20px;
+          background-color: rgba(0, 0, 0, 0.5);
+          border: 1px solid rgba(15, 235, 26, 0.3);
+      }
+
+      .form-radio-label:hover {
+          background-color: rgba(15, 235, 26, 0.1);
+          border-color: rgb(15, 235, 26);
+      }
+
+      .form-radio {
+          margin-right: 8px;
+          appearance: none;
+          width: 18px;
+          height: 18px;
+          border: 2px solid rgb(15, 235, 26);
+          border-radius: 50%;
+          background-color: transparent;
+          position: relative;
+          cursor: pointer;
+          transition: all 0.3s ease;
+      }
+
+      .form-radio:checked::after {
+          content: "";
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          width: 10px;
+          height: 10px;
+          border-radius: 50%;
+          background-color: rgb(15, 235, 26);
+          box-shadow: 0 0 5px rgba(15, 235, 26, 0.7);
+          animation: pulse-radio 1s infinite alternate;
+      }
+
+      @keyframes pulse-radio {
+          0% { box-shadow: 0 0 5px rgba(15, 235, 26, 0.7); }
+          100% { box-shadow: 0 0 10px rgba(15, 235, 26, 0.9); }
+      }
+
+      .form-radio:focus {
+          outline: none;
+          box-shadow: 0 0 5px rgba(15, 235, 26, 0.7);
+      }
+
+      .form-checkbox-label {
+          display: flex;
+          align-items: flex-start;
+          cursor: pointer;
+          margin-top: 10px;
+          transition: all 0.3s ease;
+      }
+
+      .form-checkbox-label:hover {
+          color: rgb(15, 235, 26);
+      }
+
+      .form-checkbox {
+          margin-right: 8px;
+          margin-top: 3px;
+          appearance: none;
+          width: 18px;
+          height: 18px;
+          border: 2px solid rgb(15, 235, 26);
+          border-radius: 3px;
+          background-color: transparent;
+          position: relative;
+          cursor: pointer;
+          transition: all 0.3s ease;
+      }
+
+      .form-checkbox:checked::after {
+          content: "✓";
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          color: rgb(15, 235, 26);
+          font-size: 14px;
+          font-weight: bold;
+          animation: checkbox-check 0.3s ease;
+      }
+
+      @keyframes checkbox-check {
+          0% { opacity: 0; transform: translate(-50%, -50%) scale(0.5); }
+          50% { opacity: 1; transform: translate(-50%, -50%) scale(1.2); }
+          50% { opacity: 1; transform: translate(-50%, -50%) scale(1.2); }
+          100% { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+      }
+
+      .form-checkbox:focus {
+          outline: none;
+          box-shadow: 0 0 5px rgba(15, 235, 26, 0.7);
+      }
+
+      .form-submit {
+          display: block;
+          width: 100%;
+          padding: 15px;
+          background-color: rgb(0, 0, 0);
+          color: rgb(255, 255, 255);
+          border: 1px solid rgb(15, 235, 26);
+          border-radius: 5px;
+          font-family: 'Rubik Glitch', system-ui;
+          font-size: 1.2rem;
+          cursor: pointer;
+          transition: all 0.3s ease;
+          margin-top: 30px;
+          font-weight: lighter;
+          position: relative;
+          overflow: hidden;
+          z-index: 1;
+      }
+
+      .form-submit::before {
+          content: "";
+          position: absolute;
+          top: 0;
+          left: -100%;
+          width: 100%;
+          height: 100%;
+          background: linear-gradient(90deg, transparent, rgba(15, 235, 26, 0.3), transparent);
+          transition: all 0.6s ease;
+          z-index: -1;
+      }
+
+      .form-submit:hover::before {
+          left: 100%;
+      }
+
+      .form-submit:hover {
+          background-color: rgb(15, 235, 26);
+          color: rgb(0, 0, 0);
+          box-shadow: 0 0 30px rgba(15, 235, 26, 0.7);
+      }
+
+      /* Enhanced hackers Table */
+      .hackers-section {
+          margin-top: 50px;
+      }
+
+      .hackers-title {
+          font-family: 'Rubik Glitch', system-ui;
+          font-size: 2rem;
+          color: white;
+          margin-bottom: 20px;
+          word-spacing: 6px;
+          letter-spacing: 3px;
+          text-transform: uppercase;
+          text-align: center;
+          font-weight: lighter;
+          text-shadow: 0 0 10px rgba(15, 235, 26, 0.7), 0 0 20px rgba(15, 235, 26, 0.5);
+      }
+
+      .table-controls {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          margin-bottom: 20px;
+          flex-wrap: wrap;
+          gap: 15px;
+      }
+
+      .table-search {
+          position: relative;
+          flex: 1;
+          min-width: 200px;
+      }
+
+      .table-search input {
+          width: 100%;
+          padding: 10px 15px 10px 40px;
+          background-color: rgba(0, 0, 0, 0.7);
+          border: 1px solid rgb(15, 235, 26);
+          border-radius: 5px;
+          color: white;
+          font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+          font-size: 1rem;
+          transition: all 0.3s ease;
+      }
+
+      .table-search input:focus {
+          outline: none;
+          box-shadow: 0 0 15px rgba(15, 235, 26, 0.4);
+      }
+
+      .table-search i {
+          position: absolute;
+          left: 15px;
+          top: 50%;
+          transform: translateY(-50%);
+          color: rgb(15, 235, 26);
+      }
+
+      /* Enhanced Table Styles */
+      .table-container {
+          overflow-x: auto;
+          border-radius: 10px;
+          box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+          position: relative;
+          margin-top: 20px;
+          max-height: 500px;
+          overflow-y: auto;
+          scrollbar-width: thin;
+          scrollbar-color: rgb(15, 235, 26) rgba(0, 0, 0, 0.5);
+          border: 1px solid rgba(15, 235, 26, 0.3);
+          cursor: pointer;
+      }
+
+      .table-container::-webkit-scrollbar {
+          width: 8px;
+          height: 8px;
+      }
+
+      .table-container::-webkit-scrollbar-track {
+          background: rgba(0, 0, 0, 0.5);
+      }
+
+      .table-container::-webkit-scrollbar-thumb {
+          background-color: rgb(15, 235, 26);
+          border-radius: 4px;
+      }
+
+      .table-container::before {
+          content: "";
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background: linear-gradient(90deg, 
+              rgba(15, 235, 26, 0.1) 0%, 
+              transparent 20%, 
+              transparent 80%, 
+              rgba(15, 235, 26, 0.1) 100%);
+          pointer-events: none;
+          z-index: 1;
+      }
+
+      table {
+          width: 100%;
+          border-collapse: separate;
+          border-spacing: 0;
+          background-color: rgba(0, 10, 0, 0.9);
+          position: relative;
+      }
+
+      thead {
+          background: linear-gradient(180deg, 
+              rgba(0, 0, 0, 0.9) 0%, 
+              rgba(0, 20, 0, 0.8) 100%);
+          position: sticky;
+          top: 0;
+          z-index: 10;
+      }
+
+      th {
+          padding: 15px;
+          text-align: left;
+          color: white;
+          font-family: 'Rubik Glitch', system-ui;
+          font-weight: lighter;
+          text-transform: uppercase;
+          letter-spacing: 2px;
+          position: relative;
+          border-bottom: 2px solid rgba(15, 235, 26, 0.5);
+          text-shadow: 0 0 10px rgba(15, 235, 26, 0.7), 0 0 20px rgba(15, 235, 26, 0.5);
+      }
+
+      th::after {
+          content: "";
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          width: 100%;
+          height: 1px;
+          background: linear-gradient(90deg, 
+              transparent, 
+              rgba(15, 235, 26, 0.8), 
+              transparent);
+      }
+
+      th:first-child {
+          border-top-left-radius: 10px;
+      }
+
+      th:last-child {
+          border-top-right-radius: 10px;
+      }
+
+      td {
+          padding: 15px;
+          border-bottom: 1px solid rgba(15, 235, 26, 0.1);
+          transition: all 0.3s ease;
+          position: relative;
+      }
+
+      tr:last-child td {
+          border-bottom: none;
+      }
+
+      tr:last-child td:first-child {
+          border-bottom-left-radius: 10px;
+      }
+
+      tr:last-child td:last-child {
+          border-bottom-right-radius: 10px;
+      }
+
+      tbody tr {
+          transition: all 0.3s ease;
+          position: relative;
+          background-color: rgba(0, 0, 0, 0.4);
+      }
+
+      tbody tr:nth-child(odd) {
+          background-color: rgba(0, 10, 0, 0.6);
+      }
+
+      tbody tr:hover {
+          background-color: rgba(15, 235, 26, 0.1);
+          transform: translateX(5px);
+          z-index: 5;
+      }
+
+      tbody tr:hover td {
+          color: white;
+      }
+
+      .spots-left {
+          font-family: 'Rubik Glitch', system-ui;
+          font-size: 1.5rem;
+          color: rgb(15, 235, 26);
+          text-align: center;
+          margin-top: 20px;
+          font-weight: lighter;
+          text-shadow: 0 0 10px rgba(15, 235, 26, 0.5);
+      }
+
+      .spots-count {
+          font-size: 2rem;
+          color: white;
+          position: relative;
+          display: inline-block;
+          padding: 0 10px;
+      }
+
+      .spots-count::before, .spots-count::after {
+          content: "";
+          position: absolute;
+          top: 0;
+          width: 100%;
+          height: 100%;
+          background: rgba(15, 235, 26, 0.2);
+          z-index: -1;
+          animation: spots-pulse 2s infinite alternate;
+      }
+
+      .spots-count::before {
+          left: -5px;
+          transform: skew(-15deg);
+      }
+
+      .spots-count::after {
+          right: -5px;
+          transform: skew(15deg);
+      }
+
+      @keyframes spots-pulse {
+          0% { background: rgba(15, 235, 26, 0.1); }
+          100% { background: rgba(15, 235, 26, 0.3); }
+      }
+
+      /* Rules Modal */
+      .modal {
+          display: none;
+          position: fixed;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background-color: rgba(0, 0, 0, 0.8);
+          z-index: 1000;
+          overflow-y: auto;
+          backdrop-filter: blur(5px);
+      }
+
+      .modal-content {
+          position: relative;
+          background: rgba(0, 10, 0, 0.9);
+          margin: 50px auto;
+          padding: 30px;
+          width: 80%;
+          max-width: 800px;
+          border-radius: 10px;
+          border: 1px solid rgb(15, 235, 26);
+          box-shadow: 0 0 30px rgba(15, 235, 26, 0.3);
+          animation: modal-appear 0.3s ease-out;
+      }
+
+      @keyframes modal-appear {
+          from { opacity: 0; transform: translateY(-50px); }
+          to { opacity: 1; transform: translateY(0); }
+      }
+
+      .modal-header {
+          margin-bottom: 20px;
+          text-align: center;
+          position: relative;
+      }
+
+      .modal-title {
+        color: rgb(255, 255, 255);
+        font-weight: lighter;
+        text-shadow: 0px 0px 10px rgb(15, 235, 26);
+        font-size: 2rem;
+        font-family: "Rubik Glitch", system-ui;
+      }
+
+      .modal-subtitle {
+          font-family: 'Share Tech Mono', monospace;
+          font-size: 1.2rem;
+          color: white;
+          margin-bottom: 20px;
+      }
+
+      .close-modal {
+          position: absolute;
+          top: -15px;
+          right: -15px;
+          width: 40px;
+          height: 40px;
+          background-color: rgb(0, 0, 0);
+          color: rgb(15, 235, 26);
+          border: 1px solid rgb(15, 235, 26);
+          border-radius: 50%;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          cursor: pointer;
+          font-size: 1.2rem;
+          transition: all 0.3s ease;
+      }
+
+      .close-modal:hover {
+          background-color: rgb(15, 235, 26);
+          color: rgb(0, 0, 0);
+          box-shadow: 0 0 15px rgba(15, 235, 26, 0.7);
+      }
+
+      .rules-list {
+          counter-reset: rule-counter;
+          list-style-type: none;
+          padding: 0;
+          cursor: pointer;
+      }
+
+      .rule-item {
+          position: relative;
+          padding: 15px 20px 15px 60px;
+          margin-bottom: 15px;
+          background-color: rgba(0, 0, 0, 0.5);
+          border: 1px solid rgba(15, 235, 26, 0.2);
+          border-radius: 5px;
+          transition: all 0.5s;
+          cursor: pointer;
+      }
+
+      .rule-item::before {
+          counter-increment: rule-counter;
+          content: counter(rule-counter);
+          position: absolute;
+          left: 15px;
+          top: 50%;
+          transform: translateY(-50%);
+          width: 30px;
+          height: 30px;
+          background-color: rgb(15, 235, 26);
+          color: rgb(0, 0, 0);
+          border-radius: 50%;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          font-family: 'Share Tech Mono', monospace;
+          font-weight: bold;
+          font-size: 1.2rem;
+      }
+
+      .rule-title {
+        color: rgb(255, 255, 255);
+        font-weight: lighter;
+        text-shadow: 0px 0px 10px rgb(15, 235, 26);
+        font-size: 20px;
+        font-family: "Rubik Glitch", system-ui;
+      }
+
+      .rule-description {
+          font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+          font-size: 0.9rem;
+          color: rgba(255, 255, 255, 0.8);
+      }
+
+      .rule-explanation {
+          display: none;
+          margin-top: 10px;
+          padding: 10px;
+          background-color: rgba(15, 235, 26, 0.1);
+          border-left: 3px solid rgb(15, 235, 26);
+          border-radius: 0 5px 5px 0;
+          font-size: 0.85rem;
+          color: rgba(255, 255, 255, 0.9);
+          animation: fadeIn 0.3s ease;
+      }
+
+      .rule-item:hover {
+          background-color: rgba(15, 235, 26, 0.1);
+          border-color: rgb(15, 235, 26);
+          transform: translateX(5px);
+      }
+
+      .rule-item:hover .rule-explanation {
+          display: block;
+      }
+
+      .warning-text {
+          font-family: 'Rubik Glitch', system-ui;
+          font-size: 1.8rem;
+          color: #ff3333;
+          text-align: center;
+          margin: 30px 0;
+          text-shadow: 0 0 10px rgba(255, 51, 51, 0.7);
+          line-height: 1.4;
+          padding: 20px;
+          border: 1px solid rgba(255, 51, 51, 0.5);
+          border-radius: 5px;
+          background-color: rgba(255, 51, 51, 0.1);
+      }
+
+      .agree-button {
+          display: block;
+          width: 200px;
+          margin: 30px auto 0;
+          padding: 12px 20px;
+          background-color: rgb(0, 0, 0);
+          color: rgb(15, 235, 26);
+          border: 1px solid rgb(15, 235, 26);
+          border-radius: 5px;
+          font-family: 'Share Tech Mono', monospace;
+          font-size: 1.1rem;
+          cursor: pointer;
+          transition: all 0.3s ease;
+          position: relative;
+          overflow: hidden;
+      }
+
+      .agree-button::before {
+          content: "";
+          position: absolute;
+          top: 0;
+          left: -100%;
+          width: 100%;
+          height: 100%;
+          background: linear-gradient(90deg, transparent, rgba(15, 235, 26, 0.3), transparent);
+          transition: all 0.6s ease;
+          z-index: -1;
+      }
+
+      .agree-button:hover::before {
+          left: 100%;
+      }
+
+      .agree-button:hover {
+          background-color: rgb(15, 235, 26);
+          color: rgb(0, 0, 0);
+          box-shadow: 0 0 15px rgba(15, 235, 26, 0.7);
+      }
+
+      /* Footer */
+      .footer {
+          margin-top: 30px;
+          padding: 20px;
+          text-align: center;
+          font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+          font-size: 0.9rem;
+          color: rgba(255, 255, 255, 0.5);
+          border-top: 1px solid rgba(15, 235, 26, 0.2);
+      }
+
+      .footer a {
+          color: rgb(15, 235, 26);
+          text-decoration: none;
+          transition: all 0.3s ease;
+      }
+
+      .footer a:hover {
+          color: white;
+          text-shadow: 0 0 5px rgb(15, 235, 26);
+      }
+
+              @keyframes heartbeat {
+            0% { transform: scale(1); }
+            25% { transform: scale(1.1); }
+            40% { transform: scale(1); }
+            60% { transform: scale(1.2); }
+            100% { transform: scale(1); }
+        }
+
+        .heart-icon {
+            color: #ff3a3a;
+            font-size: 2.5rem;
+            display: inline-block;
+            margin: 0 10px;
+            animation: heartbeat 1.2s infinite;
+            text-shadow: 0 0 10px rgba(255, 58, 58, 0.7);
+        }
+
+      /* Responsive styles */
+      @media (max-width: 1200px) {
+          .container {
+              margin: 20px;
+          }
+      }
+
+      @media (max-width: 992px) {
+          .event-details {
+              flex-wrap: wrap;
+              justify-content: center;
+          }
+          
+          .event-detail {
+              width: 50%;
+              margin-bottom: 15px;
+          }
+          
+          .title {
+              font-size: 2.5rem;
+          }
+
+          .form-row {
+              flex-direction: column;
+              gap: 10px;
+          }
+
+          .modal-content {
+              width: 90%;
+              padding: 20px;
+          }
+      }
+
+      @media (max-width: 768px) {
+          .container {
+              margin: 10px;
+              padding: 0 10px;
+          }
+          
+          .header, .main-content {
+              padding: 15px;
+          }
+          
+          .title {
+              font-size: 2rem;
+          }
+          
+          .subtitle {
+              font-size: 1rem;
+          }
+          
+          .event-detail {
+              width: 100%;
+          }
+          
+          th, td {
+              padding: 10px;
+          }
+          
+          .form-radio-group {
+              flex-direction: column;
+              gap: 10px;
+          }
+
+          .table-controls {
+              flex-direction: column;
+              align-items: stretch;
+          }
+
+          .rule-item {
+              padding: 15px 15px 15px 50px;
+          }
+
+          .rule-item::before {
+              left: 10px;
+              width: 25px;
+              height: 25px;
+              font-size: 1rem;
+          }
+
+          .warning-text {
+              font-size: 1.4rem;
+          }
+      }
+
+      @media (max-width: 576px) {
+          .title {
+              font-size: 1.5rem;
+          }
+          
+          .form-title {
+              font-size: 1.5rem;
+          }
+          
+          .hackers-title {
+              font-size: 1.5rem;
+          }
+
+          .modal-title {
+              font-size: 1.5rem;
+          }
+
+          .rule-title {
+              font-size: 1rem;
+          }
+      }
+
+      /* Up button */
+      .up-button {
+          position: fixed;
+          bottom: 20px;
+          right: 20px;
+          width: 50px;
+          height: 50px;
+          background-color: rgb(0, 0, 0);
+          color: rgb(15, 235, 26);
+          border-radius: 50%;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          box-shadow: 0px 0px 30px rgb(15, 235, 26), 0px 0px 30px rgb(15, 235, 26);
+          cursor: pointer;
+          transition: all 0.3s;
+          font-size: 25px;
+          visibility: hidden;
+          z-index: 1000;
+      }
+
+      .up-button:hover {
+          background-color: rgb(15, 235, 26);
+          color: black;
+          box-shadow: 0px 0px 30px rgb(15, 235, 26), 0px 0px 30px rgb(15, 235, 26);
+      }
+
+
+      .tip{
+            display: inline-block;
+            background-color: rgba(0, 0, 0, 0.8);
+            color: white;
+            padding: 5px 10px;
+            margin: 0px 10px 10px 0px;
+            border: 1px solid rgb(15, 235, 26);
+            border-radius: 5px;
+            font-family: 'Share Tech Mono', monospace;
+            font-size: 0.9rem;
+            box-shadow: 0 0 10px rgba(15, 235, 26, 0.5);
+            z-index: 1000;
+        }
+  </style>
+</head>
+<body>
+  <div class="grid-lines"></div>
+  <div class="noise"></div>
+  <div class="scan-line"></div>
+  <canvas class="matrix-rain" id="matrix-rain"></canvas>
+  <div class="up-button" id="upbtn"><i class="fa-solid fa-arrow-up"></i></div>
+
+  <div class="container">
+      <div class="header">
+          <div class="header-content">
+              <div class="logo">
+                  <a target="_self" href="index.html"><img src="photos/logo.png" alt="The Cyber Nerd Logo"></a>
+              </div>
+              <h1 class="title">🎮 CTF Championship Board 🎮</h1>
+              <p class="subtitle">Grab your laptop and earn your place among Hackers</p>
+              
+              <div class="event-details">
+                  <div class="event-detail">
+                      <div class="event-detail-label">DATE</div>
+                      <div class="event-detail-value">May 5, 2025</div>
+                  </div>
+                  <div class="event-detail">
+                      <div class="event-detail-label">TIME</div>
+                      <div class="event-detail-value">18:00 UTC</div>
+                  </div>
+                  <div class="event-detail">
+                      <div class="event-detail-label">DURATION</div>
+                      <div class="event-detail-value">2 Hours</div>
+                  </div>
+                  <div class="event-detail">
+                      <div class="event-detail-label">DIFFICULTY</div>
+                      <div class="event-detail-value">Medium-Hard</div>
+                  </div>
+              </div>
+          </div>
+      </div>
+
+      <div class="main-content">
+          <div class="registration-form">
+              <h2 class="form-title">Register for the Event</h2>
+              <form id="ctf-registration-form" action="#" method="post">
+                  <div class="form-group">
+                      <label for="name" class="form-label">Full Name</label>
+                      <input type="text" id="name" name="name" class="form-input" required>
+                  </div>
+                  
+                  <div class="form-group">
+                      <label for="email" class="form-label">Email Address</label>
+                      <input type="email" id="email" name="email" class="form-input" required>
+                  </div>
+                  
+                  <div class="form-group">
+                      <label for="discord" class="form-label">Discord Username</label>
+                      <input type="text" id="discord" name="discord" class="form-input" required>
+                  </div>
+                  
+                  <div class="form-group">
+                      <label for="ctf-username" class="form-label">CTF Username</label>
+                      <input type="text" id="ctf-username" name="ctf-username" class="form-input" required>
+                  </div>
+                  
+                  <div class="form-group">
+                      <label for="specialty" class="form-label">Primary Specialty</label>
+                      <div class="specialty-container">
+                          <select id="specialty" name="specialty" class="form-select" required>
+                              <option value="">Select your specialty</option>
+                              <option value="pentester">Penetration Testing</option>
+                              <option value="network">Network Engineering</option>
+                              <option value="reverse">Reverse Engineering</option>
+                              <option value="crypto">Cryptography</option>
+                              <option value="forensics">Digital Forensics</option>
+                              <option value="malware">Malware Analysis</option>
+                              <option value="mobile">Mobile Security</option>
+                              <option value="cloud">Cloud Security</option>
+                              <option value="other">Other</option>
+                          </select>
+                      </div>
+                  </div>
+                  
+                  <div class="form-group">
+                      <label class="form-label">Experience Level</label>
+                      <div class="form-radio-group">
+                          <label class="form-radio-label">
+                              <input type="radio" name="experience" value="beginner" class="form-radio" required>
+                              Beginner
+                          </label>
+                          <label class="form-radio-label">
+                              <input type="radio" name="experience" value="intermediate" class="form-radio">
+                              Intermediate
+                          </label>
+                          <label class="form-radio-label">
+                              <input type="radio" name="experience" value="advanced" class="form-radio">
+                              Advanced
+                          </label>
+                          <label class="form-radio-label">
+                              <input type="radio" name="experience" value="expert" class="form-radio">
+                              Expert
+                          </label>
+                      </div>
+                  </div>
+                  
+                  <div class="form-group">
+                      <label for="age" class="form-label">Age</label>
+                      <input type="number" id="age" name="age" min="13" max="99" class="form-input" required>
+                  </div>
+                  
+                  <div class="form-group">
+                      <label class="form-label">Gender</label>
+                      <div class="form-radio-group">
+                          <label class="form-radio-label">
+                              <input type="radio" name="gender" value="male" class="form-radio" required>
+                              Male
+                          </label>
+                          <label class="form-radio-label">
+                              <input type="radio" name="gender" value="female" class="form-radio">
+                              Female
+                          </label>
+                      </div>
+                  </div>
+                  
+                  <div class="form-group">
+                      <label class="form-checkbox-label" id="terms-label">
+                          <input type="checkbox" name="terms" id="terms-checkbox" class="form-checkbox" required>
+                          I agree to the Terms of Use, Privacy Policy, rules and code of conduct for this CTF event [ Click to read ]
+                      </label>
+                  </div>
+                  
+                  <div class="form-group">
+                      <label class="form-checkbox-label">
+                          <input type="checkbox" name="newsletter" class="form-checkbox">
+                          I would like to receive updates about future CTF events and cybersecurity content
+                      </label>
+                  </div>
+                  
+                  <button type="submit" class="form-submit">Register Now</button>
+              </form>
+          </div>
+
+          <div class="hackers-section">
+              <h2 class="hackers-title">Current Hackers</h2>
+              <div class="spots-left">Spots Left: <span class="spots-count" id="spots-count">25</span>/30</div>
+              
+              <div class="table-controls">
+                  <div class="table-search">
+                      <i class="fas fa-search"></i>
+                      <input type="text" id="search-hackers" placeholder="Search Hackers...">
+                  </div>
+              </div>
+              
+              <div class="table-container">
+                  <table>
+                      <thead>
+                          <tr>
+                              <th>#</th>
+                              <th>Name</th>
+                              <th>Discord</th>
+                              <th>CTF Username</th>
+                              <th>Age</th>
+                              <th>Gender</th>
+                              <th>Specialty</th>
+                              <th>Experience</th>
+                          </tr>
+                      </thead>
+                      <tbody id="hackers-table-body">
+                          <tr>
+                              <td>1</td>
+                              <td>Mazen</td>
+                              <td>dark shadow</td>
+                              <td>dark__shadow</td>
+                              <td>28</td>
+                              <td>Male</td>
+                              <td>Penetration Testing</td>
+                              <td>Expert</td>
+                          </tr>
+                          <tr>
+                              <td>2</td>
+                              <td>Sara</td>
+                              <td>moonlight</td>
+                              <td>m00nlight</td>
+                              <td>24</td>
+                              <td>Female</td>
+                              <td>Network Security</td>
+                              <td>Advanced</td>
+                          </tr>
+                          <tr>
+                              <td>3</td>
+                              <td>Alex</td>
+                              <td>byte_master</td>
+                              <td>byte_m4st3r</td>
+                              <td>31</td>
+                              <td>Male</td>
+                              <td>Reverse Engineering</td>
+                              <td>Expert</td>
+                          </tr>
+                          <tr>
+                              <td>4</td>
+                              <td>Lina</td>
+                              <td>crypto_queen</td>
+                              <td>crypt0_qu33n</td>
+                              <td>26</td>
+                              <td>Female</td>
+                              <td>Cryptography</td>
+                              <td>Advanced</td>
+                          </tr>
+                          <tr>
+                              <td>5</td>
+                              <td>Kai</td>
+                              <td>trace_hunter</td>
+                              <td>tr4c3_hunt3r</td>
+                              <td>22</td>
+                              <td>Male</td>
+                              <td>Digital Forensics</td>
+                              <td>Intermediate</td>
+                          </tr>
+                      </tbody>
+                  </table>
+              </div>
+          </div>
+      </div>
+
+      <div class="footer">
+          <p>© 2025 The Cyber Nerd | <a target="_blank" href="https://discord.gg/VcAUtmM75t">Contact</a></p>
+          <p>Designed with <i class="fas fa-heart heart-icon" style="color: rgb(15, 235, 26); font-size: 1rem;"></i> by Abdelrhman Helmy @TheCyberNerd<br>All rights reserved.</p>
+      </div>
+  </div>
+
+  <!-- Rules Modal -->
+  <div id="rules-modal" class="modal">
+      <div class="modal-content">
+          <div class="modal-header">
+              <h2 class="modal-title">Rules to Follow in The CTF Championship</h2>
+              <span class="close-modal" id="close-modal"><i class="fas fa-times"></i></span>
+          </div>
+          
+          <ul class="rules-list">
+              <li class="rule-item">
+                  <div class="rule-title">Follow the Event's Code of Conduct and Rules Explicitly</div>
+                  <div class="rule-description">Always read and strictly adhere to the official competition rules and code of conduct. Breaking rules can lead to disqualification.</div>
+                  <div class="rule-explanation">
+                      Every CTF has its own specific rules that may differ from other competitions. These rules are designed to ensure fair play and maintain the integrity of the competition. Familiarize yourself with them before starting, as ignorance of rules is not an acceptable excuse for violations.
+                  </div>
+              </li>
+              
+              <li class="rule-item">
+                  <div class="rule-title">Do NOT Attack the Event Infrastructure</div>
+                  <div class="rule-description">Do not perform Denial of Service (DoS/DDoS) attacks, brute force, or any action that might harm the event infrastructure.</div>
+                  <div class="rule-explanation">
+                      The competition infrastructure is shared by all participants. Attacking it can disrupt the experience for everyone and may result in immediate disqualification. Focus on solving the challenges rather than breaking the platform itself. If you discover a vulnerability in the platform, report it to the organizers instead.
+                  </div>
+              </li>
+              
+              <li class="rule-item">
+                  <div class="rule-title">Work Within the Scope of the Challenges</div>
+                  <div class="rule-description">Attack only the machines, services, and targets explicitly marked as in-scope. Out-of-scope attacks are unethical and often illegal.</div>
+                  
+                  <div class="rule-explanation">
+                      CTF challenges are carefully designed with specific learning objectives in mind. Staying within scope ensures you're developing the intended skills and knowledge. Attempting to exploit unintended vulnerabilities or attacking out-of-scope systems can have serious legal consequences.
+                  </div>
+              </li>
+              
+              <li class="rule-item">
+                  <div class="rule-title"> <span class="tip">TIP</span> Document Your Process and Findings Clearly</div>
+                  <div class="rule-description">Take clear, thorough notes of every step you perform — this is crucial for reporting flags, writing post-event reports, and for your own learning.</div>
+                  <div class="rule-explanation">
+                      Good documentation helps you track your progress, avoid repeating unsuccessful approaches, and learn from your experience. It's also valuable for team collaboration and may be required for flag submission or write-ups. Screenshots, command history, and detailed notes will prove invaluable.
+                  </div>
+              </li>
+              
+              <li class="rule-item">
+                  <div class="rule-title">Respect Other Teams (No Sabotage or Interference)</div>
+                  <div class="rule-description">Never interfere with other participants' systems, flags, or strategies. Ethical conduct is paramount.</div>
+                  <div class="rule-explanation">
+                      CTFs are competitive but should remain respectful. Attempting to steal flags from other teams, sabotaging their progress, or engaging in social engineering against other participants violates the spirit of the competition and ethical hacking principles. Focus on your own challenges.
+                  </div>
+              </li>
+              <li class="rule-item">
+                  <div class="rule-title">Respect Your Team</div>
+                  <div class="rule-description">Never walk alone, work with your team as this is a "Team-based event".</div>
+                  <div class="rule-explanation">
+                      Always be respectful, cooperative and friendly to your team and other teams.
+                  </div>
+              </li>
+              
+              <li class="rule-item">
+                  <div class="rule-title"> <span class="tip">TIP</span> Communicate Effectively Within Your Team</div>
+                  <div class="rule-description">Share information clearly, divide tasks wisely, and collaborate efficiently. Good teamwork often outperforms pure individual skill.</div>
+                  <div class="rule-explanation">
+                      Establish clear communication channels and protocols within your team. Regularly update each other on progress, share discoveries, and avoid duplicating efforts. Assign tasks based on team members' strengths and maintain a collaborative atmosphere that encourages knowledge sharing.
+                  </div>
+              </li>
+              
+              <li class="rule-item">
+                  <div class="rule-title"> <span class="tip">TIP</span> Manage Your Time Strategically</div>
+                  <div class="rule-description">Prioritize easier challenges first to secure quick points and ensure consistent progress throughout the competition.</div>
+                  <div class="rule-explanation">
+                      Time management is crucial in CTFs. Start with challenges that match your skill level to build momentum and confidence. Don't spend too much time stuck on a single problem - if you're not making progress after a reasonable effort, move on and return later with fresh perspective.
+                  </div>
+              </li>
+              
+              <li class="rule-item">
+                  <div class="rule-title">Stay Ethical and Legal (No Out-of-Bounds Hacks)</div>
+                  <div class="rule-description">CTF events are simulated environments. Don't extend your hacks to external networks or real-world services, which can result in legal consequences.</div>
+                  <div class="rule-explanation">
+                      The skills you practice in CTFs are powerful and could be misused. Always maintain ethical boundaries and never apply techniques learned in CTFs against systems without explicit permission. Remember that unauthorized access to computer systems is illegal in most jurisdictions and carries severe penalties.
+                  </div>
+              </li>
+              
+              <li class="rule-item">
+                  <div class="rule-title"> <span class="tip">TIP</span> Keep Your Devices and Accounts Secure</div>
+                  <div class="rule-description">Use strong passwords, VPNs (if required), and secure your laptops and accounts to avoid being compromised by others.</div>
+                  <div class="rule-explanation">
+                      your own security is your own responsibility. Use unique, strong passwords for competition accounts, keep your devices updated and secured, and be cautious about connecting to untrusted networks. Consider using a dedicated VM for competitions to isolate your activities.
+                  </div>
+              </li>
+              
+              <li class="rule-item">
+                  <div class="rule-title"> <span class="tip">TIP</span> Have Fun and Network Respectfully</div>
+                  <div class="rule-description">CTFs are not just competitions but also learning and community-building events. Engage with others respectfully and enjoy the process.</div>
+                  <div class="rule-explanation">
+                      The cybersecurity community is built on knowledge sharing and mutual respect. Use CTFs as opportunities to meet like-minded individuals, learn from others, and build professional relationships. The connections you make can be as valuable as the skills you develop.
+                  </div>
+              </li>
+
+              <li class="rule-item">
+                  <div class="rule-title">Privacy Policy</div>
+                  <div class="rule-description">By reading this, you agree to the collection of the data you provided for use in organizing this event.</div>
+                  <div class="rule-explanation">
+                      We are using this data solely to organize this event and form teams. We will not sell, share, or use your data for marketing or any other unrelated purposes.
+                  </div>
+              </li>
+          </ul>
+          
+          <div class="warning-text">
+              ANYONE WHO WOULD BREAK THESE RULES WILL GET DISMISSED IMMEDIATELY FROM THE EVENT (EVEN THE LEADERS)
+          </div>
+          
+          <button id="agree-button" class="agree-button">I AGREE</button>
+      </div>
+  </div>
+
+  <script>
+      // Matrix Rain Effect
+      const canvas = document.getElementById('matrix-rain');
+      const ctx = canvas.getContext('2d');
+      
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+      
+      const characters = 'アイウエオカキクケコサシスセソタチツテトナニヌネノハヒフヘホマミムメモヤユヨラリルレロワヲン0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+      const fontSize = 14;
+      const columns = canvas.width / fontSize;
+      
+      const drops = [];
+      for (let i = 0; i < columns; i++) {
+          drops[i] = Math.floor(Math.random() * canvas.height);
+      }
+      
+      function drawMatrixRain() {
+          ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
+          ctx.fillRect(0, 0, canvas.width, canvas.height);
+          
+          ctx.fillStyle = '#0feb1a';
+          ctx.font = `${fontSize}px monospace`;
+          
+          for (let i = 0; i < drops.length; i++) {
+              const text = characters.charAt(Math.floor(Math.random() * characters.length));
+              ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+              
+              if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
+                  drops[i] = 0;
+              }
+              
+              drops[i]++;
+          }
+      }
+      
+      setInterval(drawMatrixRain, 50);
+      
+      window.addEventListener('resize', () => {
+          canvas.width = window.innerWidth;
+          canvas.height = window.innerHeight;
+          const columns = canvas.width / fontSize;
+          for (let i = 0; i < columns; i++) {
+              drops[i] = Math.floor(Math.random() * canvas.height);
+          }
+      });
+      
+      // Scroll to top functionality
+      const upbtn = document.getElementById("upbtn");
+      
+      window.onscroll = function() {
+          if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+              upbtn.style.visibility = "visible";
+          } else {
+              upbtn.style.visibility = "hidden";
+          }
+      };
+      
+      upbtn.onclick = function() {
+          window.scrollTo({
+              top: 0,
+              behavior: 'smooth'
+          });
+      };
+      
+      // Rules Modal
+      const modal = document.getElementById("rules-modal");
+      const termsLabel = document.getElementById("terms-label");
+      const termsCheckbox = document.getElementById("terms-checkbox");
+      const closeModal = document.getElementById("close-modal");
+      const agreeButton = document.getElementById("agree-button");
+      
+      termsLabel.addEventListener("click", function(e) {
+          if (e.target !== termsCheckbox) {
+              e.preventDefault();
+              modal.style.display = "block";
+              document.body.style.overflow = "hidden";
+          }
+      });
+      
+      closeModal.addEventListener("click", function() {
+          modal.style.display = "none";
+          document.body.style.overflow = "auto";
+      });
+      
+      agreeButton.addEventListener("click", function() {
+          termsCheckbox.checked = true;
+          modal.style.display = "none";
+          document.body.style.overflow = "auto";
+      });
+      
+      window.addEventListener("click", function(e) {
+          if (e.target === modal) {
+              modal.style.display = "none";
+              document.body.style.overflow = "auto";
+          }
+      });
+
+
+
+      // Search functionality
+     // document.getElementById('search-hackers').addEventListener('input', function() {
+     //     const searchTerm = this.value.toLowerCase();
+     //     const tableBody = document.getElementById('hackers-table-body');
+     //     const rows = tableBody.getElementsByTagName('tr');
+     //     
+     //     for (let i = 0; i < rows.length; i++) {
+     //         const row = rows[i];
+     //         const cells = row.getElementsByTagName('td');
+     //         let found = false;
+     //         
+     //         for (let j = 0; j < cells.length; j++) {
+     //             const cellText = cells[j].textContent.toLowerCase();
+     //             if (cellText.includes(searchTerm)) {
+     //                 found = true;
+     //                 break;
+     //             }
+     //         }
+     //         
+     //         if (found) {
+     //             row.style.display = '';
+     //         } else {
+     //             row.style.display = 'none';
+     //         }
+     //     }
+     // });
+  </script>
+
+
+
+</body>
+</html>

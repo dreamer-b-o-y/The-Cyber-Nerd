@@ -1,0 +1,731 @@
+@import url("https://fonts.googleapis.com/css2?family=Rubik+Glitch&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+}
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  width: 95%;
+  height: 100vh;
+  margin: auto;
+  background-color: rgb(0, 0, 0);
+  color: white;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans",
+    "Helvetica Neue", sans-serif;
+}
+
+.up-button {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 50px;
+  height: 50px;
+  background-color: rgb(0, 0, 0);
+  color: rgb(15, 235, 26);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0px 0px 30px rgb(15, 235, 26), 0px 0px 30px rgb(15, 235, 26);
+  cursor: pointer;
+  transition: all 0.3s;
+  font-size: 25px;
+  visibility: hidden;
+  z-index: 1000;
+}
+
+.up-button:hover {
+  background-color: rgb(15, 235, 26);
+  color: black;
+  box-shadow: 0px 0px 30px rgb(15, 235, 26), 0px 0px 30px rgb(15, 235, 26);
+}
+
+.container {
+  width: 100%;
+  height: 100vh;
+  margin: auto;
+  border-bottom: 5px solid #111;
+}
+
+.container header {
+  width: 100%;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: start;
+  position: relative;
+}
+
+.container header .image {
+  width: 170px;
+  height: 170px;
+}
+.container header .image img {
+  width: 100%;
+  height: 100%;
+}
+
+/* Hamburger menu styles */
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 30px;
+  height: 21px;
+  position: absolute;
+  top: 40px;
+  right: 20px;
+  z-index: 1001;
+  cursor: pointer;
+}
+
+.menu-toggle span {
+  display: block;
+  height: 3px;
+  width: 100%;
+  background-color: rgb(15, 235, 26);
+  border-radius: 3px;
+  transition: all 0.3s ease;
+}
+
+.container header nav {
+  transition: all 0.3s ease;
+}
+
+.container header nav ul {
+  display: flex;
+  gap: 30px;
+  align-items: center;
+}
+
+.container header nav ul li {
+  list-style: none;
+  margin: 40px 15px 0px 0px;
+}
+
+.container header nav ul li a {
+  text-decoration: none;
+  color: white;
+  font-size: 20px;
+  font-weight: 500;
+  padding: 5px 10px;
+  border-radius: 10px;
+  font-family: "Rubik Glitch", system-ui;
+  transition: all 0.3s;
+}
+
+.container header nav ul li a:hover {
+  background-color: rgb(15, 235, 26);
+  color: black;
+  border-radius: 5px;
+  box-shadow: 0px 0px 30px rgb(15, 235, 26), 0px 0px 30px rgb(15, 235, 26);
+}
+
+.welcome {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+  padding: 20px 0;
+}
+
+.welcome .content {
+  width: 35%;
+  min-width: 300px;
+  margin-bottom: 20px;
+}
+
+.welcome .content h1 {
+  font-size: 50px;
+  font-weight: lighter;
+  font-family: "Rubik Glitch", system-ui;
+  margin-bottom: 20px;
+  color: rgb(255, 255, 255);
+  text-shadow: 0px 0px 10px rgb(15, 235, 26);
+}
+
+.welcome .content p {
+  font-size: 20px;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans",
+    "Helvetica Neue", sans-serif;
+  font-weight: 400;
+  color: #ffffff;
+  line-height: 30px;
+}
+.welcome .content p span {
+  color: rgb(255, 255, 255);
+  font-weight: lighter;
+  text-shadow: 0px 0px 10px rgb(15, 235, 26);
+  font-size: 20px;
+  font-family: "Rubik Glitch", system-ui;
+}
+
+.welcome .content p strong {
+  color: rgb(255, 255, 255);
+  font-weight: lighter;
+  text-shadow: 0px 0px 10px rgb(15, 235, 26);
+  font-size: 27px;
+  font-family: "Rubik Glitch", system-ui;
+}
+
+.welcome iframe {
+  width: 600px;
+  height: 360px;
+  border-radius: 15px;
+  border: none;
+  margin-top: 20px;
+  box-shadow: 0px 0px 50px 15px rgb(15, 235, 26), 0px 0px 20px rgb(15, 235, 26);
+  max-width: 100%;
+}
+
+.projects {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: center;
+  padding: 30px 0px;
+}
+
+.projects .bar {
+  width: 90%;
+  max-width: 800px;
+  margin: auto;
+  background-image: linear-gradient(to bottom right, #000000 40%, rgb(15, 235, 26));
+  border-radius: 10px;
+  padding: 10px;
+}
+
+.projects .bar ul {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.projects .bar ul li {
+  list-style: none;
+  font-size: 18px;
+  font-weight: lighter;
+  border-radius: 15px;
+  color: white;
+  font-family: "Rubik Glitch", system-ui;
+  padding: 15px 15px;
+  transition: all 0.3s;
+  text-align: center;
+  margin: 5px 0;
+}
+
+.projects .bar ul li:hover {
+  background-color: rgb(0, 0, 0);
+  color: white;
+  cursor: pointer;
+}
+
+.active {
+  background-color: rgb(0, 0, 0);
+  color: white;
+  cursor: pointer;
+}
+
+.projects .project-list {
+  width: 100%;
+  padding: 35px 0px;
+  margin-top: 50px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 80px;
+  border-bottom: 5px solid #111;
+}
+
+.projects .project-list .project-card {
+  width: 400px;
+  height: 550px;
+  background-image: linear-gradient(to bottom right, #000000 40%, rgb(15, 235, 26));
+  border-radius: 15px;
+  box-shadow: 0px 0px 30px #0feb1a, 0px 0px 30px rgb(15, 235, 26);
+  max-width: 90%;
+}
+
+.projects .project-list .project-card .project-image {
+  width: 100%;
+  height: 250px;
+  border-radius: 15px 15px 0px 0px;
+  overflow: hidden;
+}
+
+.projects .project-list .project-card .project-image img {
+  width: 100%;
+  height: 100%;
+  border-radius: 15px 15px 0px 0px;
+  object-fit: cover;
+}
+
+.projects .project-list .project-card .content {
+  padding: 15px;
+}
+
+.projects .project-list .project-card .content h3 {
+  font-size: 25px;
+  font-weight: lighter;
+  font-family: "Rubik Glitch", system-ui;
+  margin-bottom: 15px;
+  color: rgb(255, 255, 255);
+}
+
+.projects .project-list .project-card .content p {
+  font-size: 18px;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans",
+    "Helvetica Neue", sans-serif;
+  font-weight: 500;
+  margin: 15px 0px;
+  color: #ffffff;
+}
+
+.projects .project-list .project-card .content a {
+  display: inline-block;
+  margin: 5px 0px;
+  text-decoration: none;
+  color: white;
+  font-size: 22px;
+  font-weight: lighter;
+  padding: 8px 18px;
+  border-radius: 10px;
+  font-family: "Rubik Glitch", system-ui;
+  background-color: rgb(0, 0, 0);
+  transition: all 0.3s;
+}
+
+.projects .project-list .project-card .content a:hover {
+  background-color: rgb(15, 235, 26);
+  color: black;
+  box-shadow: 0px 0px 30px rgb(15, 235, 26), 0px 0px 30px rgb(15, 235, 26);
+}
+
+.projects .project-list .project-card .content .technologies span {
+  display: inline-block;
+  margin: 15px 5px;
+  background-color: rgb(0, 0, 0);
+  padding: 5px 10px;
+  border-radius: 10px;
+  font-weight: lighter;
+  font-family: "Rubik Glitch", system-ui;
+  color: rgb(255, 255, 255);
+  transition: all 0.3s;
+}
+
+.projects .project-list .project-card .content .technologies span:hover {
+  background-color: rgb(15, 235, 26);
+  color: black;
+  box-shadow: 0px 0px 30px rgb(15, 235, 26), 0px 0px 30px rgb(15, 235, 26);
+  cursor: pointer;
+}
+
+.projects .project-list .project-card .content .technologies {
+  margin-top: 10px;
+  border-top: 3px solid black;
+  width: 100%;
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.contact-me {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 30px 0px;
+  border-bottom: 5px solid #111;
+}
+
+.contact-me h2 {
+  font-size: 40px;
+  font-weight: lighter;
+  font-family: "Rubik Glitch", system-ui;
+  margin-bottom: 40px;
+  color: rgb(255, 255, 255);
+}
+
+.contact-me form {
+  overflow: hidden;
+  margin-bottom: 40px;
+  border-radius: 15px;
+  padding: 25px 15px;
+  width: 90%;
+  max-width: 600px;
+  display: flex;
+  flex-grow: 1;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 25px;
+  box-shadow: 0px 0px 30px rgb(15, 235, 26), 0px 0px 30px rgb(15, 235, 26);
+}
+
+.contact-me form input {
+  width: 90%;
+  flex-grow: 1;
+  height: 30px;
+  background-color: #111;
+  color: white ;
+  border-radius: 15px;
+  padding: 10px;
+  font-size: 20px;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans",
+    "Helvetica Neue", sans-serif;
+  border: none;
+  outline: none;
+  transition: all 0.3s;
+}
+
+.contact-me form input:focus {
+  color: rgb(15, 235, 26);
+  box-shadow: 0px 0px 30px rgb(15, 235, 26), 0px 0px 30px rgb(15, 235, 26);
+  cursor: pointer;
+}
+
+.contact-me form textarea {
+  width: 90%;
+  flex-grow: 1;
+  height: 100px;
+  background-color: #111;
+  color: white;
+  border-radius: 15px;
+  padding: 10px;
+  font-size: 20px;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans",
+    "Helvetica Neue", sans-serif;
+  border: none;
+  outline: none;
+  transition: all 0.3s;
+}
+.contact-me form textarea:focus {
+  color: rgb(15, 235, 26);
+  box-shadow: 0px 0px 30px rgb(15, 235, 26), 0px 0px 30px rgb(15, 235, 26);
+  cursor: pointer;
+}
+
+.contact-me form button {
+  flex-grow: 1;
+  background-color: rgb(0, 0, 0);
+  color: rgb(255, 255, 255);
+  border-radius: 10px;
+  padding: 10px 20px;
+  font-size: 22px;
+  font-family: "Rubik Glitch", system-ui;
+  font-weight: lighter;
+  border: none;
+  outline: none;
+  transition: all 0.3s;
+}
+.contact-me form button:hover {
+  background-color: rgb(15, 235, 26);
+  color: rgb(0, 0, 0);
+  box-shadow: 0px 0px 30px rgb(15, 235, 26), 0px 0px 30px rgb(15, 235, 26);
+  cursor: pointer;
+}
+
+.contact-me form input[type="radio"] {
+  -webkit-appearance: none; /* For WebKit browsers (Chrome, Safari, etc.) */
+  -moz-appearance: none;    /* For Firefox */
+  appearance: none;         /* Standard property */
+  width: 20px;
+  height: 20px;
+  background-color: #111;
+  color: rgb(15, 235, 26); /* This won't apply directly but can be used for pseudo-elements */
+  border: none;
+  border-radius: 50%;
+  outline: none;
+  transition: all 0.2s;
+}
+
+.contact-me form input[type="radio"]:checked {
+  background-color: rgb(15, 235, 26); /* Change background when selected */
+}
+
+.contact-me form input[type="radio"]:hover {
+  cursor: pointer;
+}
+
+.contact-me form .checks {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  justify-content: start;
+}
+
+.contact-me form h4 {
+  font-family: "Rubik Glitch", system-ui;
+  font-weight: lighter;
+  color: rgb(255, 255, 255);
+}
+
+footer {
+  width: 95%;
+  margin: auto;
+  padding: 20px 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  background-color: rgb(0, 0, 0);
+  color: white;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans",
+    "Helvetica Neue", sans-serif;
+}
+
+footer .social-media {
+  display: flex;
+  gap: 20px;
+  font-size: 30px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+footer .social-media a i {
+  color: white;
+  transition: all 0.3s;
+  outline: none;
+}
+
+footer .social-media a i:hover {
+  color: rgb(15, 235, 26);
+  cursor: pointer;
+}
+
+
+
+
+
+/* Footer-text */
+.footer-text {
+    margin-top: 30px;
+    padding: 20px;
+    text-align: center;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.5);
+    border-top: 1px solid rgba(15, 235, 26, 0.2);
+}
+
+.footer-text a {
+    color: rgb(15, 235, 26);
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.footer-text a:hover {
+    color: white;
+    text-shadow: 0 0 5px rgb(15, 235, 26);
+}
+
+
+@keyframes heartbeat {
+    0% { transform: scale(1); }
+    25% { transform: scale(1.1); }
+    40% { transform: scale(1); }
+    60% { transform: scale(1.2); }
+    100% { transform: scale(1); }
+}
+
+.heart-icon {
+    color: #ff3a3a;
+    font-size: 2.5rem;
+    display: inline-block;
+    margin: 0 10px;
+    animation: heartbeat 1.2s infinite;
+    text-shadow: 0 0 10px rgba(255, 58, 58, 0.7);
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+/* Media Queries for Responsive Design */
+@media screen and (max-width: 1024px) {
+  .welcome .content {
+    width: 45%;
+  }
+
+  .welcome iframe {
+    width: 45%;
+    height: 300px;
+  }
+}
+
+@media screen and (max-width: 900px) {
+  
+.container header nav ul {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+  .container header nav ul li {
+    list-style: none;
+    margin: 40px 10px 0px 0px;
+  }
+
+  .container header nav ul li a {
+    text-decoration: none;
+    color: white;
+    font-size: 17px;
+    font-weight: 500;
+    padding: 5px 10px;
+    border-radius: 10px;
+    font-family: "Rubik Glitch", system-ui;
+    transition: all 0.3s;
+  }      
+}      
+
+@media screen and (max-width: 800px) {
+  .container {
+    height: auto;
+    min-height: 100vh;
+  }
+
+  .menu-toggle {
+    display: flex;
+  }
+
+  .container header nav {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 70%;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.95);
+    z-index: 1000;
+    transition: right 0.3s ease;
+    box-shadow: -5px 0 30px rgba(11, 148, 11, 0.5);
+  }
+
+  .container header nav.active {
+    right: 0;
+  }
+
+  .container header nav ul {
+    flex-direction: column;
+    padding-top: 80px;
+    align-items: flex-start;
+  }
+
+  .container header nav ul li {
+    margin: 15px 0;
+    width: 100%;
+  }
+
+  .container header nav ul li a {
+    display: block;
+    width: 80%;
+    padding: 10px 20px;
+  }
+
+  .welcome {
+    flex-direction: column;
+    padding: 20px;
+  }
+
+  .welcome .content {
+    width: 100%;
+    text-align: center;
+  }
+
+  .welcome .content h1 {
+    font-size: 40px;
+  }
+
+  .welcome iframe {
+    width: 90%;
+    height: 250px;
+  }
+
+  .projects .bar ul li {
+    font-size: 16px;
+    padding: 10px;
+  }
+}
+
+
+
+
+@media (max-width: 768px) {
+  .welcome {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .welcome .content,
+  .welcome iframe {
+    width: 90%;
+  }
+
+  .container header nav ul {
+    flex-direction: column;
+    gap: 20px;
+  }
+}
+
+
+
+@media screen and (max-width: 480px) {
+  .container header .image {
+    width: 120px;
+    height: 120px;
+  }
+
+  .welcome .content h1 {
+    font-size: 30px;
+  }
+
+  .welcome .content p {
+    font-size: 16px;
+  }
+
+  .welcome .content p span,
+  .welcome .content p strong {
+    font-size: 18px;
+  }
+
+  .projects .bar {
+    width: 95%;
+  }
+
+  .projects .bar ul {
+    justify-content: center;
+  }
+
+  .projects .bar ul li {
+    font-size: 14px;
+    padding: 8px;
+    margin: 5px;
+  }
+
+  .projects .project-list .project-card {
+    height: auto;
+    min-height: 500px;
+  }
+
+  .contact-me h2 {
+    font-size: 30px;
+  }
+
+  .contact-me form input,
+  .contact-me form textarea {
+    font-size: 16px;
+  }
+
+  footer .social-media {
+    font-size: 24px;
+  }
+}
