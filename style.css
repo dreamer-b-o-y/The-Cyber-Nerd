@@ -247,7 +247,7 @@ body {
 
 .projects .project-list .project-card {
   width: 400px;
-  height: 550px;
+  height: auto;
   background-image: linear-gradient(to bottom right, #000000 40%, rgb(15, 235, 26));
   border-radius: 15px;
   box-shadow: 0px 0px 30px #0feb1a, 0px 0px 30px rgb(15, 235, 26);
