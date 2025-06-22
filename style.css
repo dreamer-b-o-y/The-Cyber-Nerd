@@ -267,6 +267,9 @@ body {
   height: 100%;
   border-radius: 15px 15px 0px 0px;
   object-fit: cover;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
 .projects .project-list .project-card .content {
@@ -509,7 +512,7 @@ footer .social-media a i:hover {
 
 
 footer h3{
-  font-size: larger;
+  font-size: 25px;
   margin: 10px 0px 0px 0px;
   font-weight: lighter;
   font-family: "Rubik Glitch", system-ui;
