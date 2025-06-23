@@ -13,7 +13,7 @@
   
   <!-- Font Awesome for icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
+  <script src="https://kit.fontawesome.com/77639a3a61.js" crossorigin="anonymous"></script>
 
 
   <!-- Your Firebase app logic -->
@@ -1108,29 +1108,127 @@
           box-shadow: 0 0 15px rgba(15, 235, 26, 0.7);
       }
 
-      /* Footer */
-      .footer {
-          margin-top: 30px;
-          padding: 20px;
-          text-align: center;
-          font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-          font-size: 0.9rem;
-          color: rgba(255, 255, 255, 0.5);
-          border-top: 1px solid rgba(15, 235, 26, 0.2);
-      }
+     
+        footer {
+        width: 95%;
+        margin: auto;
+        padding: 20px 15px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+        background-color: rgb(0, 0, 0);
+        color: white;
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans",
+            "Helvetica Neue", sans-serif;
+        }
 
-      .footer a {
-          color: rgb(15, 235, 26);
-          text-decoration: none;
-          transition: all 0.3s ease;
-      }
+        footer .social-media {
+        display: flex;
+        gap: 20px;
+        font-size: 30px;
+        flex-wrap: wrap;
+        justify-content: center;
+        }
 
-      .footer a:hover {
-          color: white;
-          text-shadow: 0 0 5px rgb(15, 235, 26);
-      }
+        footer .social-media a i {
+        color: white;
+        transition: all 0.3s;
+        outline: none;
+        cursor: pointer;
+        display: inline-block;
+        }
 
-              @keyframes heartbeat {
+
+        footer .social-media a #facebook:hover {
+        color: #0165E1;
+        text-shadow: 0px 0px 10px #0165E1;
+        }
+
+        footer .social-media a #github:hover {
+        color: #333;
+        text-shadow: 0px 0px 10px #333;
+        }
+
+        footer .social-media a #linkedin:hover {
+        color: #0A66C2;
+        text-shadow: 0px 0px 10px #0A66C2;
+        }
+
+        footer .social-media a #instgram:hover {
+        color: #e1306c;
+        text-shadow: 0px 0px 10px #e1306c;
+        }
+
+        footer .social-media a #twitter:hover {
+        color: #1D9BF0;
+        text-shadow: 0px 0px 10px #1D9BF0;
+        }
+
+        footer .social-media a #tiktok:hover{
+        color: #FE2C55;
+        text-shadow: 0px 0px 10px #FE2C55;
+        }
+
+        footer .social-media a #youtube:hover {
+        color: #ff0000;
+        text-shadow: 0px 0px 10px #ff0000;
+        }
+
+        footer .social-media a #discord:hover{
+        color: #5865F2;
+        text-shadow: 0px 0px 10px #5865F2;
+        }
+
+        footer .social-media a #upwork:hover{
+        color: #0feb1a;
+        text-shadow: 0px 0px 10px #0feb1a;
+        }
+
+
+
+
+
+
+
+        footer h3{
+        font-size: 25px;
+        margin: 10px 0px 0px 0px;
+        font-weight: lighter;
+        font-family: "Rubik Glitch", system-ui;
+        margin-bottom: 40px;
+        color: rgb(255, 255, 255);
+        text-shadow: 0px 0px 10px #0feb1a;
+        letter-spacing: 2px;
+        word-spacing: 3px;
+        }
+
+
+        /* Footer-text */
+        .footer-text {
+            margin-top: 0px;
+            padding: 20px;
+            text-align: center;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.5);
+            border-top: 1px solid rgba(15, 235, 26, 0.2);
+        }
+
+        .footer-text a {
+            color: rgb(15, 235, 26);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .footer-text a:hover {
+            color: white;
+            text-shadow: 0 0 5px rgb(15, 235, 26);
+        }
+
+
+        @keyframes heartbeat {
             0% { transform: scale(1); }
             25% { transform: scale(1.1); }
             40% { transform: scale(1); }
@@ -1146,6 +1244,8 @@
             animation: heartbeat 1.2s infinite;
             text-shadow: 0 0 10px rgba(255, 58, 58, 0.7);
         }
+
+
 
       /* Responsive styles */
       @media (max-width: 1200px) {
@@ -1252,6 +1352,10 @@
           .rule-title {
               font-size: 1rem;
           }
+
+            footer .social-media {
+                font-size: 24px;
+            }
       }
 
       /* Up button */
@@ -1518,10 +1622,27 @@
           </div>
       </div>
 
-      <div class="footer">
-          <p>© 2025 The Cyber Nerd | <a target="_blank" href="https://discord.gg/VcAUtmM75t">Contact</a></p>
-          <p>Designed with <i class="fas fa-heart heart-icon" style="color: rgb(15, 235, 26); font-size: 1rem;"></i> by Abdelrhman Helmy @TheCyberNerd<br>All rights reserved.</p>
+  <!-- Footer -->
+    <footer id="footer">
+      <div class="social-media">
+        <a target="_blank" href="https://www.facebook.com/profile.php?id=61554378846931"><i id="facebook" class="fa-brands fa-facebook"></i></a>
+        <a target="_blank" href="https://www.instagram.com/the_cyber_nerd_official/"><i id="instgram" class="fa-brands fa-instagram"></i></a>
+        <a target="_blank" href="https://x.com/AbdelrhmanHlmy"><i id="twitter" class="fa-brands fa-x-twitter"></i></a>
+        <a target="_blank" href="https://www.linkedin.com/in/thecybernerd/"><i id="linkedin" class="fa-brands fa-linkedin"></i></a>
+        <a target="_blank" href="https://github.com/dreamer-b-o-y"><i id="github" class="fa-brands fa-github"></i></a>
+        <a target="_blank" href="https://www.tiktok.com/@the_cyber_nerd"><i id="tiktok" class="fa-brands fa-tiktok"></i></a>
+        <a target="_blank" href="https://www.youtube.com/@The-Cyber_Nerd"><i id="youtube" class="fa-brands fa-youtube"></i></a>
+        <a target="_blank" href="https://discord.gg/VcAUtmM75t"><i id="discord" class="fa-brands fa-discord"></i></a>
+        <a target="_blank" href="https://www.upwork.com/freelancers/~01336fb28a030fa12f"><i id="upwork" class="fa-brands fa-upwork"></i></a>
       </div>
+
+
+      <h3>Follow For More</h3>
+      <div class="footer-text">
+        <p>© 2025 The Cyber Nerd | <a target="_blank" href="https://discord.gg/VcAUtmM75t">Contact</a></p>
+        <p>Designed with <i class="fas fa-heart heart-icon" style="color: rgb(15, 235, 26); font-size: 1rem;"></i> by Abdelrhman Helmy @TheCyberNerd<br>All rights reserved.</p>
+      </div>
+    </footer>
   </div>
 
   <!-- Rules Modal -->
