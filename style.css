@@ -504,12 +504,60 @@ footer .social-media a i {
   color: white;
   transition: all 0.3s;
   outline: none;
+  cursor: pointer;
+  display: inline-block;
 }
 
-footer .social-media a i:hover {
-  color: rgb(15, 235, 26);
-  cursor: pointer;
+
+footer .social-media a #facebook:hover {
+  color: #0165E1;
+  text-shadow: 0px 0px 10px #0165E1;
 }
+
+footer .social-media a #github:hover {
+  color: #333;
+  text-shadow: 0px 0px 10px #333;
+}
+
+footer .social-media a #linkedin:hover {
+  color: #0A66C2;
+  text-shadow: 0px 0px 10px #0A66C2;
+}
+
+footer .social-media a #instgram:hover {
+  color: #e1306c;
+  text-shadow: 0px 0px 10px #e1306c;
+}
+
+footer .social-media a #twitter:hover {
+  color: #1D9BF0;
+  text-shadow: 0px 0px 10px #1D9BF0;
+}
+
+footer .social-media a #tiktok:hover{
+  color: #FE2C55;
+  text-shadow: 0px 0px 10px #FE2C55;
+}
+
+footer .social-media a #youtube:hover {
+  color: #ff0000;
+  text-shadow: 0px 0px 10px #ff0000;
+}
+
+footer .social-media a #discord:hover{
+  color: #5865F2;
+  text-shadow: 0px 0px 10px #5865F2;
+}
+
+footer .social-media a #upwork:hover{
+  color: #0feb1a;
+  text-shadow: 0px 0px 10px #0feb1a;
+}
+
+
+
+
+
 
 
 footer h3{
@@ -519,7 +567,7 @@ footer h3{
   font-family: "Rubik Glitch", system-ui;
   margin-bottom: 40px;
   color: rgb(255, 255, 255);
-  text-shadow: 0px 0px 10px rgb(15, 235, 26);
+  text-shadow: 0px 0px 10px #0feb1a;
   letter-spacing: 2px;
   word-spacing: 3px;
 }
