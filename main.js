@@ -1,19 +1,21 @@
 onload = () => {
   const frontendProjects = document.getElementById("frontend-projects");
-  frontendProjects.style.display = "flex";
-  backend.classList.remove("active");
-  frontend.classList.add("active");
-  tools.classList.remove("active");
-  courses.classList.remove("active");
-
-  const coursesProjects = document.getElementById("courses-projects");
-  coursesProjects.style.display = "none";
+  frontendProjects.style.display = "none";
 
   const backendProjects = document.getElementById("backend-projects");
   backendProjects.style.display = "none";
 
   const toolsProjects = document.getElementById("tools-projects");
   toolsProjects.style.display = "none";
+
+  const coursesProjects = document.getElementById("courses-projects");
+  coursesProjects.style.display = "flex";
+
+  courses.classList.add("active");
+  backend.classList.remove("active");
+  frontend.classList.remove("active");
+  tools.classList.remove("active");
+
 
   // Mobile menu functionality
   const menuToggle = document.getElementById("menu-toggle");
@@ -43,6 +45,9 @@ backend.onclick = () => {
   const coursesProjects = document.getElementById("courses-projects");
   coursesProjects.style.display = "none";
 
+  const toolsProjects = document.getElementById("tools-projects");
+  toolsProjects.style.display = "none";
+
   const backendProjects = document.getElementById("backend-projects");
   backendProjects.style.display = "flex";
 
@@ -50,21 +55,11 @@ backend.onclick = () => {
   frontend.classList.remove("active");
   tools.classList.remove("active");
   courses.classList.remove("active");
-
-  const toolsProjects = document.getElementById("tools-projects");
-  toolsProjects.style.display = "none";
 };
 
 const frontend = document.getElementById("frontend");
 
 frontend.onclick = () => {
-  const frontendProjects = document.getElementById("frontend-projects");
-  frontendProjects.style.display = "flex";
-
-  backend.classList.remove("active");
-  frontend.classList.add("active");
-  tools.classList.remove("active");
-  courses.classList.remove("active");
 
   const coursesProjects = document.getElementById("courses-projects");
   coursesProjects.style.display = "none";
@@ -74,6 +69,14 @@ frontend.onclick = () => {
 
   const toolsProjects = document.getElementById("tools-projects");
   toolsProjects.style.display = "none";
+
+  const frontendProjects = document.getElementById("frontend-projects");
+  frontendProjects.style.display = "flex";
+
+  frontend.classList.add("active");
+  backend.classList.remove("active");
+  tools.classList.remove("active");
+  courses.classList.remove("active");
 };
 
 const tools = document.getElementById("tools");
@@ -91,9 +94,9 @@ tools.onclick = () => {
   const toolsProjects = document.getElementById("tools-projects");
   toolsProjects.style.display = "flex";
 
+  tools.classList.add("active");
   backend.classList.remove("active");
   frontend.classList.remove("active");
-  tools.classList.add("active");
   courses.classList.remove("active");
 };
 
@@ -103,19 +106,19 @@ courses.onclick = () => {
   const frontendProjects = document.getElementById("frontend-projects");
   frontendProjects.style.display = "none";
 
-  const coursesProjects = document.getElementById("courses-projects");
-  coursesProjects.style.display = "flex";
-
-  backend.classList.remove("active");
-  frontend.classList.remove("active");
-  tools.classList.remove("active");
-  courses.classList.add("active");
-
   const backendProjects = document.getElementById("backend-projects");
   backendProjects.style.display = "none";
 
   const toolsProjects = document.getElementById("tools-projects");
   toolsProjects.style.display = "none";
+
+  const coursesProjects = document.getElementById("courses-projects");
+  coursesProjects.style.display = "flex";
+
+  courses.classList.add("active");
+  backend.classList.remove("active");
+  frontend.classList.remove("active");
+  tools.classList.remove("active");
 };
 
 const upbtn = document.getElementById("upbtn");
