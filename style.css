@@ -174,8 +174,8 @@ body {
 }
 
 .welcome iframe {
-  width: 600px;
-  height: 360px;
+  width: 500px;
+  height: 350px;
   border-radius: 15px;
   border: none;
   margin-top: 20px;
@@ -191,6 +191,96 @@ body {
   align-items: center;
   padding: 30px 0px;
 }
+
+
+
+
+
+
+
+/* View Toggle Styles */
+/* .view-toggle-container {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 20px;
+  padding: 15px 20px;
+  background: rgba(0, 0, 0, 0.7);
+  border: 1px solid rgba(15, 235, 26, 0.3);
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(15, 235, 26, 0.2);
+}
+
+.view-toggle-label {
+  font-family: "Rubik Glitch", system-ui;
+  font-size: 1.1rem;
+  color: rgb(15, 235, 26);
+  font-weight: lighter;
+  text-shadow: 0 0 10px rgba(15, 235, 26, 0.5);
+}
+
+.view-toggle-buttons {
+  display: flex;
+  gap: 10px;
+}
+
+.view-toggle-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 20px;
+  background-color: rgba(0, 0, 0, 0.8);
+  color: white;
+  border: 2px solid rgba(15, 235, 26, 0.5);
+  border-radius: 8px;
+  font-family: "Rubik Glitch", system-ui;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-weight: lighter;
+  position: relative;
+  overflow: hidden;
+}
+
+.view-toggle-btn::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(15, 235, 26, 0.3), transparent);
+  transition: all 0.6s ease;
+}
+
+.view-toggle-btn:hover::before {
+  left: 100%;
+}
+
+.view-toggle-btn:hover {
+  border-color: rgb(15, 235, 26);
+  box-shadow: 0 0 15px rgba(15, 235, 26, 0.4);
+}
+
+.view-toggle-btn.active {
+  background-color: rgb(15, 235, 26);
+  color: black;
+  border-color: rgb(15, 235, 26);
+  box-shadow: 0 0 20px rgba(15, 235, 26, 0.7);
+}
+
+.view-toggle-btn i {
+  font-size: 1.2rem;
+} */
+
+
+
+
+
+
+
+
 
 .projects .bar {
   width: 90%;
@@ -619,10 +709,28 @@ footer h3{
 }
 
 /* Media Queries for Responsive Design */
-@media screen and (max-width: 1024px) {
-  .welcome .content {
-    width: 45%;
+@media screen and (max-width: 1115px) {
+  .container header nav ul {
+    display: flex;
+    gap: 18px;
+    align-items: center;
   }
+    .container header nav ul li {
+      list-style: none;
+      margin: 40px 9px 0px 0px;
+    }
+
+    .container header nav ul li a {
+      text-decoration: none;
+      color: white;
+      font-size: 17px;
+      font-weight: 500;
+      padding: 5px 10px;
+      border-radius: 10px;
+      font-family: "Rubik Glitch", system-ui;
+      transition: all 0.3s;
+    }     
+
 
   .welcome iframe {
     width: 45%;
@@ -630,22 +738,35 @@ footer h3{
   }
 }
 
-@media screen and (max-width: 900px) {
+
+
+@media screen and (max-width: 1030px) {
+  .welcome .content {
+    width: 45%;
+  }
+
+  .welcome iframe {
+    width: 40%;
+    height: 300px;
+  }
+}
+
+@media screen and (max-width: 935px) {
   
 .container header nav ul {
   display: flex;
-  gap: 20px;
+  gap: 16px;
   align-items: center;
 }
   .container header nav ul li {
     list-style: none;
-    margin: 40px 10px 0px 0px;
+    margin: 40px 9px 0px 0px;
   }
 
   .container header nav ul li a {
     text-decoration: none;
     color: white;
-    font-size: 17px;
+    font-size: 16px;
     font-weight: 500;
     padding: 5px 10px;
     border-radius: 10px;
@@ -654,7 +775,7 @@ footer h3{
   }      
 }      
 
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 900px) {
   .container {
     height: auto;
     min-height: 100vh;
@@ -712,7 +833,7 @@ footer h3{
   }
 
   .welcome iframe {
-    width: 90%;
+    width: 50%;
     height: 250px;
   }
 
@@ -731,16 +852,58 @@ footer h3{
     align-items: center;
   }
 
-  .welcome .content,
-  .welcome iframe {
+  .welcome .content{
     width: 90%;
   }
+
+
+  .welcome iframe {
+    width: 50%;
+  }
+
 
   .container header nav ul {
     flex-direction: column;
     gap: 20px;
   }
+
+
+
+
+
+/* ----------->>> new features <<<-----------
+
+  .view-toggle-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .view-toggle-buttons {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .view-toggle-btn {
+    padding: 8px 15px;
+    font-size: 0.8rem;
+  } */
+
+
+
+
 }
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -766,6 +929,32 @@ footer h3{
   .projects .bar {
     width: 95%;
   }
+
+
+
+
+
+
+
+
+
+/*  ----------->>> new features <<<-----------
+  .view-toggle-btn span {
+    display: none;
+  }
+
+  .view-toggle-btn {
+    padding: 10px;
+  } */
+
+
+
+
+
+
+
+
+
 
   .projects .bar ul {
     justify-content: center;
