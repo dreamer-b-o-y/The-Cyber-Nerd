@@ -746,7 +746,7 @@ footer h3{
   }
 
   .welcome iframe {
-    width: 40%;
+    width: 47%;
     height: 300px;
   }
 }
@@ -833,7 +833,7 @@ footer h3{
   }
 
   .welcome iframe {
-    width: 50%;
+    width: 60%;
     height: 250px;
   }
 
@@ -852,15 +852,14 @@ footer h3{
     align-items: center;
   }
 
-  .welcome .content{
+  .welcome .content {
     width: 90%;
   }
 
 
   .welcome iframe {
-    width: 50%;
+    width: 70%;
   }
-
 
   .container header nav ul {
     flex-direction: column;
