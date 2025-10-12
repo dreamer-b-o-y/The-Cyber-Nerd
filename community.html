@@ -1,0 +1,1315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Cyber Nerd | Community</title>
+    <link rel="icon" href="/favicon.png" sizes="48x48" type="image/png">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rubik+Glitch&family=Rajdhani:wght@300;400;500;600;700&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://kit.fontawesome.com/77639a3a61.js" crossorigin="anonymous"></script>
+    
+
+
+    <!-- Google AdSense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3445630104293046" crossorigin="anonymous"></script>
+
+
+    <style>
+        /* Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            width: 100%;
+            min-height: 100vh;
+            background-color: rgb(0, 0, 0);
+            color: white;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* Background Effects */
+        .grid-lines {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                linear-gradient(to right, rgba(15, 235, 26, 0.05) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(15, 235, 26, 0.05) 1px, transparent 1px);
+            background-size: 20px 20px;
+            z-index: -1;
+        }
+
+        .noise {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('data:image/png;base64,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');
+            opacity: 0.03;
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        .scan-line {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, 
+                transparent 0%, 
+                rgba(15, 235, 26, 0.2) 20%, 
+                rgba(15, 235, 26, 0.5) 50%, 
+                rgba(15, 235, 26, 0.2) 80%, 
+                transparent 100%);
+            animation: scan-line 4s linear infinite;
+            pointer-events: none;
+            z-index: 10;
+        }
+
+        @keyframes scan-line {
+            0% { transform: translateY(-100%); }
+            100% { transform: translateY(100vh); }
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 40px auto;
+            padding: 0 20px;
+            position: relative;
+        }
+
+        /* Header Styles */
+        .header {
+            position: relative;
+            padding: 30px;
+            margin-bottom: 30px;
+            border-radius: 10px;
+            background: linear-gradient(180deg, rgba(0,20,0,0.9) 0%, rgba(0,10,0,0.7) 100%);
+            border: 1px solid rgba(15, 235, 26, 0.3);
+            border-bottom: 2px solid rgb(15, 235, 26);
+            box-shadow: 0 0 30px rgba(15, 235, 26, 0.2);
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, rgb(15, 235, 26), transparent);
+        }
+
+        .header-content {
+            position: relative;
+            z-index: 2;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .logo {
+            width: 170px;
+            height: 170px;
+            margin-bottom: 20px;
+            border-radius: 50%;
+        }
+
+        .logo a img {
+            width: 100%;
+            height: 100%;
+            transition: all 0.3s;
+            border-radius: 50%;
+        }
+
+        .logo a img:hover {
+            box-shadow: 0px 0px 30px rgb(15, 235, 26), 0px 0px 30px rgb(15, 235, 26);
+            border-radius: 50%;
+        }
+
+        .title {
+            font-family: 'Rubik Glitch', system-ui;
+            font-size: 3rem;
+            font-weight: lighter;
+            color: #ffffff;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            margin-bottom: 10px;
+            text-shadow: 0 0 10px rgba(15, 235, 26, 0.7), 0 0 20px rgba(15, 235, 26, 0.5);
+            text-align: center;
+        }
+
+        .subtitle {
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            font-size: 1.2rem;
+            color: rgb(15, 235, 26);
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        /* Section Styles */
+        .section {
+            background: rgba(0, 10, 0, 0.8);
+            border-radius: 10px;
+            padding: 40px 30px;
+            margin-bottom: 40px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            border: 1px solid rgba(15, 235, 26, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .section::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 50% 50%, rgba(15, 235, 26, 0.05) 0%, transparent 80%),
+                radial-gradient(circle at 80% 20%, rgba(0, 255, 255, 0.03) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .section-title {
+            font-family: 'Rubik Glitch', system-ui;
+            font-size: 2.5rem;
+            color: white;
+            margin-bottom: 30px;
+            text-align: center;
+            font-weight: lighter;
+            text-shadow: 0 0 10px rgba(15, 235, 26, 0.5);
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Carousel Container */
+        .carousel-container {
+            position: relative;
+            width: 100%;
+            overflow: hidden;
+            padding: 20px;
+        }
+
+        .carousel {
+            display: flex;
+            gap: 30px;
+            transition: transform 0.5s ease;
+            position: relative;
+            z-index: 1;
+        }
+
+        .carousel-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 50px;
+            height: 50px;
+            background-color: rgba(0, 0, 0, 0.8);
+            border: 2px solid rgb(15, 235, 26);
+            border-radius: 50%;
+            color: rgb(15, 235, 26);
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            z-index: 10;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .carousel-btn:hover {
+            background-color: rgb(15, 235, 26);
+            color: black;
+            box-shadow: 0 0 20px rgba(15, 235, 26, 0.7);
+        }
+
+        .carousel-btn.prev {
+            left: 10px;
+        }
+
+        .carousel-btn.next {
+            right: 10px;
+        }
+
+        /* Project Card Styles */
+        .project-card {
+            min-width: 350px;
+            background: rgba(0, 0, 0, 0.7);
+            border: 1px solid rgba(15, 235, 26, 0.3);
+            border-radius: 10px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .project-card::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, 
+                rgba(15, 235, 26, 0.1) 0%, 
+                transparent 50%, 
+                rgba(15, 235, 26, 0.1) 100%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            pointer-events: none;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 30px rgba(15, 235, 26, 0.3);
+            border-color: rgb(15, 235, 26);
+        }
+
+        .project-card:hover::before {
+            opacity: 1;
+        }
+
+        .project-image {
+            width: 100%;
+            height: 200px;
+            background: rgba(15, 235, 26, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .project-image::before {
+            content: "Project Image";
+            font-family: 'Share Tech Mono', monospace;
+            color: rgba(15, 235, 26, 0.5);
+            font-size: 1.2rem;
+        }
+
+        .project-content {
+            padding: 20px;
+        }
+
+        .project-title {
+            font-family: 'Rubik Glitch', system-ui;
+            font-size: 1.5rem;
+            color: white;
+            margin-bottom: 15px;
+            font-weight: lighter;
+        }
+
+        .project-description {
+            font-size: 0.95rem;
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 20px;
+            line-height: 1.6;
+            min-height: 60px;
+        }
+
+        .project-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 15px;
+            border-top: 1px solid rgba(15, 235, 26, 0.2);
+        }
+
+        .project-author {
+            font-size: 0.9rem;
+            color: rgb(15, 235, 26);
+        }
+
+        .project-link {
+            padding: 8px 15px;
+            background-color: rgb(0, 0, 0);
+            color: rgb(255, 255, 255);
+            border: 1px solid rgb(15, 235, 26);
+            border-radius: 5px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
+        }
+
+        .project-link:hover {
+            background-color: rgb(15, 235, 26);
+            color: rgb(0, 0, 0);
+            box-shadow: 0 0 15px rgba(15, 235, 26, 0.7);
+        }
+
+        /* Hall of Fame Card Styles */
+        .fame-card {
+            min-width: 280px;
+            background: rgba(0, 0, 0, 0.7);
+            border: 1px solid rgba(15, 235, 26, 0.3);
+            border-radius: 10px;
+            padding: 30px 20px;
+            text-align: center;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .fame-card::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, 
+                rgba(15, 235, 26, 0.1) 0%, 
+                transparent 50%, 
+                rgba(15, 235, 26, 0.1) 100%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            pointer-events: none;
+        }
+
+        .fame-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 30px rgba(15, 235, 26, 0.3);
+            border-color: rgb(15, 235, 26);
+        }
+
+        .fame-card:hover::before {
+            opacity: 1;
+        }
+
+        .fame-avatar {
+            width: 120px;
+            height: 120px;
+            margin: 0 auto 20px;
+            border-radius: 50%;
+            border: 3px solid rgb(15, 235, 26);
+            background: rgba(15, 235, 26, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 0 20px rgba(15, 235, 26, 0.3);
+        }
+
+        .fame-avatar::before {
+            content: "🏆";
+            font-size: 3rem;
+        }
+
+        .fame-name {
+            font-family: 'Rubik Glitch', system-ui;
+            font-size: 1.3rem;
+            color: white;
+            margin-bottom: 10px;
+            font-weight: lighter;
+        }
+
+        .fame-rank {
+            font-size: 1.1rem;
+            color: rgb(15, 235, 26);
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        .fame-rank i {
+            margin-right: 5px;
+        }
+
+        .fame-date {
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .fame-date i {
+            margin-right: 5px;
+        }
+
+        /* Rank Medals */
+        .fame-card[data-rank="1"] .fame-avatar {
+            border-color: #FFD700;
+            box-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
+        }
+
+        .fame-card[data-rank="1"] .fame-rank {
+            color: #FFD700;
+        }
+
+        .fame-card[data-rank="2"] .fame-avatar {
+            border-color: #C0C0C0;
+            box-shadow: 0 0 20px rgba(192, 192, 192, 0.5);
+        }
+
+        .fame-card[data-rank="2"] .fame-rank {
+            color: #C0C0C0;
+        }
+
+        .fame-card[data-rank="3"] .fame-avatar {
+            border-color: #CD7F32;
+            box-shadow: 0 0 20px rgba(205, 127, 50, 0.5);
+        }
+
+        .fame-card[data-rank="3"] .fame-rank {
+            color: #CD7F32;
+        }
+
+        /* Search Bar */
+        .search-container {
+            max-width: 500px;
+            margin: 0 auto 30px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .search-input {
+            width: 100%;
+            padding: 12px 15px 12px 45px;
+            background-color: rgba(0, 0, 0, 0.7);
+            border: 1px solid rgb(15, 235, 26);
+            border-radius: 5px;
+            color: white;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .search-input:focus {
+            outline: none;
+            box-shadow: 0 0 15px rgba(15, 235, 26, 0.4);
+        }
+
+        .search-icon {
+            position: absolute;
+            left: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: rgb(15, 235, 26);
+        }
+
+        .no-results {
+            text-align: center;
+            color: rgba(255, 255, 255, 0.7);
+            padding: 40px;
+            font-size: 1.1rem;
+            display: none;
+        }
+
+ 
+        footer {
+        width: 95%;
+        margin: auto;
+        padding: 20px 15px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+        background-color: rgb(0, 0, 0);
+        color: white;
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans",
+            "Helvetica Neue", sans-serif;
+        }
+
+        footer .social-media {
+        display: flex;
+        gap: 20px;
+        font-size: 30px;
+        flex-wrap: wrap;
+        justify-content: center;
+        }
+
+        footer .social-media a i {
+        color: white;
+        transition: all 0.3s;
+        outline: none;
+        cursor: pointer;
+        display: inline-block;
+        }
+
+
+        footer .social-media a #facebook:hover {
+        color: #0165E1;
+        text-shadow: 0px 0px 10px #0165E1;
+        }
+
+        footer .social-media a #github:hover {
+        color: #333;
+        text-shadow: 0px 0px 10px #333;
+        }
+
+        footer .social-media a #linkedin:hover {
+        color: #0A66C2;
+        text-shadow: 0px 0px 10px #0A66C2;
+        }
+
+        footer .social-media a #instgram:hover {
+        color: #e1306c;
+        text-shadow: 0px 0px 10px #e1306c;
+        }
+
+        footer .social-media a #twitter:hover {
+        color: #1D9BF0;
+        text-shadow: 0px 0px 10px #1D9BF0;
+        }
+
+        footer .social-media a #tiktok:hover{
+        color: #FE2C55;
+        text-shadow: 0px 0px 10px #FE2C55;
+        }
+
+        footer .social-media a #youtube:hover {
+        color: #ff0000;
+        text-shadow: 0px 0px 10px #ff0000;
+        }
+
+        footer .social-media a #discord:hover{
+        color: #5865F2;
+        text-shadow: 0px 0px 10px #5865F2;
+        }
+
+        footer .social-media a #upwork:hover{
+        color: #0feb1a;
+        text-shadow: 0px 0px 10px #0feb1a;
+        }
+
+
+
+
+
+
+
+        footer h3{
+        font-size: 25px;
+        margin: 10px 0px 0px 0px;
+        font-weight: lighter;
+        font-family: "Rubik Glitch", system-ui;
+        margin-bottom: 40px;
+        color: rgb(255, 255, 255);
+        text-shadow: 0px 0px 10px #0feb1a;
+        letter-spacing: 2px;
+        word-spacing: 3px;
+        text-align: center;
+        }
+
+
+        /* Footer-text */
+        .footer-text {
+            margin-top: 0px;
+            padding: 20px;
+            text-align: center;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.5);
+            border-top: 1px solid rgba(15, 235, 26, 0.2);
+        }
+
+        .footer-text a {
+            color: rgb(15, 235, 26);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .footer-text a:hover {
+            color: white;
+            text-shadow: 0 0 5px rgb(15, 235, 26);
+        }
+
+
+        @keyframes heartbeat {
+            0% { transform: scale(1); }
+            25% { transform: scale(1.1); }
+            40% { transform: scale(1); }
+            60% { transform: scale(1.2); }
+            100% { transform: scale(1); }
+        }
+
+        .heart-icon {
+            color: #ff3a3a;
+            font-size: 2.5rem;
+            display: inline-block;
+            margin: 0 10px;
+            animation: heartbeat 1.2s infinite;
+            text-shadow: 0 0 10px rgba(255, 58, 58, 0.7);
+        }
+
+        /* Automatic Carousel Styles */
+        .dynamic-carousel-container {
+            position: relative;
+            width: 100%;
+            overflow: hidden;
+        }
+
+        .dynamic-carousel {
+            display: flex;
+            transition: transform 0.5s ease;
+            position: relative;
+        }
+
+        .dynamic-carousel .project-card {
+            flex: 0 0 auto;
+            margin-right: 30px;
+        }
+
+        /* Floating Card Styles */
+        .floating-card-list {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            gap: 80px;
+        }
+
+        .floating-card {
+            width: 400px;
+            height: auto;
+            background-image: linear-gradient(to bottom right, #000000 40%, rgb(15, 235, 26));
+            border-radius: 15px;
+            box-shadow: 0px 0px 30px #0feb1a, 0px 0px 30px rgb(15, 235, 26);
+            max-width: 90%;
+            animation: float 6s ease-in-out infinite;
+            transition: transform 0.3s ease;
+        }
+
+        .floating-card:hover {
+            animation-play-state: paused;
+            transform: translateY(-5px);
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+            100% { transform: translateY(0); }
+        }
+
+        /* Style for hiding elements */
+        .hidden {
+            display: none !important;
+        }
+
+        /* Toggle Button Styles */
+        .toggle-container {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            display: flex;
+            gap: 10px;
+            z-index: 10;
+        }
+
+        .toggle-label {
+            display: flex;
+            align-items: center;
+            color: white;
+            font-family: 'Rubik Glitch', system-ui;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .toggle-label:hover {
+            color: rgb(15, 235, 26);
+        }
+
+        .toggle-input {
+            position: relative;
+            appearance: none;
+            width: 40px;
+            height: 22px;
+            background-color: #333;
+            border-radius: 15px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .toggle-input::before {
+            content: "";
+            position: absolute;
+            top: 2px;
+            left: 2px;
+            width: 18px;
+            height: 18px;
+            background-color: white;
+            border-radius: 50%;
+            transition: left 0.3s;
+        }
+
+        .toggle-input:checked {
+            background-color: rgb(15, 235, 26);
+        }
+
+        .toggle-input:checked::before {
+            left: 20px;
+        }
+
+        .icon {
+            margin-right: 5px;
+            font-size: 1.2rem;
+        }
+
+        /* Search Bar Styles */
+        .projects .search-container {
+            max-width: 500px;
+            margin: 0 auto 30px;
+            position: relative;
+            z-index: 1;
+            margin-bottom: 20px;
+        }
+
+        .projects .search-input {
+            width: 100%;
+            padding: 12px 15px 12px 45px;
+            background-color: rgba(0, 0, 0, 0.7);
+            border: 1px solid rgb(15, 235, 26);
+            border-radius: 5px;
+            color: white;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .projects .search-input:focus {
+            outline: none;
+            box-shadow: 0 0 15px rgba(15, 235, 26, 0.4);
+        }
+
+        .projects .search-icon {
+            position: absolute;
+            left: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: rgb(15, 235, 26);
+        }
+
+        .projects .no-results {
+            text-align: center;
+            color: rgba(255, 255, 255, 0.7);
+            padding: 40px;
+            font-size: 1.1rem;
+            display: none;
+        }
+
+
+
+        .up-button {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 50px;
+            height: 50px;
+            background-color: rgb(0, 0, 0);
+            color: rgb(15, 235, 26);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0px 0px 30px rgb(15, 235, 26), 0px 0px 30px rgb(15, 235, 26);
+            cursor: pointer;
+            transition: all 0.3s;
+            font-size: 25px;
+            visibility: hidden;
+            z-index: 10000;
+        }
+
+        .up-button:hover {
+            background-color: rgb(15, 235, 26);
+            color: black;
+            box-shadow: 0px 0px 30px rgb(15, 235, 26), 0px 0px 30px rgb(15, 235, 26);
+        }
+
+
+
+
+        @media screen and (max-width: 480px) {
+
+            footer .social-media {
+            font-size: 24px;
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <div class="grid-lines"></div>
+    <div class="noise"></div>
+    <div class="scan-line"></div>
+    <div class="up-button" id="upbtn"><i class="fa-solid fa-arrow-up"></i></div>
+
+
+    <div class="container">
+        <header>
+            <div class="header-content">
+                <div class="logo">
+                    <a target="_self" href="index.html"><img src="photos/logo.png" alt="The Cyber Nerd Logo"></a>
+                </div>
+                <h1 class="title">🌐 Community Hub 🌐</h1>
+                <p class="subtitle">Showcase Your Projects & Celebrate Our Champions</p>
+            </div>
+        </div>
+
+
+        
+        <!-- Community Projects Section  -->
+        <div class="section">
+            <h2 class="section-title">Community Projects</h2>
+
+            
+            <div class="search-container">
+                <i class="fas fa-search search-icon"></i>
+                <input type="text" class="search-input" id="projects-search" placeholder="Search project by name...">
+            </div>
+
+            <div class="carousel-container">
+                <div class="dynamic-carousel" id="projects-carousel">
+
+
+
+
+
+
+                     <!-- Project Card Template 1  -->
+                    <div class="project-card">
+                        <div class="project-image">
+                             Add your project image here: <img src="your-image.jpg" alt="Project" style="width: 100%; height: 100%; object-fit: cover;"> 
+                        </div>
+                        <div class="project-content">
+                            <h3 class="project-title">Your Project Title</h3>
+                            <p class="project-description">Add your project description here. This is where you describe what your project does and why it's awesome.</p>
+                            <div class="project-footer">
+                                <span class="project-author">By: Your Name</span>
+                                <a href="#" class="project-link">View Project</a>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+
+
+
+
+
+
+
+
+                     <!-- Project Card Template 2  -->
+                    <div class="project-card">
+                        <div class="project-image">
+                             Add your project image here 
+                        </div>
+                        <div class="project-content">
+                            <h3 class="project-title">Another Project</h3>
+                            <p class="project-description">Another amazing project from our community. Add your description here!</p>
+                            <div class="project-footer">
+                                <span class="project-author">By: Community Member</span>
+                                <a href="#" class="project-link">View Project</a>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+
+
+
+
+
+
+
+
+                     <!-- Project Card Template 3  -->
+                    <div class="project-card">
+                        <div class="project-image">
+                             Add your project image here 
+                        </div>
+                        <div class="project-content">
+                            <h3 class="project-title">Cool Cybersecurity Tool</h3>
+                            <p class="project-description">A description of this cybersecurity tool and what makes it special.</p>
+                            <div class="project-footer">
+                                <span class="project-author">By: Hacker Name</span>
+                                <a href="#" class="project-link">View Project</a>
+                            </div>
+                        </div>
+                    </div>
+
+                     <!-- Add more project cards by copying the template above  -->
+                </div>
+            </div>
+
+            <div class="no-results" id="no-results-projects">
+                <i class="fas fa-search" style="font-size: 3rem; margin-bottom: 15px; opacity: 0.5;"></i>
+                <p>No projects found matching your search.</p>
+            </div>
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+
+         <!-- Hall of Fame Section  -->
+        <div class="section">
+            <h2 class="section-title">🏆 Hall of Fame 🏆</h2>
+            <div class="search-container">
+                <i class="fas fa-search search-icon"></i>
+                <input type="text" class="search-input" id="fame-search" placeholder="Search participant by name...">
+            </div>
+            <div class="carousel-container">
+                <div class="dynamic-carousel" id="fame-carousel">
+
+
+
+
+
+
+
+                     <!-- Hall of Fame Card Template 1 - Rank 1 (Gold)  -->
+                    <div class="fame-card" data-rank="1" data-name="Champion Name">
+                        <div class="fame-avatar">
+                             Add participant headshot: <img src="headshot.jpg" alt="Name" style="width: 100%; height: 100%; object-fit: cover; border-radius: 50%;"> 
+                        </div>
+                        <h3 class="fame-name">Champion Name</h3>
+                        <div class="fame-rank">
+                            <i class="fas fa-trophy"></i> Rank #1
+                        </div>
+                        <div class="fame-date">
+                            <i class="far fa-calendar"></i> Joined: 01/15/2025
+                        </div>
+                    </div>
+
+
+
+
+
+
+
+
+                     <!-- Hall of Fame Card Template 2 - Rank 2 (Silver)  -->
+                    <div class="fame-card" data-rank="2" data-name="Runner Up">
+                        <div class="fame-avatar">
+                             Add participant headshot 
+                        </div>
+                        <h3 class="fame-name">Runner Up</h3>
+                        <div class="fame-rank">
+                            <i class="fas fa-medal"></i> Rank #2
+                        </div>
+                        <div class="fame-date">
+                            <i class="far fa-calendar"></i> Joined: 01/15/2025
+                        </div>
+                    </div>
+
+
+
+
+
+
+
+
+
+
+                     <!-- Hall of Fame Card Template 3 - Rank 3 (Bronze)  -->
+                    <div class="fame-card" data-rank="3" data-name="Third Place">
+                        <div class="fame-avatar">
+                             Add participant headshot 
+                        </div>
+                        <h3 class="fame-name">Third Place</h3>
+                        <div class="fame-rank">
+                            <i class="fas fa-award"></i> Rank #3
+                        </div>
+                        <div class="fame-date">
+                            <i class="far fa-calendar"></i> Joined: 01/15/2025
+                        </div>
+                    </div>
+
+
+
+
+
+
+
+
+
+
+                    
+                     <!-- Hall of Fame Card Template 4 - Regular Rank  -->
+                    <div class="fame-card" data-name="Participant Name">
+                        <div class="fame-avatar">
+                             Add participant headshot 
+                        </div>
+                        <h3 class="fame-name">Participant Name</h3>
+                        <div class="fame-rank">
+                            <i class="fas fa-star"></i> Rank #4
+                        </div>
+                        <div class="fame-date">
+                            <i class="far fa-calendar"></i> Joined: 01/16/2025
+                        </div>
+                    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+                     <!-- Hall of Fame Card Template 5  -->
+                    <div class="fame-card" data-name="Another Hacker">
+                        <div class="fame-avatar">
+                             Add participant headshot 
+                        </div>
+                        <h3 class="fame-name">Another Hacker</h3>
+                        <div class="fame-rank">
+                            <i class="fas fa-star"></i> Rank #5
+                        </div>
+                        <div class="fame-date">
+                            <i class="far fa-calendar"></i> Joined: 01/17/2025
+                        </div>
+                    </div>
+
+
+
+
+
+
+
+
+
+
+                     <!-- Hall of Fame Card Template 6  -->
+                    <div class="fame-card" data-name="Another Hacker">
+                        <div class="fame-avatar">
+                             Add participant headshot 
+                        </div>
+                        <h3 class="fame-name">Another Hacker</h3>
+                        <div class="fame-rank">
+                            <i class="fas fa-star"></i> Rank #6
+                        </div>
+                        <div class="fame-date">
+                            <i class="far fa-calendar"></i> Joined: 01/17/2025
+                        </div>
+                    </div>
+
+
+
+
+
+
+
+
+
+
+                     <!-- Hall of Fame Card Template 7  -->
+                    <div class="fame-card" data-name="Another Hacker">
+                        <div class="fame-avatar">
+                             Add participant headshot 
+                        </div>
+                        <h3 class="fame-name">Another Hacker</h3>
+                        <div class="fame-rank">
+                            <i class="fas fa-star"></i> Rank #7
+                        </div>
+                        <div class="fame-date">
+                            <i class="far fa-calendar"></i> Joined: 01/17/2025
+                        </div>
+                    </div>
+
+                     <!-- Add more fame cards by copying the template above  -->
+                </div>
+            </div>
+            <div class="no-results" id="no-results">
+                <i class="fas fa-search" style="font-size: 3rem; margin-bottom: 15px; opacity: 0.5;"></i>
+                <p>No participants found matching your search.</p>
+            </div>
+        </div>
+
+
+
+
+
+
+        
+  <!-- Footer -->
+    <footer id="footer">
+      <div class="social-media">
+        <a target="_blank" href="https://www.facebook.com/profile.php?id=61554378846931"><i id="facebook" class="fa-brands fa-facebook"></i></a>
+        <a target="_blank" href="https://www.instagram.com/the_cyber_nerd_official/"><i id="instgram" class="fa-brands fa-instagram"></i></a>
+        <a target="_blank" href="https://x.com/AbdelrhmanHlmy"><i id="twitter" class="fa-brands fa-x-twitter"></i></a>
+        <a target="_blank" href="https://www.linkedin.com/in/thecybernerd/"><i id="linkedin" class="fa-brands fa-linkedin"></i></a>
+        <a target="_blank" href="https://github.com/dreamer-b-o-y"><i id="github" class="fa-brands fa-github"></i></a>
+        <a target="_blank" href="https://www.tiktok.com/@the_cyber_nerd"><i id="tiktok" class="fa-brands fa-tiktok"></i></a>
+        <a target="_blank" href="https://www.youtube.com/@The-Cyber_Nerd"><i id="youtube" class="fa-brands fa-youtube"></i></a>
+        <a target="_blank" href="https://discord.gg/VcAUtmM75t"><i id="discord" class="fa-brands fa-discord"></i></a>
+        <a target="_blank" href="https://www.upwork.com/freelancers/~01336fb28a030fa12f"><i id="upwork" class="fa-brands fa-upwork"></i></a>
+      </div>
+
+
+      <h3>Follow For More</h3>
+      <div class="footer-text">
+        <p>© 2025 The Cyber Nerd | <a target="_self" href="index.html">Home</a> | <a target="_self" href="ctf-registration.html">CTF Events</a> | <a target="_self" href="donate.html">Donate</a> | <a target="_blank" href="https://discord.gg/VcAUtmM75t">Contact</a></p>
+        <p>Designed with <i class="fas fa-heart heart-icon" style="color: rgb(15, 235, 26); font-size: 1rem;"></i> by Abdelrhman Helmy @TheCyberNerd<br>All rights reserved.</p>
+      </div>
+    </footer>
+
+    </div>
+
+    <script>
+       
+
+        // Search functionality for Projects
+        const projectsSearch = document.getElementById('projects-search');
+        const projectsCarousel = document.getElementById('projects-carousel');
+        const noResultsProjects = document.getElementById('no-results-projects');
+        const projectCards = document.querySelectorAll('.project-card');
+        let projectsCurrentPosition = 0;
+
+        function filterProjects(searchTerm) {
+            let foundCount = 0;
+            projectCards.forEach(card => {
+                const title = card.querySelector('.project-title').textContent.toLowerCase();
+                const description = card.querySelector('.project-description').textContent.toLowerCase();
+                if (title.includes(searchTerm) || description.includes(searchTerm)) {
+                    card.style.display = 'block';
+                    foundCount++;
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+
+            if (foundCount === 0 && searchTerm !== '') {
+                noResultsProjects.style.display = 'block';
+                projectsCarousel.style.display = 'none';
+            } else {
+                noResultsProjects.style.display = 'none';
+                projectsCarousel.style.display = 'flex';
+            }
+        }
+        
+        projectsSearch.addEventListener('input', function() {
+            const searchTerm = this.value.toLowerCase();
+            filterProjects(searchTerm);
+        });
+
+        // Automatic Carousel Scroll for Projects
+        function autoScrollProjects() {
+            const cardWidth = projectCards[0].offsetWidth + 30; // card width + gap
+            const maxScrollWidth = projectsCarousel.scrollWidth - projectsCarousel.offsetWidth;
+
+            if (maxScrollWidth <= 0) return; // Don't scroll if all cards fit
+
+            projectsCurrentPosition -= 1; // Adjust scroll speed here
+
+            if (Math.abs(projectsCurrentPosition) > maxScrollWidth) {
+                projectsCurrentPosition = 0; // Reset to start
+            }
+
+            projectsCarousel.style.transform = `translateX(${projectsCurrentPosition}px)`;
+        }
+
+        setInterval(autoScrollProjects, 30); // Adjust interval for smoother scroll
+
+        // Search functionality for Hall of Fame
+        const fameSearch = document.getElementById('fame-search');
+        const fameCarousel = document.getElementById('fame-carousel');
+        const noResults = document.getElementById('no-results');
+        let fameCurrentPosition = 0;
+
+        fameSearch.addEventListener('input', function() {
+            const searchTerm = this.value.toLowerCase();
+            const fameCards = document.querySelectorAll('.fame-card');
+            let foundCount = 0;
+
+            fameCards.forEach(card => {
+                const name = card.getAttribute('data-name').toLowerCase();
+                if (name.includes(searchTerm)) {
+                    card.style.display = 'block';
+                    foundCount++;
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+
+            // Show/hide no results message
+            if (foundCount === 0 && searchTerm !== '') {
+                noResults.style.display = 'block';
+                fameCarousel.style.display = 'none';
+            } else {
+                noResults.style.display = 'flex';
+                noResults.style.display = 'none';
+            }
+
+            // Reset carousel position when searching
+            fameCurrentPosition = 0;
+            fameCarousel.style.transform = `translateX(0px)`;
+        });
+
+        // Reset carousel positions on window resize
+        window.addEventListener('resize', () => {
+            projectsCurrentPosition = 0;
+            fameCurrentPosition = 0;
+            projectsCarousel.style.transform = `translateX(0px)`;
+            fameCarousel.style.transform = `translateX(0px)`;
+        });
+
+         // Automatic Carousel Scroll for Hall of Fame
+         function autoScrollFame() {
+            const fameCards = document.querySelectorAll('.fame-card');
+            const fameCardWidth = fameCards[0].offsetWidth + 30;
+            const maxScrollWidth = fameCarousel.scrollWidth - fameCarousel.offsetWidth;
+
+            if (maxScrollWidth <= 0) return; // Don't scroll if all cards fit
+
+            fameCurrentPosition -= 0.5; // Adjust scroll speed here
+
+            if (Math.abs(fameCurrentPosition) > maxScrollWidth) {
+                fameCurrentPosition = 0; // Reset to start
+            }
+
+            fameCarousel.style.transform = `translateX(${fameCurrentPosition}px)`;
+        }
+
+        setInterval(autoScrollFame, 30); 
+    </script>
+
+
+
+
+
+
+
+    <!-- Your Personal JS file -->
+  <script src="main.js"></script>
+
+
+</body>
+</html>
