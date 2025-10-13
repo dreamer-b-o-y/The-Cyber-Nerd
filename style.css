@@ -846,7 +846,7 @@ footer h3{
 
 
 
-@media (max-width: 768px) {
+@media (max-width: 770px) {
   .welcome {
     flex-direction: column;
     align-items: center;
