@@ -307,12 +307,7 @@
             overflow: hidden;
         }
 
-        .project-image::before {
-            content: "Project Image";
-            font-family: 'Share Tech Mono', monospace;
-            color: rgba(15, 235, 26, 0.5);
-            font-size: 1.2rem;
-        }
+
 
         .project-content {
             padding: 20px;
@@ -413,13 +408,19 @@
             align-items: center;
             justify-content: center;
             position: relative;
-            overflow: hidden;
+            overflow: visible;
             box-shadow: 0 0 20px rgba(15, 235, 26, 0.3);
         }
 
         .fame-avatar::before {
-            content: "🏆";
+            content: "🎖️";
             font-size: 3rem;
+            position: absolute;
+            top: 50%;
+            left: 5%;
+            bottom: 100px;
+            transform: translate(-50%, -50%);
+
         }
 
         .fame-name {
@@ -456,22 +457,64 @@
             box-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
         }
 
+        .fame-card[data-rank="1"] .fame-avatar::before {
+            content: "🏆";
+            font-size: 3rem;
+            position: absolute;
+            top: 50%;
+            left: 5%;
+            bottom: 100px;
+            transform: translate(-50%, -50%);
+
+        }
+
         .fame-card[data-rank="1"] .fame-rank {
             color: #FFD700;
         }
+
+
+
+
 
         .fame-card[data-rank="2"] .fame-avatar {
             border-color: #C0C0C0;
             box-shadow: 0 0 20px rgba(192, 192, 192, 0.5);
         }
 
+        .fame-card[data-rank="2"] .fame-avatar::before {
+            content: "🥈";
+            font-size: 3rem;
+            position: absolute;
+            top: 50%;
+            left: 5%;
+            bottom: 100px;
+            transform: translate(-50%, -50%);
+
+        }
+
         .fame-card[data-rank="2"] .fame-rank {
             color: #C0C0C0;
         }
 
+
+
+
+
+
         .fame-card[data-rank="3"] .fame-avatar {
             border-color: #CD7F32;
             box-shadow: 0 0 20px rgba(205, 127, 50, 0.5);
+        }
+
+        .fame-card[data-rank="3"] .fame-avatar::before {
+            content: "🥉";
+            font-size: 3rem;
+            position: absolute;
+            top: 50%;
+            left: 5%;
+            bottom: 100px;
+            transform: translate(-50%, -50%);
+
         }
 
         .fame-card[data-rank="3"] .fame-rank {
@@ -1130,11 +1173,11 @@
                      <!-- Project Card Template 1  -->
                     <div class="project-card">
                         <div class="project-image">
-                             Add your project image here: <img src="your-image.jpg" alt="Project" style="width: 100%; height: 100%; object-fit: cover;"> 
+                            <img src="photos/banner2.png" alt="Project" style="width: 100%; height: 100%; object-fit: cover;">   <!-- add your project image here -->
                         </div>
                         <div class="project-content">
                             <h3 class="project-title">Your Project Title</h3>
-                            <p class="project-description">Add your project description here. This is where you describe what your project does and why it's awesome.</p>
+                            <p class="project-description">Coming soon. This is where you describe what your project does and why it's awesome.</p>
                             <div class="project-footer">
                                 <span class="project-author">By: Your Name</span>
                                 <a href="#" class="project-link">View Project</a>
@@ -1155,7 +1198,7 @@
                      <!-- Project Card Template 2  -->
                     <div class="project-card">
                         <div class="project-image">
-                             Add your project image here 
+                            <img src="photos/banner2.png" alt="Project" style="width: 100%; height: 100%; object-fit: cover;">   <!-- add your project image here -->
                         </div>
                         <div class="project-content">
                             <h3 class="project-title">Another Project</h3>
@@ -1180,7 +1223,7 @@
                      <!-- Project Card Template 3  -->
                     <div class="project-card">
                         <div class="project-image">
-                             Add your project image here 
+                            <img src="photos/banner2.png" alt="Project" style="width: 100%; height: 100%; object-fit: cover;">   <!-- add your project image here -->
                         </div>
                         <div class="project-content">
                             <h3 class="project-title">Cool Cybersecurity Tool</h3>
@@ -1232,7 +1275,7 @@
                      <!-- Hall of Fame Card Template 1 - Rank 1 (Gold)  -->
                     <div class="fame-card" data-rank="1" data-name="Champion Name">
                         <div class="fame-avatar">
-                             Add participant headshot: <img src="headshot.jpg" alt="Name" style="width: 100%; height: 100%; object-fit: cover; border-radius: 50%;"> 
+                            <img src="photos/logo4.png" alt="Name" style="width: 100%; height: 100%; object-fit: cover; border-radius: 50%;">   <!-- put participant headshot here  -->
                         </div>
                         <h3 class="fame-name">Champion Name</h3>
                         <div class="fame-rank">
@@ -1253,7 +1296,7 @@
                      <!-- Hall of Fame Card Template 2 - Rank 2 (Silver)  -->
                     <div class="fame-card" data-rank="2" data-name="Runner Up">
                         <div class="fame-avatar">
-                             Add participant headshot 
+                            <img src="photos/logo4.png" alt="Name" style="width: 100%; height: 100%; object-fit: cover; border-radius: 50%;">   <!-- put participant headshot here  -->
                         </div>
                         <h3 class="fame-name">Runner Up</h3>
                         <div class="fame-rank">
@@ -1276,7 +1319,7 @@
                      <!-- Hall of Fame Card Template 3 - Rank 3 (Bronze)  -->
                     <div class="fame-card" data-rank="3" data-name="Third Place">
                         <div class="fame-avatar">
-                             Add participant headshot 
+                            <img src="photos/logo4.png" alt="Name" style="width: 100%; height: 100%; object-fit: cover; border-radius: 50%;">   <!-- put participant headshot here  --> 
                         </div>
                         <h3 class="fame-name">Third Place</h3>
                         <div class="fame-rank">
@@ -1300,7 +1343,7 @@
                      <!-- Hall of Fame Card Template 4 - Regular Rank  -->
                     <div class="fame-card" data-name="Participant Name">
                         <div class="fame-avatar">
-                             Add participant headshot 
+                            <img src="photos/logo4.png" alt="Name" style="width: 100%; height: 100%; object-fit: cover; border-radius: 50%;">   <!-- put participant headshot here  --> 
                         </div>
                         <h3 class="fame-name">Participant Name</h3>
                         <div class="fame-rank">
@@ -1325,7 +1368,7 @@
                      <!-- Hall of Fame Card Template 5  -->
                     <div class="fame-card" data-name="Another Hacker">
                         <div class="fame-avatar">
-                             Add participant headshot 
+                            <img src="photos/logo4.png" alt="Name" style="width: 100%; height: 100%; object-fit: cover; border-radius: 50%;">   <!-- put participant headshot here  --> 
                         </div>
                         <h3 class="fame-name">Another Hacker</h3>
                         <div class="fame-rank">
@@ -1348,7 +1391,7 @@
                      <!-- Hall of Fame Card Template 6  -->
                     <div class="fame-card" data-name="Another Hacker">
                         <div class="fame-avatar">
-                             Add participant headshot 
+                            <img src="photos/logo4.png" alt="Name" style="width: 100%; height: 100%; object-fit: cover; border-radius: 50%;">   <!-- put participant headshot here  -->  
                         </div>
                         <h3 class="fame-name">Another Hacker</h3>
                         <div class="fame-rank">
@@ -1371,7 +1414,7 @@
                      <!-- Hall of Fame Card Template 7  -->
                     <div class="fame-card" data-name="Another Hacker">
                         <div class="fame-avatar">
-                             Add participant headshot 
+                            <img src="photos/logo4.png" alt="Name" style="width: 100%; height: 100%; object-fit: cover; border-radius: 50%;">   <!-- put participant headshot here  --> 
                         </div>
                         <h3 class="fame-name">Another Hacker</h3>
                         <div class="fame-rank">
@@ -1381,6 +1424,8 @@
                             <i class="far fa-calendar"></i> Joined: 01/17/2025
                         </div>
                     </div>
+
+
 
                      <!-- Add more fame cards by copying the template above  -->
                 </div>
