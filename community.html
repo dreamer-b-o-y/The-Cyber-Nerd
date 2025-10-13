@@ -203,7 +203,7 @@
             margin-bottom: 30px;
             text-align: center;
             font-weight: lighter;
-            text-shadow: 0 0 10px rgba(15, 235, 26, 0.5);
+            text-shadow: 0 0 10px rgba(15, 235, 26, 0.7), 0 0 20px rgba(15, 235, 26, 0.5);
             position: relative;
             z-index: 1;
         }
@@ -647,10 +647,10 @@
         }
 
         .heart-icon {
-            color: #ff3a3a;
-            font-size: 2.5rem;
+            color: rgb(235, 15, 15);
+            font-size: 1rem;
             display: inline-block;
-            margin: 0 10px;
+            margin: 0 6px;
             animation: heartbeat 1.2s infinite;
             text-shadow: 0 0 10px rgba(255, 58, 58, 0.7);
         }
@@ -830,7 +830,7 @@
             transition: all 0.3s;
             font-size: 25px;
             visibility: hidden;
-            z-index: 10000;
+            z-index: 10000000;
         }
 
         .up-button:hover {
@@ -842,20 +842,261 @@
 
 
 
-        @media screen and (max-width: 480px) {
 
+
+
+
+
+        
+        /* Responsive Media Queries */
+        @media screen and (max-width: 1024px) {
+            .container {
+                margin: 20px auto;
+                padding: 0 15px;
+            }
+
+            .title {
+                font-size: 2.5rem;
+            }
+
+            .subtitle {
+                font-size: 1rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+        }
+
+        @media screen and (max-width: 768px) {
+            .container {
+                margin: 15px auto;
+                padding: 0 10px;
+            }
+
+            .logo {
+                width: 120px;
+                height: 120px;
+            }
+
+            .title {
+                font-size: 2rem;
+            }
+
+            .subtitle {
+                font-size: 0.9rem;
+                letter-spacing: 1px;
+            }
+
+            .header {
+                padding: 20px;
+                margin-bottom: 20px;
+            }
+
+            .section {
+                padding: 30px 15px;
+                margin-bottom: 30px;
+            }
+
+            .section-title {
+                font-size: 1.8rem;
+                margin-bottom: 20px;
+            }
+
+            .carousel-container {
+                padding: 15px 10px;
+            }
+
+            .project-card {
+                min-width: 280px;
+            }
+
+            .fame-card {
+                min-width: 240px;
+                padding: 25px 15px;
+            }
+
+            .fame-avatar {
+                width: 100px;
+                height: 100px;
+            }
+
+            .fame-avatar::before {
+                font-size: 2.5rem;
+            }
+
+            .fame-name {
+                font-size: 1.1rem;
+            }
+
+            .fame-rank {
+                font-size: 1rem;
+            }
+
+            .fame-date {
+                font-size: 0.85rem;
+            }
+
+            .search-container {
+                max-width: 100%;
+                padding: 0 10px;
+            }
+
+            .search-input {
+                font-size: 0.9rem;
+                padding: 10px 12px 10px 40px;
+            }
+
+            .carousel-btn {
+                width: 40px;
+                height: 40px;
+                font-size: 1.2rem;
+            }
+
+            footer h3 {
+                font-size: 20px;
+                margin-bottom: 30px;
+            }
+
+            footer .social-media {
+                font-size: 26px;
+                gap: 15px;
+            }
+
+            .footer-text {
+                font-size: 0.85rem;
+                padding: 15px;
+            }
+        }
+
+        @media screen and (max-width: 480px) {
+            .container {
+                margin: 10px auto;
+            }
+
+            .logo {
+                width: 100px;
+                height: 100px;
+            }
+
+            .title {
+                font-size: 1.5rem;
+                letter-spacing: 2px;
+            }
+
+            .subtitle {
+                font-size: 0.8rem;
+            }
+
+            .header {
+                padding: 15px;
+            }
+
+            .section {
+                padding: 25px 10px;
+            }
+
+            .section-title {
+                font-size: 1.5rem;
+            }
+
+            .project-card {
+                min-width: 260px;
+            }
+
+            .project-title {
+                font-size: 1.2rem;
+            }
+
+            .project-description {
+                font-size: 0.85rem;
+                min-height: 50px;
+            }
+
+            .project-link {
+                font-size: 0.85rem;
+                padding: 6px 12px;
+            }
+
+            .fame-card {
+                min-width: 220px;
+                padding: 20px 10px;
+            }
+
+            .fame-avatar {
+                width: 80px;
+                height: 80px;
+            }
+
+            .fame-avatar::before {
+                font-size: 2rem;
+            }
+
+            .fame-name {
+                font-size: 1rem;
+            }
+
+            .fame-rank {
+                font-size: 0.9rem;
+            }
+
+            .carousel-btn {
+                width: 35px;
+                height: 35px;
+                font-size: 1rem;
+            }
+
+            .up-button {
+                width: 45px;
+                height: 45px;
+                font-size: 20px;
+                bottom: 15px;
+                right: 15px;
+            }
+
+            footer h3 {
+                font-size: 18px;
+            }
+
+            footer .social-media {
+                font-size: 24px;
+                gap: 12px;
+            }
+
+            .footer-text {
+                font-size: 0.75rem;
+            }
+
+            .no-results {
+                padding: 30px 15px;
+                font-size: 1rem;
+            }
+            
             footer .social-media {
             font-size: 24px;
             }
         }
 
+        @media screen and (max-width: 360px) {
+            .title {
+                font-size: 1.3rem;
+            }
+
+            .project-card,
+            .fame-card {
+                min-width: 240px;
+            }
+        }
+
+
     </style>
 </head>
 <body>
+    <div class="up-button" id="upbtn"><i class="fa-solid fa-arrow-up"></i></div>
     <div class="grid-lines"></div>
     <div class="noise"></div>
     <div class="scan-line"></div>
-    <div class="up-button" id="upbtn"><i class="fa-solid fa-arrow-up"></i></div>
+
 
 
     <div class="container">
@@ -977,7 +1218,7 @@
 
          <!-- Hall of Fame Section  -->
         <div class="section">
-            <h2 class="section-title">🏆 Hall of Fame 🏆</h2>
+            <h2 class="section-title">⭐✨🏆 Hall of Fame 🏆✨⭐</h2>
             <div class="search-container">
                 <i class="fas fa-search search-icon"></i>
                 <input type="text" class="search-input" id="fame-search" placeholder="Search participant by name...">
@@ -1177,14 +1418,35 @@
       <h3>Follow For More</h3>
       <div class="footer-text">
         <p>© 2025 The Cyber Nerd | <a target="_self" href="index.html">Home</a> | <a target="_self" href="ctf-registration.html">CTF Events</a> | <a target="_self" href="donate.html">Donate</a> | <a target="_blank" href="https://discord.gg/VcAUtmM75t">Contact</a></p>
-        <p>Designed with <i class="fas fa-heart heart-icon" style="color: rgb(15, 235, 26); font-size: 1rem;"></i> by Abdelrhman Helmy @TheCyberNerd<br>All rights reserved.</p>
+        <p>Designed with <i class="fas fa-heart heart-icon"></i> by Abdelrhman Helmy @TheCyberNerd<br>All rights reserved.</p>
       </div>
     </footer>
 
     </div>
 
+
+
+
+
+
     <script>
-       
+        // Scroll to top button functionality
+        const upbtn = document.getElementById("upbtn");
+        
+        window.addEventListener('scroll', function() {
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                upbtn.classList.add('visible');
+            } else {
+                upbtn.classList.remove('visible');
+            }
+        });
+        
+        upbtn.addEventListener('click', function() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
 
         // Search functionality for Projects
         const projectsSearch = document.getElementById('projects-search');
@@ -1194,6 +1456,19 @@
         let projectsCurrentPosition = 0;
 
         function filterProjects(searchTerm) {
+            // If search is empty, show all cards
+            if (searchTerm === '') {
+                projectCards.forEach(card => {
+                    card.style.display = 'block';
+                });
+                noResultsProjects.style.display = 'none';
+                projectsCarousel.style.display = 'flex';
+                projectsCurrentPosition = 0;
+                projectsCarousel.style.transform = 'translateX(0px)';
+                return;
+            }
+
+            // Filter cards based on search term
             let foundCount = 0;
             projectCards.forEach(card => {
                 const title = card.querySelector('.project-title').textContent.toLowerCase();
@@ -1206,49 +1481,69 @@
                 }
             });
 
-            if (foundCount === 0 && searchTerm !== '') {
+            // Show/hide no results message
+            if (foundCount === 0) {
                 noResultsProjects.style.display = 'block';
                 projectsCarousel.style.display = 'none';
             } else {
                 noResultsProjects.style.display = 'none';
                 projectsCarousel.style.display = 'flex';
+                projectsCurrentPosition = 0;
+                projectsCarousel.style.transform = 'translateX(0px)';
             }
         }
-        
+
         projectsSearch.addEventListener('input', function() {
-            const searchTerm = this.value.toLowerCase();
+            const searchTerm = this.value.toLowerCase().trim();
             filterProjects(searchTerm);
         });
 
         // Automatic Carousel Scroll for Projects
         function autoScrollProjects() {
-            const cardWidth = projectCards[0].offsetWidth + 30; // card width + gap
+            const visibleCards = Array.from(projectCards).filter(card => 
+                card.style.display !== 'none'
+            );
+            
+            if (visibleCards.length === 0) return;
+            
+            const cardWidth = visibleCards[0].offsetWidth + 30;
             const maxScrollWidth = projectsCarousel.scrollWidth - projectsCarousel.offsetWidth;
 
-            if (maxScrollWidth <= 0) return; // Don't scroll if all cards fit
+            if (maxScrollWidth <= 0) return;
 
-            projectsCurrentPosition -= 1; // Adjust scroll speed here
+            projectsCurrentPosition -= 1;
 
             if (Math.abs(projectsCurrentPosition) > maxScrollWidth) {
-                projectsCurrentPosition = 0; // Reset to start
+                projectsCurrentPosition = 0;
             }
 
             projectsCarousel.style.transform = `translateX(${projectsCurrentPosition}px)`;
         }
 
-        setInterval(autoScrollProjects, 30); // Adjust interval for smoother scroll
+        setInterval(autoScrollProjects, 30);
 
         // Search functionality for Hall of Fame
         const fameSearch = document.getElementById('fame-search');
         const fameCarousel = document.getElementById('fame-carousel');
         const noResults = document.getElementById('no-results');
+        const fameCards = document.querySelectorAll('.fame-card');
         let fameCurrentPosition = 0;
 
-        fameSearch.addEventListener('input', function() {
-            const searchTerm = this.value.toLowerCase();
-            const fameCards = document.querySelectorAll('.fame-card');
-            let foundCount = 0;
+        function filterFame(searchTerm) {
+            // If search is empty, show all cards
+            if (searchTerm === '') {
+                fameCards.forEach(card => {
+                    card.style.display = 'block';
+                });
+                noResults.style.display = 'none';
+                fameCarousel.style.display = 'flex';
+                fameCurrentPosition = 0;
+                fameCarousel.style.transform = 'translateX(0px)';
+                return;
+            }
 
+            // Filter cards based on search term
+            let foundCount = 0;
             fameCards.forEach(card => {
                 const name = card.getAttribute('data-name').toLowerCase();
                 if (name.includes(searchTerm)) {
@@ -1260,18 +1555,44 @@
             });
 
             // Show/hide no results message
-            if (foundCount === 0 && searchTerm !== '') {
+            if (foundCount === 0) {
                 noResults.style.display = 'block';
                 fameCarousel.style.display = 'none';
             } else {
-                noResults.style.display = 'flex';
                 noResults.style.display = 'none';
+                fameCarousel.style.display = 'flex';
+                fameCurrentPosition = 0;
+                fameCarousel.style.transform = 'translateX(0px)';
+            }
+        }
+
+        fameSearch.addEventListener('input', function() {
+            const searchTerm = this.value.toLowerCase().trim();
+            filterFame(searchTerm);
+        });
+
+        // Automatic Carousel Scroll for Hall of Fame
+        function autoScrollFame() {
+            const visibleFameCards = Array.from(fameCards).filter(card => 
+                card.style.display !== 'none'
+            );
+            
+            if (visibleFameCards.length === 0) return;
+            
+            const maxScrollWidth = fameCarousel.scrollWidth - fameCarousel.offsetWidth;
+
+            if (maxScrollWidth <= 0) return;
+
+            fameCurrentPosition -= 0.5;
+
+            if (Math.abs(fameCurrentPosition) > maxScrollWidth) {
+                fameCurrentPosition = 0;
             }
 
-            // Reset carousel position when searching
-            fameCurrentPosition = 0;
-            fameCarousel.style.transform = `translateX(0px)`;
-        });
+            fameCarousel.style.transform = `translateX(${fameCurrentPosition}px)`;
+        }
+
+        setInterval(autoScrollFame, 30);
 
         // Reset carousel positions on window resize
         window.addEventListener('resize', () => {
@@ -1280,27 +1601,7 @@
             projectsCarousel.style.transform = `translateX(0px)`;
             fameCarousel.style.transform = `translateX(0px)`;
         });
-
-         // Automatic Carousel Scroll for Hall of Fame
-         function autoScrollFame() {
-            const fameCards = document.querySelectorAll('.fame-card');
-            const fameCardWidth = fameCards[0].offsetWidth + 30;
-            const maxScrollWidth = fameCarousel.scrollWidth - fameCarousel.offsetWidth;
-
-            if (maxScrollWidth <= 0) return; // Don't scroll if all cards fit
-
-            fameCurrentPosition -= 0.5; // Adjust scroll speed here
-
-            if (Math.abs(fameCurrentPosition) > maxScrollWidth) {
-                fameCurrentPosition = 0; // Reset to start
-            }
-
-            fameCarousel.style.transform = `translateX(${fameCurrentPosition}px)`;
-        }
-
-        setInterval(autoScrollFame, 30); 
     </script>
-
 
 
 

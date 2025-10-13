@@ -121,14 +121,30 @@ courses.onclick = () => {
   tools.classList.remove("active");
 };
 
-const upbtn = document.getElementById("upbtn");
-onscroll = () => {
-  if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
-    upbtn.style.visibility = "visible";
-  } else {
-    upbtn.style.visibility = "hidden";
+
+
+
+
+
+
+
+document.addEventListener("DOMContentLoaded", () => {
+  const upbtn = document.getElementById("upbtn");
+
+  window.onscroll = () => {
+    if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+      upbtn.style.visibility = "visible";
+    } else {
+      upbtn.style.visibility = "hidden";
+    }
   };
-};
-upbtn.onclick = () => {
-  window.scrollTo(0, 0);
-};
+
+  upbtn.onclick = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+});
+
+
+
+
+
