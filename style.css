@@ -536,7 +536,7 @@ body {
   appearance: none;         /* Standard property */
   width: 20px;
   height: 20px;
-  background-color: #111;
+  background-color: #222;
   color: rgb(15, 235, 26); /* This won't apply directly but can be used for pseudo-elements */
   border: none;
   border-radius: 50%;
