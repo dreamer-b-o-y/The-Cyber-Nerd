@@ -342,7 +342,47 @@ body {
   border-radius: 15px;
   box-shadow: 0px 0px 30px #0feb1a, 0px 0px 30px rgb(15, 235, 26);
   max-width: 90%;
+  cursor: pointer;
+
+  /* Floating animation */
+  animation: float 2.5s ease-in-out infinite;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
 }
+
+
+
+/*  Slight delay so cards float differently */
+.projects .project-list .project-card {
+  animation-delay: calc(var(--i) * 0.3s);
+}
+
+
+
+
+/* Hover effect */
+.projects .project-list .project-card:hover {
+  animation-play-state: paused;
+  transform: scale(1.05);
+  z-index: 10;
+}
+
+
+
+
+/* Floating keyframes */
+@keyframes float {
+  0%   { transform: translateY(0); }
+  50%  { transform: translateY(-15px); }
+  100% { transform: translateY(0); }
+}
+
+
+/* -------------------------------floating css---------------------------------- */
+
+
+
+
+
 
 .projects .project-list .project-card .project-image {
   width: 100%;
