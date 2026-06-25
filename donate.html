@@ -1,1307 +1,820 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Cyber Nerd | Donations</title>
-    <link rel="icon" href="/favicon.png" sizes="48x48" type="image/png">
-    <link rel="canonical" href="https://thecybernerd.com/donate.html">
-
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Rubik+Glitch&family=Rajdhani:wght@300;400;500;600;700&family=Share+Tech+Mono&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&display=swap" rel="stylesheet">
-    
-    <!-- Font Awesome for icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <script src="https://kit.fontawesome.com/77639a3a61.js" crossorigin="anonymous"></script>
-
-
-    <!-- Google AdSense -->
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3445630104293046" crossorigin="anonymous"></script>
-
-
-    <style>
-        /* Reset and Base Styles */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            width: 100%;
-            height: 100vh;
-            background-color: rgb(0, 0, 0);
-            color: white;
-            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-            overflow-x: hidden;
-            position: relative;
-        }
-
-        /* Background Effects */
-        .grid-lines {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-image: 
-                linear-gradient(to right, rgba(15, 235, 26, 0.05) 1px, transparent 1px),
-                linear-gradient(to bottom, rgba(15, 235, 26, 0.05) 1px, transparent 1px);
-            background-size: 20px 20px;
-            z-index: -1;
-        }
-
-        .noise {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-image: url('data:image/png;base64,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');
-            opacity: 0.03;
-            z-index: -1;
-            pointer-events: none;
-        }
-
-        .scan-line {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 5px;
-            background: linear-gradient(90deg, 
-                transparent 0%, 
-                rgba(15, 235, 26, 0.2) 20%, 
-                rgba(15, 235, 26, 0.5) 50%, 
-                rgba(15, 235, 26, 0.2) 80%, 
-                transparent 100%);
-            animation: scan-line 4s linear infinite;
-            pointer-events: none;
-            z-index: 10;
-        }
-
-        @keyframes scan-line {
-            0% { transform: translateY(-100%); }
-            100% { transform: translateY(100vh); }
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 40px auto;
-            padding: 0 20px;
-            position: relative;
-        }
-
-        /* Header Styles */
-        .header {
-            position: relative;
-            padding: 30px;
-            margin-bottom: 30px;
-            border-radius: 10px 10px 0 0;
-            background: linear-gradient(180deg, rgba(0,20,0,0.9) 0%, rgba(0,10,0,0.7) 100%);
-            border: 1px solid rgba(15, 235, 26, 0.3);
-            border-bottom: 2px solid rgb(15, 235, 26);
-            box-shadow: 0 0 30px rgba(15, 235, 26, 0.2);
-            overflow: hidden;
-        }
-
-        .header::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 2px;
-            background: linear-gradient(90deg, transparent, rgb(15, 235, 26), transparent);
-        }
-
-        .header-content {
-            position: relative;
-            z-index: 2;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-
-        .logo {
-            width: 170px;
-            height: 170px;
-            margin-bottom: 20px;
-            border-radius: 50%;
-        }
-
-        .logo a img {
-            width: 100%;
-            height: 100%;
-            transition: all 0.3s;
-            border-radius: 50%;
-        }
-
-        .logo a img:hover {
-            box-shadow: 0px 0px 30px rgb(15, 235, 26), 0px 0px 30px rgb(15, 235, 26);
-            border-radius: 50%;
-        }
-
-        .title {
-            font-family: 'Rubik Glitch', system-ui;
-            font-size: 3rem;
-            font-weight: lighter;
-            color: #ffffff;
-            text-transform: uppercase;
-            letter-spacing: 3px;
-            margin-bottom: 10px;
-            text-shadow: 0 0 10px rgba(15, 235, 26, 0.7), 0 0 20px rgba(15, 235, 26, 0.5);
-            text-align: center;
-            position: relative;
-        }
-
-        .title::before {
-            color: rgba(255, 0, 255, 0.5);
-            animation: glitch-1 2s infinite linear alternate-reverse;
-        }
-
-        .title::after {
-            color: rgba(0, 255, 255, 0.5);
-            animation: glitch-2 3s infinite linear alternate-reverse;
-        }
-
-        @keyframes glitch-1 {
-            0%, 100% { clip-path: inset(50% 0 30% 0); transform: translate(-2px, 2px); }
-            20% { clip-path: inset(20% 0 60% 0); transform: translate(2px, -2px); }
-            40% { clip-path: inset(40% 0 40% 0); transform: translate(2px, 2px); }
-            60% { clip-path: inset(10% 0 70% 0); transform: translate(-2px, -2px); }
-            80% { clip-path: inset(30% 0 50% 0); transform: translate(0px, 0px); }
-        }
-
-        @keyframes glitch-2 {
-            0%, 100% { clip-path: inset(30% 0 50% 0); transform: translate(2px, -2px); }
-            20% { clip-path: inset(60% 0 20% 0); transform: translate(-2px, 2px); }
-            40% { clip-path: inset(20% 0 60% 0); transform: translate(2px, 2px); }
-            60% { clip-path: inset(50% 0 30% 0); transform: translate(-2px, -2px); }
-            80% { clip-path: inset(70% 0 10% 0); transform: translate(0px, 0px); }
-        }
-
-        @keyframes heartbeat {
-            0% { transform: scale(1); }
-            25% { transform: scale(1.1); }
-            40% { transform: scale(1); }
-            60% { transform: scale(1.2); }
-            100% { transform: scale(1); }
-        }
-
-        .heart-icon1 {
-            color: #ff3a3a;
-            font-size: 2.5rem;
-            display: inline-block;
-            margin: 0 10px;
-            animation: heartbeat 1.2s infinite;
-            text-shadow: 0 0 10px rgba(255, 58, 58, 0.7);
-        }
-
-        .subtitle {
-            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-            font-size: 1.2rem;
-            color: rgb(15, 235, 26);
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            margin-bottom: 20px;
-            text-align: center;
-        }
-
-        /* Main Content */
-        .main-content {
-            background: rgba(0, 10, 0, 0.8);
-            border-radius: 0 0 10px 10px;
-            padding: 30px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-            border: 1px solid rgba(15, 235, 26, 0.3);
-            border-top: none;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .main-content::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: 
-                radial-gradient(circle at 50% 50%, rgba(15, 235, 26, 0.05) 0%, transparent 80%),
-                radial-gradient(circle at 80% 20%, rgba(0, 255, 255, 0.03) 0%, transparent 50%);
-            pointer-events: none;
-        }
-
-        .video{
-            width: 80%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            margin: 80px auto;
-            overflow: hidden;
-            box-shadow: 0px 0px 30px rgb(15, 235, 26), 0px 0px 30px rgb(15, 235, 26);
-            border-radius: 15px;
-        }
-        .video video{
-            width: 100%;
-            height: 100%;
-        }
-
-        /* Donation Section */
-        .donation-intro {
-            text-align: center;
-            margin-bottom: 40px;
-            position: relative;
-            z-index: 1;
-        }
-
-        .donation-intro h2 {
-            font-family: 'Rubik Glitch', system-ui;
-            font-size: 2rem;
-            color: white;
-            margin-bottom: 20px;
-            font-weight: lighter;
-            text-shadow: 0 0 10px rgba(15, 235, 26, 0.5);
-        }
-
-        .donation-intro p {
-            font-size: 1.2rem;
-            line-height: 1.6;
-            max-width: 800px;
-            margin: 0 auto 20px;
-            text-align: center;
-            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-            color: white;
-            font-weight: lighter;
-            text-shadow: 0 0 10px rgba(15, 235, 26, 0.5);
-        }
-
-        .donation-options {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 30px;
-            margin-top: 40px;
-        }
-
-        .donation-options .egypt-donation{
-            width: 100%;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .donation-options .egypt-donation h2 {
-            text-align: center;
-            font-family: 'Rubik Glitch', system-ui;
-            font-size: 2rem;
-            color: white;
-            margin-bottom: 30px;
-            font-weight: lighter;
-            text-shadow: 0 0 10px rgba(15, 235, 26, 0.5);
-        }
-
-        .donation-options .egypt-donation .egypt-container{
-            width: 100%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 20px;
-            flex-wrap: wrap;
-
-
-        }
-
-        .donation-option {
-            width: 250px;
-            height: 350px;
-            background: rgba(0, 0, 0, 0.7);
-            border: 1px solid rgba(15, 235, 26, 0.3);
-            border-radius: 10px;
-            padding: 25px;
-            text-align: center;
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .donation-option::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(135deg, 
-                rgba(15, 235, 26, 0.1) 0%, 
-                transparent 50%, 
-                rgba(15, 235, 26, 0.1) 100%);
-            z-index: 0;
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
-
-        .donation-option:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 10px 30px rgba(15, 235, 26, 0.2);
-            border-color: rgb(15, 235, 26);
-        }
-
-        .donation-option:hover::before {
-            opacity: 1;
-        }
-
-        .donation-icon {
-            width: 80px;
-            height: 80px;
-            margin: 0 auto 20px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            border-radius: 50%;
-            background: rgba(0, 0, 0, 0.5);
-            border: 2px solid rgba(15, 235, 26, 0.5);
-            position: relative;
-            z-index: 1;
-            transition: all 0.3s ease;
-        }
-
-        .donation-option:hover .donation-icon {
-            border-color: rgb(15, 235, 26);
-            box-shadow: 0 0 20px rgba(15, 235, 26, 0.5);
-        }
-
-        .donation-icon img {
-            width: 50px;
-            height: 50px;
-            object-fit: contain;
-            filter: brightness(0) invert(1);
-            transition: all 0.3s ease;
-        }
-
-        .donation-option:hover .donation-icon img {
-            transform: scale(1.1);
-        }
-
-        .donation-name {
-            font-family: 'Rubik Glitch', system-ui;
-            font-size: 1.5rem;
-            color: white;
-            margin-bottom: 15px;
-            font-weight: lighter;
-            position: relative;
-            z-index: 1;
-        }
-
-        .donation-description {
-            font-size: 0.9rem;
-            color: rgba(255, 255, 255, 0.8);
-            margin-bottom: 20px;
-            position: relative;
-            z-index: 1;
-            min-height: 60px;
-        }
-
-        .donation-button {
-            display: inline-block;
-            padding: 12px 25px;
-            background-color: rgb(0, 0, 0);
-            color: rgb(255, 255, 255);
-            border: 1px solid rgb(15, 235, 26);
-            border-radius: 5px;
-            font-family: 'Rubik Glitch', system-ui;
-            font-size: 1.1rem;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            font-weight: lighter;
-            position: relative;
-            z-index: 1;
-            text-decoration: none;
-            overflow: hidden;
-        }
-
-        .donation-button::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(15, 235, 26, 0.3), transparent);
-            transition: all 0.6s ease;
-            z-index: -1;
-        }
-
-        .donation-button:hover::before {
-            left: 100%;
-        }
-
-        .donation-button:hover {
-            background-color: rgb(15, 235, 26);
-            color: rgb(0, 0, 0);
-            box-shadow: 0 0 30px rgba(15, 235, 26, 0.7);
-        }
-
-
-        /* Crypto Section */
-        .crypto-section {
-            margin-top: 60px;
-            padding-top: 40px;
-            border-top: 1px solid rgba(15, 235, 26, 0.2);
-            text-align: center;
-        }
-
-        .crypto-title {
-            font-family: 'Rubik Glitch', system-ui;
-            font-size: 1.8rem;
-            color: white;
-            margin-bottom: 20px;
-            font-weight: lighter;
-            text-shadow: 0 0 10px rgba(15, 235, 26, 0.5);
-        }
-
-        .crypto-options {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 20px;
-            margin-top: 30px;
-        }
-
-        .crypto-option {
-            width: 200px;
-            background: rgba(0, 0, 0, 0.7);
-            border: 1px solid rgba(15, 235, 26, 0.3);
-            border-radius: 10px;
-            padding: 20px;
-            text-align: center;
-            transition: all 0.3s ease;
-        }
-
-        .crypto-option:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 5px 20px rgba(15, 235, 26, 0.2);
-            border-color: rgb(15, 235, 26);
-        }
-
-        .crypto-icon {
-            width: 50px;
-            height: 50px;
-            margin: 0 auto 15px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .crypto-icon img {
-            width: 100%;
-            height: 100%;
-            object-fit: contain;
-        }
-
-        .crypto-name {
-            font-family: 'Rubik Glitch', system-ui;
-            font-size: 1.2rem;
-            color: white;
-            margin-bottom: 10px;
-            font-weight: lighter;
-        }
-
-        .crypto-address {
-            font-family: 'Share Tech Mono', monospace;
-            font-size: 0.7rem;
-            color: rgba(255, 255, 255, 0.7);
-            word-break: break-all;
-            margin-bottom: 15px;
-            background: rgba(0, 0, 0, 0.5);
-            padding: 8px;
-            border-radius: 5px;
-            border: 1px solid rgba(15, 235, 26, 0.2);
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .crypto-address:hover {
-            color: white;
-            border-color: rgb(15, 235, 26);
-        }
-
-        .copy-button {
-            background-color: transparent;
-            border: 1px solid rgb(15, 235, 26);
-            color: white;
-            padding: 5px 10px;
-            border-radius: 5px;
-            font-size: 0.8rem;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .copy-button:hover {
-            background-color: rgb(15, 235, 26);
-            color: black;
-        }
-
-
-        /* Thank You Section */
-        .thank-you-section {
-            margin-top: 60px;
-            text-align: center;
-            padding: 30px;
-            background: rgba(0, 0, 0, 0.5);
-            border-radius: 10px;
-            border: 1px solid rgba(15, 235, 26, 0.3);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .thank-you-section::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: radial-gradient(circle at center, rgba(15, 235, 26, 0.1) 0%, transparent 70%);
-            z-index: 0;
-        }
-
-        .thank-you-title {
-            font-family: 'Rubik Glitch', system-ui;
-            font-size: 2rem;
-            color: white;
-            margin-bottom: 20px;
-            font-weight: lighter;
-            text-shadow: 0 0 10px rgba(15, 235, 26, 0.5);
-            position: relative;
-            z-index: 1;
-        }
-
-        .thank-you-message {
-            font-size: 1.1rem;
-            line-height: 1.6;
-            max-width: 800px;
-            margin: 0 auto;
-            position: relative;
-            z-index: 1;
-        }
-
-
-        /* Up button */
-        .up-button {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            width: 50px;
-            height: 50px;
-            background-color: rgb(0, 0, 0);
-            color: rgb(15, 235, 26);
-            border-radius: 50%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            box-shadow: 0px 0px 30px rgb(15, 235, 26), 0px 0px 30px rgb(15, 235, 26);
-            cursor: pointer;
-            transition: all 0.3s;
-            font-size: 25px;
-            visibility: hidden;
-            z-index: 1000;
-        }
-
-        .up-button:hover {
-            background-color: rgb(15, 235, 26);
-            color: black;
-            box-shadow: 0px 0px 30px rgb(15, 235, 26), 0px 0px 30px rgb(15, 235, 26);
-        }
-
-
-        /* Multilingual Text Rotation */
-        .multilingual-text-container {
-            position: relative;
-            height: 200px;
-            margin: 10px 0px;
-            perspective: 1000px;
-        }
-
-        .multilingual-text {
-            position: relative;
-            width: 100%;
-            height: 100%;
-            text-align: center;
-        }
-
-        .text-content {
-            position: absolute;
-            width: 100%;
-            top: 0;
-            left: 0;
-            opacity: 0;
-            visibility: hidden;
-            transition: opacity 1.5s ease, visibility 1.5s ease;
-            transform-style: preserve-3d;
-            margin-bottom: 200px;
-        }
-
-        .text-content.active {
-            opacity: 1;
-            visibility: visible;
-        }
-
-        .text-content h2 {
-            font-family: 'Rubik Glitch', system-ui;
-            font-size: 2.5rem;
-            color: white;
-            margin-bottom: 20px;
-            font-weight: lighter;
-            text-shadow: 0 0 10px rgba(15, 235, 26, 0.5);
-        }
-
-        .text-content p {
-            font-size: 1.5rem;
-            line-height: 1.8;
-            color: rgb(15, 235, 26);
-            text-shadow: 0 0 5px rgba(15, 235, 26, 0.5);
-        }
-
-        .heart-emoji {
-            display: inline-block;
-            margin-left: 10px;
-            animation: pulse-heart 1.5s infinite;
-        }
-
-        @keyframes pulse-heart {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.3); }
-            100% { transform: scale(1); }
-        }
-
-        [data-lang="ar"] {
-            direction: rtl;
-            font-family: 'Amiri', serif;
-        }
-
-        .subtitle-text {
-            font-size: 1.1rem;
-            margin: 0 auto;
-            text-align: center;
-            font-size: 20px;
-            font-weight: bolder;
-        }
-
-        /* Payment Popup Styles */
-        .payment-popup-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.8);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 2000;
-    opacity: 0;
-    visibility: hidden;
-    transition: opacity 0.5s ease, visibility 0.5s ease;
-    backdrop-filter: blur(5px);
-}
-
-.payment-popup-overlay.active {
-    opacity: 1;
-    visibility: visible;
-}
-
-
-
-.proof{
-    margin: 40px 0px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-}
-
-.proof h2 {
-    text-align: center;
-    font-family: 'Rubik Glitch', system-ui;
-    font-size: 2rem;
-    color: white;
-    margin-bottom: 30px;
-    font-weight: lighter;
-    text-shadow: 0 0 10px rgba(15, 235, 26, 0.5);
-}
-
-.proof iframe {
-  width: 600px;
-  height: 350px;
-  border-radius: 15px;
-  border: none;
-  margin-top: 20px;
-  box-shadow: 0px 0px 30px rgb(15, 235, 26), 0px 0px 30px rgb(15, 235, 26);
-  max-width: 100%;
-}
-
-
-
-
-
-.payment-popup {
-    width: 90%;
-    max-width: 600px;
-    max-height: 80vh; /* Set maximum height to 80% of viewport height */
-    background: rgba(0, 10, 0, 0.9);
-    border-radius: 10px;
-    border: 2px solid rgb(15, 235, 26);
-    box-shadow: 0 0 30px rgba(15, 235, 26, 0.5), 0 0 50px rgba(15, 235, 26, 0.3);
-    padding: 30px;
-    position: relative;
-    overflow-y: auto; /* Enable vertical scrolling when needed */
-    transform: translateY(50px) scale(0.9);
-    opacity: 0;
-    transition: transform 0.5s ease, opacity 0.5s ease;
-    display: flex;
-    flex-direction: column;
-}
-
-.payment-popup-overlay.active .payment-popup {
-    transform: translateY(0) scale(1);
-    opacity: 1;
-}
-
-/* Style the scrollbar for the popup */
-.payment-popup::-webkit-scrollbar {
-    width: 8px;
-}
-
-.payment-popup::-webkit-scrollbar-track {
-    background: rgba(0, 0, 0, 0.5);
-    border-radius: 4px;
-}
-
-.payment-popup::-webkit-scrollbar-thumb {
-    background-color: rgb(15, 235, 26);
-    border-radius: 4px;
-}
-
-/* Enhanced header with better positioning */
-.payment-popup-header {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-bottom: 25px;
-    border-bottom: 1px solid rgba(15, 235, 26, 0.3);
-    padding-bottom: 20px;
-    position: relative;
-    text-align: center;
-}
-
-.payment-popup-title {
-    font-family: 'Rubik Glitch', system-ui;
-    font-size: 1.8rem;
-    color: white;
-    font-weight: lighter;
-    text-shadow: 0 0 10px rgba(15, 235, 26, 0.5);
-    display: flex;
-    align-items: center;
-    gap: 15px;
-    margin: 0 auto;
-}
-
-/* Enhanced close button */
-.payment-popup-close {
-    position: absolute;
-    right: 0;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 36px;
-    height: 36px;
-    background-color: rgba(0, 0, 0, 0.7);
-    border: 2px solid rgb(15, 235, 26);
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    color: rgb(15, 235, 26);
-    font-size: 16px;
-    box-shadow: 0 0 10px rgba(15, 235, 26, 0.3);
-}
-
-.payment-popup-close:hover {
-    background-color: rgb(15, 235, 26);
-    color: black;
-    box-shadow: 0 0 15px rgba(15, 235, 26, 0.7);
-    transform: translateY(-50%) scale(1.1);
-}
-
-.payment-popup-content {
-    margin-bottom: 25px;
-}
-
-.payment-popup-content p {
-    margin-bottom: 20px;
-    color: rgba(255, 255, 255, 0.9);
-    line-height: 1.6;
-    font-size: 1.05rem;
-}
-
-/* Enhanced payment info container */
-.payment-info-container {
-    background: rgba(0, 0, 0, 0.7);
-    border: 1px solid rgba(15, 235, 26, 0.5);
-    border-radius: 8px;
-    padding: 20px;
-    margin-bottom: 25px;
-    box-shadow: 0 0 15px rgba(15, 235, 26, 0.1) inset;
-}
-
-.payment-info-item {
-    margin-bottom: 18px;
-    position: relative;
-}
-
-.payment-info-item:last-child {
-    margin-bottom: 0;
-}
-
-.payment-info-label {
-    font-family: 'Share Tech Mono', monospace;
-    font-size: 0.95rem;
-    color: rgb(15, 235, 26);
-    margin-bottom: 8px;
-    display: block;
-    text-shadow: 0 0 5px rgba(15, 235, 26, 0.3);
-}
-
-.payment-info-value {
-    font-family: 'Share Tech Mono', monospace;
-    font-size: 1.05rem;
-    color: white;
-    background: rgba(0, 0, 0, 0.8);
-    border: 1px solid rgba(15, 235, 26, 0.5);
-    border-radius: 6px;
-    padding: 12px 15px;
-    width: 100%;
-    position: relative;
-    overflow: hidden;
-}
-
-.payment-info-value::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(15, 235, 26, 0.1), transparent);
-    animation: shine 3s infinite;
-}
-
-/* Enhanced video container */
-.payment-popup-qr {
-    display: flex;
-    justify-content: center;
-    margin: 25px 0;
-}
-
-#payment-explanation-video {
-    width: 100%;
-    max-width: 480px;
-    border-radius: 8px;
-    border: 2px solid rgb(15, 235, 26);
-    box-shadow: 0 0 20px rgba(15, 235, 26, 0.3);
-}
-
-/* Enhanced footer */
-.payment-popup-footer {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-top: 30px;
-    border-top: 1px solid rgba(15, 235, 26, 0.3);
-    padding-top: 25px;
-    position: relative;
-}
-
-.payment-popup-footer::before {
-    content: "";
-    position: absolute;
-    top: -1px;
-    left: 0;
-    width: 100%;
-    height: 1px;
-    background: linear-gradient(90deg, transparent, rgb(15, 235, 26), transparent);
-}
-
-.payment-popup-note {
-    font-size: 0.95rem;
-    color: rgba(255, 255, 255, 0.8);
-    max-width: 70%;
-    line-height: 1.4;
-}
-
-/* Enhanced button */
-.payment-popup-button {
-    display: inline-block;
-    padding: 12px 24px;
-    background-color: rgb(0, 0, 0);
-    color: rgb(255, 255, 255);
-    border: 2px solid rgb(15, 235, 26);
-    border-radius: 6px;
-    font-family: 'Rubik Glitch', system-ui;
-    font-size: 1.1rem;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    font-weight: lighter;
-    position: relative;
-    overflow: hidden;
-    text-decoration: none;
-    box-shadow: 0 0 15px rgba(15, 235, 26, 0.2);
-}
-
-.payment-popup-button::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(15, 235, 26, 0.3), transparent);
-    transition: all 0.6s ease;
-    z-index: -1;
-}
-
-.payment-popup-button:hover::before {
-    left: 100%;
-}
-
-.payment-popup-button:hover {
-    background-color: rgb(15, 235, 26);
-    color: rgb(0, 0, 0);
-    box-shadow: 0 0 30px rgba(15, 235, 26, 0.7);
-    transform: translateY(-3px);
-}
-
-/* Payment icon styling */
-.payment-icon {
-    width: 40px;
-    height: 40px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: rgba(0, 0, 0, 0.5);
-    border-radius: 50%;
-    border: 2px solid rgba(15, 235, 26, 0.5);
-    padding: 5px;
-    box-shadow: 0 0 10px rgba(15, 235, 26, 0.3);
-}
-
-.payment-icon img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-    filter: brightness(0) invert(1);
-}
-
-
-
-
-
-footer {
-  width: 95%;
-  margin: auto;
-  padding: 20px 15px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 10px;
-  background-color: rgb(0, 0, 0);
-  color: white;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans",
-    "Helvetica Neue", sans-serif;
-}
-
-footer .social-media {
-  display: flex;
-  gap: 20px;
-  font-size: 30px;
-  flex-wrap: wrap;
-  justify-content: center;
-}
-
-footer .social-media a i {
-  color: white;
-  transition: all 0.3s;
-  outline: none;
-  cursor: pointer;
-  display: inline-block;
-}
-
-
-footer .social-media a #facebook:hover {
-  color: #0165E1;
-  text-shadow: 0px 0px 10px #0165E1;
-}
-
-footer .social-media a #github:hover {
-  color: #333;
-  text-shadow: 0px 0px 10px #333;
-}
-
-footer .social-media a #linkedin:hover {
-  color: #0A66C2;
-  text-shadow: 0px 0px 10px #0A66C2;
-}
-
-footer .social-media a #instgram:hover {
-  color: #e1306c;
-  text-shadow: 0px 0px 10px #e1306c;
-}
-
-footer .social-media a #twitter:hover {
-  color: #1D9BF0;
-  text-shadow: 0px 0px 10px #1D9BF0;
-}
-
-footer .social-media a #tiktok:hover{
-  color: #FE2C55;
-  text-shadow: 0px 0px 10px #FE2C55;
-}
-
-footer .social-media a #youtube:hover {
-  color: #ff0000;
-  text-shadow: 0px 0px 10px #ff0000;
-}
-
-footer .social-media a #discord:hover{
-  color: #5865F2;
-  text-shadow: 0px 0px 10px #5865F2;
-}
-
-footer .social-media a #upwork:hover{
-  color: #0feb1a;
-  text-shadow: 0px 0px 10px #0feb1a;
-}
-
-
-
-
-
-
-
-footer h3{
-  font-size: 25px;
-  margin: 10px 0px 0px 0px;
-  font-weight: lighter;
-  font-family: "Rubik Glitch", system-ui;
-  margin-bottom: 40px;
-  color: rgb(255, 255, 255);
-  text-shadow: 0px 0px 10px #0feb1a;
-  letter-spacing: 2px;
-  word-spacing: 3px;
-  text-align: center;
-}
-
-
-/* Footer-text */
-.footer-text {
-    margin-top: 0px;
-    padding: 20px;
-    text-align: center;
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    font-size: 0.9rem;
-    color: rgba(255, 255, 255, 0.5);
-    border-top: 1px solid rgba(15, 235, 26, 0.2);
-}
-
-.footer-text a {
-    color: rgb(15, 235, 26);
-    text-decoration: none;
-    transition: all 0.3s ease;
-}
-
-.footer-text a:hover {
-    color: white;
-    text-shadow: 0 0 5px rgb(15, 235, 26);
-}
-
-
-@keyframes heartbeat {
-    0% { transform: scale(1); }
-    25% { transform: scale(1.1); }
-    40% { transform: scale(1); }
-    60% { transform: scale(1.2); }
-    100% { transform: scale(1); }
-}
-
-.heart-icon {
-    color: rgb(235, 15, 15);
-    font-size: 1rem;
-    display: inline-block;
-    margin: 0 6px;
-    animation: heartbeat 1.2s infinite;
-    text-shadow: 0 0 10px rgba(255, 58, 58, 0.7);
-}
-
-
-
-
-
-
-
-
-
-
-/* Responsive adjustments */
-@media (max-width: 770px) {
-
-    .video{
-        width: 95%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        margin: 80px auto;
-        overflow: hidden;
-        box-shadow: 0px 0px 30px rgb(15, 235, 26), 0px 0px 30px rgb(15, 235, 26);
-        border-radius: 15px;
-    }
-
-    .proof iframe {
-        width: 450px;
-        height: 250px;
-        border-radius: 15px;
-        border: none;
-        margin-top: 20px;
-        box-shadow: 0px 0px 30px rgb(15, 235, 26), 0px 0px 30px rgb(15, 235, 26);
-        max-width: 100%;
-    }
-
-
-    .text-content h2 {
-        font-family: 'Rubik Glitch', system-ui;
-        font-size: 2.3rem;
-        color: white;
-        margin-bottom: 20px;
-        font-weight: lighter;
-        text-shadow: 0 0 10px rgba(15, 235, 26, 0.5);
-    }
-
-
-    .payment-popup-footer {
-        flex-direction: column;
-        gap: 20px;
-    }
-
-    .payment-popup-note {
-        max-width: 100%;
-        text-align: center;
-        margin-bottom: 5px;
-    }
-    
-    .payment-popup-button {
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>The Cyber Nerd | Donations</title>
+        <link rel="icon" href="/favicon.png" sizes="48x48" type="image/png">
+        <link rel="canonical" href="https://thecybernerd.com/donate.html">
+
+        <!-- Google Fonts -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Rubik+Glitch&family=Rajdhani:wght@300;400;500;600;700&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&display=swap" rel="stylesheet">
+        
+        <!-- Font Awesome for icons -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+        <script src="https://kit.fontawesome.com/77639a3a61.js" crossorigin="anonymous"></script>
+
+
+        <!-- Google AdSense -->
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3445630104293046" crossorigin="anonymous"></script>
+
+
+        <style>
+            /* Reset and Base Styles */
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+
+            html {
+                scroll-behavior: smooth;
+            }
+
+            body {
+                width: 100%;
+                height: 100vh;
+                background-color: rgb(0, 0, 0);
+                color: white;
+                font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+                overflow-x: hidden;
+                position: relative;
+            }
+
+            /* Background Effects */
+            .grid-lines {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background-image: 
+                    linear-gradient(to right, rgba(15, 235, 26, 0.05) 1px, transparent 1px),
+                    linear-gradient(to bottom, rgba(15, 235, 26, 0.05) 1px, transparent 1px);
+                background-size: 20px 20px;
+                z-index: -1;
+            }
+
+            .noise {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background-image: url('data:image/png;base64,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');
+                opacity: 0.03;
+                z-index: -1;
+                pointer-events: none;
+            }
+
+            .scan-line {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 5px;
+                background: linear-gradient(90deg, 
+                    transparent 0%, 
+                    rgba(15, 235, 26, 0.2) 20%, 
+                    rgba(15, 235, 26, 0.5) 50%, 
+                    rgba(15, 235, 26, 0.2) 80%, 
+                    transparent 100%);
+                animation: scan-line 4s linear infinite;
+                pointer-events: none;
+                z-index: 10;
+            }
+
+            @keyframes scan-line {
+                0% { transform: translateY(-100%); }
+                100% { transform: translateY(100vh); }
+            }
+
+            .container {
+                max-width: 1200px;
+                margin: 40px auto;
+                padding: 0 20px;
+                position: relative;
+            }
+
+            /* Header Styles */
+            .header {
+                position: relative;
+                padding: 30px;
+                margin-bottom: 30px;
+                border-radius: 10px 10px 0 0;
+                background: linear-gradient(180deg, rgba(0,20,0,0.9) 0%, rgba(0,10,0,0.7) 100%);
+                border: 1px solid rgba(15, 235, 26, 0.3);
+                border-bottom: 2px solid rgb(15, 235, 26);
+                box-shadow: 0 0 30px rgba(15, 235, 26, 0.2);
+                overflow: hidden;
+            }
+
+            .header::before {
+                content: "";
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                height: 2px;
+                background: linear-gradient(90deg, transparent, rgb(15, 235, 26), transparent);
+            }
+
+            .header-content {
+                position: relative;
+                z-index: 2;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .logo {
+                width: 170px;
+                height: 170px;
+                margin-bottom: 20px;
+                border-radius: 50%;
+            }
+
+            .logo a img {
+                width: 100%;
+                height: 100%;
+                transition: all 0.3s;
+                border-radius: 50%;
+            }
+
+            .logo a img:hover {
+                box-shadow: 0px 0px 30px rgb(15, 235, 26), 0px 0px 30px rgb(15, 235, 26);
+                border-radius: 50%;
+            }
+
+            .title {
+                font-family: 'Rubik Glitch', system-ui;
+                font-size: 3rem;
+                font-weight: lighter;
+                color: #ffffff;
+                text-transform: uppercase;
+                letter-spacing: 3px;
+                margin-bottom: 10px;
+                text-shadow: 0 0 10px rgba(15, 235, 26, 0.7), 0 0 20px rgba(15, 235, 26, 0.5);
+                text-align: center;
+                position: relative;
+            }
+
+            .title::before {
+                color: rgba(255, 0, 255, 0.5);
+                animation: glitch-1 2s infinite linear alternate-reverse;
+            }
+
+            .title::after {
+                color: rgba(0, 255, 255, 0.5);
+                animation: glitch-2 3s infinite linear alternate-reverse;
+            }
+
+            @keyframes glitch-1 {
+                0%, 100% { clip-path: inset(50% 0 30% 0); transform: translate(-2px, 2px); }
+                20% { clip-path: inset(20% 0 60% 0); transform: translate(2px, -2px); }
+                40% { clip-path: inset(40% 0 40% 0); transform: translate(2px, 2px); }
+                60% { clip-path: inset(10% 0 70% 0); transform: translate(-2px, -2px); }
+                80% { clip-path: inset(30% 0 50% 0); transform: translate(0px, 0px); }
+            }
+
+            @keyframes glitch-2 {
+                0%, 100% { clip-path: inset(30% 0 50% 0); transform: translate(2px, -2px); }
+                20% { clip-path: inset(60% 0 20% 0); transform: translate(-2px, 2px); }
+                40% { clip-path: inset(20% 0 60% 0); transform: translate(2px, 2px); }
+                60% { clip-path: inset(50% 0 30% 0); transform: translate(-2px, -2px); }
+                80% { clip-path: inset(70% 0 10% 0); transform: translate(0px, 0px); }
+            }
+
+            @keyframes heartbeat {
+                0% { transform: scale(1); }
+                25% { transform: scale(1.1); }
+                40% { transform: scale(1); }
+                60% { transform: scale(1.2); }
+                100% { transform: scale(1); }
+            }
+
+            .heart-icon1 {
+                color: #ff3a3a;
+                font-size: 2.5rem;
+                display: inline-block;
+                margin: 0 10px;
+                animation: heartbeat 1.2s infinite;
+                text-shadow: 0 0 10px rgba(255, 58, 58, 0.7);
+            }
+
+            .subtitle {
+                font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+                font-size: 1.2rem;
+                color: rgb(15, 235, 26);
+                letter-spacing: 2px;
+                text-transform: uppercase;
+                margin-bottom: 20px;
+                text-align: center;
+            }
+
+            /* Main Content */
+            .main-content {
+                background: rgba(0, 10, 0, 0.8);
+                border-radius: 0 0 10px 10px;
+                padding: 30px;
+                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+                border: 1px solid rgba(15, 235, 26, 0.3);
+                border-top: none;
+                position: relative;
+                overflow: hidden;
+            }
+
+            .main-content::before {
+                content: "";
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: 
+                    radial-gradient(circle at 50% 50%, rgba(15, 235, 26, 0.05) 0%, transparent 80%),
+                    radial-gradient(circle at 80% 20%, rgba(0, 255, 255, 0.03) 0%, transparent 50%);
+                pointer-events: none;
+            }
+
+            .video{
+                width: 80%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                margin: 80px auto;
+                overflow: hidden;
+                box-shadow: 0px 0px 30px rgb(15, 235, 26), 0px 0px 30px rgb(15, 235, 26);
+                border-radius: 15px;
+            }
+            .video video{
+                width: 100%;
+                height: 100%;
+            }
+
+            /* Donation Section */
+            .donation-intro {
+                text-align: center;
+                margin-bottom: 40px;
+                position: relative;
+                z-index: 1;
+            }
+
+            .donation-intro h2 {
+                font-family: 'Rubik Glitch', system-ui;
+                font-size: 2rem;
+                color: white;
+                margin-bottom: 20px;
+                font-weight: lighter;
+                text-shadow: 0 0 10px rgba(15, 235, 26, 0.5);
+            }
+
+            .donation-intro p {
+                font-size: 1.2rem;
+                line-height: 1.6;
+                max-width: 800px;
+                margin: 0 auto 20px;
+                text-align: center;
+                font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+                color: white;
+                font-weight: lighter;
+                text-shadow: 0 0 10px rgba(15, 235, 26, 0.5);
+            }
+
+            .donation-options {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 30px;
+                margin-top: 40px;
+            }
+
+            .donation-options .egypt-donation{
+                width: 100%;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+            }
+
+            .donation-options .egypt-donation h2 {
+                text-align: center;
+                font-family: 'Rubik Glitch', system-ui;
+                font-size: 2rem;
+                color: white;
+                margin-bottom: 30px;
+                font-weight: lighter;
+                text-shadow: 0 0 10px rgba(15, 235, 26, 0.5);
+            }
+
+            .donation-options .egypt-donation .egypt-container{
+                width: 100%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                gap: 20px;
+                flex-wrap: wrap;
+
+
+            }
+
+            .donation-option {
+                width: 250px;
+                height: 350px;
+                background: rgba(0, 0, 0, 0.7);
+                border: 1px solid rgba(15, 235, 26, 0.3);
+                border-radius: 10px;
+                padding: 25px;
+                text-align: center;
+                transition: all 0.3s ease;
+                position: relative;
+                overflow: hidden;
+            }
+
+            .donation-option::before {
+                content: "";
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: linear-gradient(135deg, 
+                    rgba(15, 235, 26, 0.1) 0%, 
+                    transparent 50%, 
+                    rgba(15, 235, 26, 0.1) 100%);
+                z-index: 0;
+                opacity: 0;
+                transition: opacity 0.3s ease;
+            }
+
+            .donation-option:hover {
+                transform: translateY(-10px);
+                box-shadow: 0 10px 30px rgba(15, 235, 26, 0.2);
+                border-color: rgb(15, 235, 26);
+            }
+
+            .donation-option:hover::before {
+                opacity: 1;
+            }
+
+            .donation-icon {
+                width: 80px;
+                height: 80px;
+                margin: 0 auto 20px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                border-radius: 50%;
+                background: rgba(0, 0, 0, 0.5);
+                border: 2px solid rgba(15, 235, 26, 0.5);
+                position: relative;
+                z-index: 1;
+                transition: all 0.3s ease;
+            }
+
+            .donation-option:hover .donation-icon {
+                border-color: rgb(15, 235, 26);
+                box-shadow: 0 0 20px rgba(15, 235, 26, 0.5);
+            }
+
+            .donation-icon img {
+                width: 50px;
+                height: 50px;
+                object-fit: contain;
+                filter: brightness(0) invert(1);
+                transition: all 0.3s ease;
+            }
+
+            .donation-option:hover .donation-icon img {
+                transform: scale(1.1);
+            }
+
+            .donation-name {
+                font-family: 'Rubik Glitch', system-ui;
+                font-size: 1.5rem;
+                color: white;
+                margin-bottom: 15px;
+                font-weight: lighter;
+                position: relative;
+                z-index: 1;
+            }
+
+            .donation-description {
+                font-size: 0.9rem;
+                color: rgba(255, 255, 255, 0.8);
+                margin-bottom: 20px;
+                position: relative;
+                z-index: 1;
+                min-height: 60px;
+            }
+
+            .donation-button {
+                display: inline-block;
+                padding: 12px 25px;
+                background-color: rgb(0, 0, 0);
+                color: rgb(255, 255, 255);
+                border: 1px solid rgb(15, 235, 26);
+                border-radius: 5px;
+                font-family: 'Rubik Glitch', system-ui;
+                font-size: 1.1rem;
+                cursor: pointer;
+                transition: all 0.3s ease;
+                font-weight: lighter;
+                position: relative;
+                z-index: 1;
+                text-decoration: none;
+                overflow: hidden;
+            }
+
+            .donation-button::before {
+                content: "";
+                position: absolute;
+                top: 0;
+                left: -100%;
+                width: 100%;
+                height: 100%;
+                background: linear-gradient(90deg, transparent, rgba(15, 235, 26, 0.3), transparent);
+                transition: all 0.6s ease;
+                z-index: -1;
+            }
+
+            .donation-button:hover::before {
+                left: 100%;
+            }
+
+            .donation-button:hover {
+                background-color: rgb(15, 235, 26);
+                color: rgb(0, 0, 0);
+                box-shadow: 0 0 30px rgba(15, 235, 26, 0.7);
+            }
+
+
+            /* Crypto Section */
+            .crypto-section {
+                margin-top: 60px;
+                padding-top: 40px;
+                border-top: 1px solid rgba(15, 235, 26, 0.2);
+                text-align: center;
+            }
+
+            .crypto-title {
+                font-family: 'Rubik Glitch', system-ui;
+                font-size: 1.8rem;
+                color: white;
+                margin-bottom: 20px;
+                font-weight: lighter;
+                text-shadow: 0 0 10px rgba(15, 235, 26, 0.5);
+            }
+
+            .crypto-options {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 20px;
+                margin-top: 30px;
+            }
+
+            .crypto-option {
+                width: 200px;
+                background: rgba(0, 0, 0, 0.7);
+                border: 1px solid rgba(15, 235, 26, 0.3);
+                border-radius: 10px;
+                padding: 20px;
+                text-align: center;
+                transition: all 0.3s ease;
+            }
+
+            .crypto-option:hover {
+                transform: translateY(-5px);
+                box-shadow: 0 5px 20px rgba(15, 235, 26, 0.2);
+                border-color: rgb(15, 235, 26);
+            }
+
+            .crypto-icon {
+                width: 50px;
+                height: 50px;
+                margin: 0 auto 15px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+
+            .crypto-icon img {
+                width: 100%;
+                height: 100%;
+                object-fit: contain;
+            }
+
+            .crypto-name {
+                font-family: 'Rubik Glitch', system-ui;
+                font-size: 1.2rem;
+                color: white;
+                margin-bottom: 10px;
+                font-weight: lighter;
+            }
+
+            .crypto-address {
+                font-family: 'Share Tech Mono', monospace;
+                font-size: 0.7rem;
+                color: rgba(255, 255, 255, 0.7);
+                word-break: break-all;
+                margin-bottom: 15px;
+                background: rgba(0, 0, 0, 0.5);
+                padding: 8px;
+                border-radius: 5px;
+                border: 1px solid rgba(15, 235, 26, 0.2);
+                cursor: pointer;
+                transition: all 0.3s ease;
+            }
+
+            .crypto-address:hover {
+                color: white;
+                border-color: rgb(15, 235, 26);
+            }
+
+            .copy-button {
+                background-color: transparent;
+                border: 1px solid rgb(15, 235, 26);
+                color: white;
+                padding: 5px 10px;
+                border-radius: 5px;
+                font-size: 0.8rem;
+                cursor: pointer;
+                transition: all 0.3s ease;
+            }
+
+            .copy-button:hover {
+                background-color: rgb(15, 235, 26);
+                color: black;
+            }
+
+
+            /* Thank You Section */
+            .thank-you-section {
+                margin-top: 60px;
+                text-align: center;
+                padding: 30px;
+                background: rgba(0, 0, 0, 0.5);
+                border-radius: 10px;
+                border: 1px solid rgba(15, 235, 26, 0.3);
+                position: relative;
+                overflow: hidden;
+            }
+
+            .thank-you-section::before {
+                content: "";
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: radial-gradient(circle at center, rgba(15, 235, 26, 0.1) 0%, transparent 70%);
+                z-index: 0;
+            }
+
+            .thank-you-title {
+                font-family: 'Rubik Glitch', system-ui;
+                font-size: 2rem;
+                color: white;
+                margin-bottom: 20px;
+                font-weight: lighter;
+                text-shadow: 0 0 10px rgba(15, 235, 26, 0.5);
+                position: relative;
+                z-index: 1;
+            }
+
+            .thank-you-message {
+                font-size: 1.1rem;
+                line-height: 1.6;
+                max-width: 800px;
+                margin: 0 auto;
+                position: relative;
+                z-index: 1;
+            }
+
+
+            /* Up button */
+            .up-button {
+                position: fixed;
+                bottom: 20px;
+                right: 20px;
+                width: 50px;
+                height: 50px;
+                background-color: rgb(0, 0, 0);
+                color: rgb(15, 235, 26);
+                border-radius: 50%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                box-shadow: 0px 0px 30px rgb(15, 235, 26), 0px 0px 30px rgb(15, 235, 26);
+                cursor: pointer;
+                transition: all 0.3s;
+                font-size: 25px;
+                visibility: hidden;
+                z-index: 1000;
+            }
+
+            .up-button:hover {
+                background-color: rgb(15, 235, 26);
+                color: black;
+                box-shadow: 0px 0px 30px rgb(15, 235, 26), 0px 0px 30px rgb(15, 235, 26);
+            }
+
+
+            /* Multilingual Text Rotation */
+            .multilingual-text-container {
+                position: relative;
+                height: 200px;
+                margin: 10px 0px;
+                perspective: 1000px;
+            }
+
+            .multilingual-text {
+                position: relative;
+                width: 100%;
+                height: 100%;
+                text-align: center;
+            }
+
+            .text-content {
+                position: absolute;
+                width: 100%;
+                top: 0;
+                left: 0;
+                opacity: 0;
+                visibility: hidden;
+                transition: opacity 1.5s ease, visibility 1.5s ease;
+                transform-style: preserve-3d;
+                margin-bottom: 200px;
+            }
+
+            .text-content.active {
+                opacity: 1;
+                visibility: visible;
+            }
+
+            .text-content h2 {
+                font-family: 'Rubik Glitch', system-ui;
+                font-size: 2.5rem;
+                color: white;
+                margin-bottom: 20px;
+                font-weight: lighter;
+                text-shadow: 0 0 10px rgba(15, 235, 26, 0.5);
+            }
+
+            .text-content p {
+                font-size: 1.5rem;
+                line-height: 1.8;
+                color: rgb(15, 235, 26);
+                text-shadow: 0 0 5px rgba(15, 235, 26, 0.5);
+            }
+
+            .heart-emoji {
+                display: inline-block;
+                margin-left: 10px;
+                animation: pulse-heart 1.5s infinite;
+            }
+
+            @keyframes pulse-heart {
+                0% { transform: scale(1); }
+                50% { transform: scale(1.3); }
+                100% { transform: scale(1); }
+            }
+
+            [data-lang="ar"] {
+                direction: rtl;
+                font-family: 'Amiri', serif;
+            }
+
+            .subtitle-text {
+                font-size: 1.1rem;
+                margin: 0 auto;
+                text-align: center;
+                font-size: 20px;
+                font-weight: bolder;
+            }
+
+            /* Payment Popup Styles */
+            .payment-popup-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
         width: 100%;
-        text-align: center;
-    }
-
-
-     footer h3 {
-        font-size: 20px;
-        margin-bottom: 30px;
-    }
-
-    footer .social-media {
-        font-size: 26px;
-        gap: 15px;
-    }
-
-    .footer-text {
-        font-size: 0.85rem;
-        padding: 15px;
-    }
-}
-
-@media (max-width: 540px) {
-
-    .title {
-        font-family: 'Rubik Glitch', system-ui;
-        font-size: 2.5rem;
-        font-weight: lighter;
-        color: #ffffff;
-        text-transform: uppercase;
-        letter-spacing: 3px;
-        margin-bottom: 10px;
-        text-shadow: 0 0 10px rgba(15, 235, 26, 0.7), 0 0 20px rgba(15, 235, 26, 0.5);
-        text-align: center;
-        position: relative;
-    }
-
-    .subtitle-text {
-        font-size: 1rem;
-        margin: 0 auto;
-        text-align: center;
-        font-size: 20px;
-        font-weight: bolder;
-    }
-
-    .subtitle {
-        font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-        font-size: 1rem;
-        color: rgb(15, 235, 26);
-        letter-spacing: 2px;
-        text-transform: uppercase;
-        margin-bottom: 20px;
-        text-align: center;
-    }
-
-    .video{
-        width: 95%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.8);
         display: flex;
         justify-content: center;
         align-items: center;
-        margin: 80px auto;
-        overflow: hidden;
-        box-shadow: 0px 0px 30px rgb(15, 235, 26), 0px 0px 30px rgb(15, 235, 26);
-        border-radius: 15px;
+        z-index: 2000;
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.5s ease, visibility 0.5s ease;
+        backdrop-filter: blur(5px);
     }
 
-
-    .proof iframe {
-        width: fit-content;
-        height: fit-content;
-        border-radius: 15px;
-        border: none;
-        margin-top: 20px;
-        box-shadow: 0px 0px 30px rgb(15, 235, 26), 0px 0px 30px rgb(15, 235, 26);
-        max-width: 100%;
+    .payment-popup-overlay.active {
+        opacity: 1;
+        visibility: visible;
     }
 
 
 
+    .proof{
+        margin: 40px 0px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+    }
 
-    .text-content h2 {
+    .proof h2 {
+        text-align: center;
         font-family: 'Rubik Glitch', system-ui;
-        font-size: 1.6rem;
+        font-size: 2rem;
         color: white;
-        margin-bottom: 20px;
+        margin-bottom: 30px;
         font-weight: lighter;
         text-shadow: 0 0 10px rgba(15, 235, 26, 0.5);
     }
+
+    .proof iframe {
+    width: 600px;
+    height: 350px;
+    border-radius: 15px;
+    border: none;
+    margin-top: 20px;
+    box-shadow: 0px 0px 30px rgb(15, 235, 26), 0px 0px 30px rgb(15, 235, 26);
+    max-width: 100%;
+    }
+
+
+
 
 
     .payment-popup {
-        padding: 20px;
+        width: 90%;
+        max-width: 600px;
+        max-height: 80vh; /* Set maximum height to 80% of viewport height */
+        background: rgba(0, 10, 0, 0.9);
+        border-radius: 10px;
+        border: 2px solid rgb(15, 235, 26);
+        box-shadow: 0 0 30px rgba(15, 235, 26, 0.5), 0 0 50px rgba(15, 235, 26, 0.3);
+        padding: 30px;
+        position: relative;
+        overflow-y: auto; /* Enable vertical scrolling when needed */
+        transform: translateY(50px) scale(0.9);
+        opacity: 0;
+        transition: transform 0.5s ease, opacity 0.5s ease;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .payment-popup-overlay.active .payment-popup {
+        transform: translateY(0) scale(1);
+        opacity: 1;
+    }
+
+    /* Style the scrollbar for the popup */
+    .payment-popup::-webkit-scrollbar {
+        width: 8px;
+    }
+
+    .payment-popup::-webkit-scrollbar-track {
+        background: rgba(0, 0, 0, 0.5);
+        border-radius: 4px;
+    }
+
+    .payment-popup::-webkit-scrollbar-thumb {
+        background-color: rgb(15, 235, 26);
+        border-radius: 4px;
+    }
+
+    /* Enhanced header with better positioning */
+    .payment-popup-header {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 25px;
+        border-bottom: 1px solid rgba(15, 235, 26, 0.3);
+        padding-bottom: 20px;
+        position: relative;
+        text-align: center;
+    }
+
+    .payment-popup-title {
+        font-family: 'Rubik Glitch', system-ui;
+        font-size: 1.8rem;
+        color: white;
+        font-weight: lighter;
+        text-shadow: 0 0 10px rgba(15, 235, 26, 0.5);
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        margin: 0 auto;
     }
 
     /* Enhanced close button */
@@ -1310,8 +823,8 @@ footer h3{
         right: 0;
         top: 50%;
         transform: translateY(-50%);
-        width: 30px;
-        height: 30px;
+        width: 36px;
+        height: 36px;
         background-color: rgba(0, 0, 0, 0.7);
         border: 2px solid rgb(15, 235, 26);
         border-radius: 50%;
@@ -1324,115 +837,602 @@ footer h3{
         font-size: 16px;
         box-shadow: 0 0 10px rgba(15, 235, 26, 0.3);
     }
-    
-    .payment-popup-title {
-        font-size: 1.5rem;
+
+    .payment-popup-close:hover {
+        background-color: rgb(15, 235, 26);
+        color: black;
+        box-shadow: 0 0 15px rgba(15, 235, 26, 0.7);
+        transform: translateY(-50%) scale(1.1);
     }
-    
+
+    .payment-popup-content {
+        margin-bottom: 25px;
+    }
+
+    .payment-popup-content p {
+        margin-bottom: 20px;
+        color: rgba(255, 255, 255, 0.9);
+        line-height: 1.6;
+        font-size: 1.05rem;
+    }
+
+    /* Enhanced payment info container */
     .payment-info-container {
-        padding: 15px;
+        background: rgba(0, 0, 0, 0.7);
+        border: 1px solid rgba(15, 235, 26, 0.5);
+        border-radius: 8px;
+        padding: 20px;
+        margin-bottom: 25px;
+        box-shadow: 0 0 15px rgba(15, 235, 26, 0.1) inset;
     }
 
-}
+    .payment-info-item {
+        margin-bottom: 18px;
+        position: relative;
+    }
+
+    .payment-info-item:last-child {
+        margin-bottom: 0;
+    }
+
+    .payment-info-label {
+        font-family: 'Share Tech Mono', monospace;
+        font-size: 0.95rem;
+        color: rgb(15, 235, 26);
+        margin-bottom: 8px;
+        display: block;
+        text-shadow: 0 0 5px rgba(15, 235, 26, 0.3);
+    }
+
+    .payment-info-value {
+        font-family: 'Share Tech Mono', monospace;
+        font-size: 1.05rem;
+        color: white;
+        background: rgba(0, 0, 0, 0.8);
+        border: 1px solid rgba(15, 235, 26, 0.5);
+        border-radius: 6px;
+        padding: 12px 15px;
+        width: 100%;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .payment-info-value::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(90deg, transparent, rgba(15, 235, 26, 0.1), transparent);
+        animation: shine 3s infinite;
+    }
+
+    /* Enhanced video container */
+    .payment-popup-qr {
+        display: flex;
+        justify-content: center;
+        margin: 25px 0;
+    }
+
+    #payment-explanation-video {
+        width: 100%;
+        max-width: 480px;
+        border-radius: 8px;
+        border: 2px solid rgb(15, 235, 26);
+        box-shadow: 0 0 20px rgba(15, 235, 26, 0.3);
+    }
+
+    /* Enhanced footer */
+    .payment-popup-footer {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 30px;
+        border-top: 1px solid rgba(15, 235, 26, 0.3);
+        padding-top: 25px;
+        position: relative;
+    }
+
+    .payment-popup-footer::before {
+        content: "";
+        position: absolute;
+        top: -1px;
+        left: 0;
+        width: 100%;
+        height: 1px;
+        background: linear-gradient(90deg, transparent, rgb(15, 235, 26), transparent);
+    }
+
+    .payment-popup-note {
+        font-size: 0.95rem;
+        color: rgba(255, 255, 255, 0.8);
+        max-width: 70%;
+        line-height: 1.4;
+    }
+
+    /* Enhanced button */
+    .payment-popup-button {
+        display: inline-block;
+        padding: 12px 24px;
+        background-color: rgb(0, 0, 0);
+        color: rgb(255, 255, 255);
+        border: 2px solid rgb(15, 235, 26);
+        border-radius: 6px;
+        font-family: 'Rubik Glitch', system-ui;
+        font-size: 1.1rem;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        font-weight: lighter;
+        position: relative;
+        overflow: hidden;
+        text-decoration: none;
+        box-shadow: 0 0 15px rgba(15, 235, 26, 0.2);
+    }
+
+    .payment-popup-button::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(90deg, transparent, rgba(15, 235, 26, 0.3), transparent);
+        transition: all 0.6s ease;
+        z-index: -1;
+    }
+
+    .payment-popup-button:hover::before {
+        left: 100%;
+    }
+
+    .payment-popup-button:hover {
+        background-color: rgb(15, 235, 26);
+        color: rgb(0, 0, 0);
+        box-shadow: 0 0 30px rgba(15, 235, 26, 0.7);
+        transform: translateY(-3px);
+    }
+
+    /* Payment icon styling */
+    .payment-icon {
+        width: 40px;
+        height: 40px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: rgba(0, 0, 0, 0.5);
+        border-radius: 50%;
+        border: 2px solid rgba(15, 235, 26, 0.5);
+        padding: 5px;
+        box-shadow: 0 0 10px rgba(15, 235, 26, 0.3);
+    }
+
+    .payment-icon img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        filter: brightness(0) invert(1);
+    }
 
 
 
-    @media (max-width: 480px) {
-        .up-button {
-            width: 45px;
-            height: 45px;
-            font-size: 20px;
-            bottom: 15px;
-            right: 15px;
+
+
+    footer {
+    width: 95%;
+    margin: auto;
+    padding: 20px 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    background-color: rgb(0, 0, 0);
+    color: white;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans",
+        "Helvetica Neue", sans-serif;
+    }
+
+    footer .social-media {
+    display: flex;
+    gap: 20px;
+    font-size: 30px;
+    flex-wrap: wrap;
+    justify-content: center;
+    }
+
+    footer .social-media a i {
+    color: white;
+    transition: all 0.3s;
+    outline: none;
+    cursor: pointer;
+    display: inline-block;
+    }
+
+
+    footer .social-media a #facebook:hover {
+    color: #0165E1;
+    text-shadow: 0px 0px 10px #0165E1;
+    }
+
+    footer .social-media a #github:hover {
+    color: #333;
+    text-shadow: 0px 0px 10px #333;
+    }
+
+    footer .social-media a #linkedin:hover {
+    color: #0A66C2;
+    text-shadow: 0px 0px 10px #0A66C2;
+    }
+
+    footer .social-media a #instgram:hover {
+    color: #e1306c;
+    text-shadow: 0px 0px 10px #e1306c;
+    }
+
+    footer .social-media a #twitter:hover {
+    color: #1D9BF0;
+    text-shadow: 0px 0px 10px #1D9BF0;
+    }
+
+    footer .social-media a #tiktok:hover{
+    color: #FE2C55;
+    text-shadow: 0px 0px 10px #FE2C55;
+    }
+
+    footer .social-media a #youtube:hover {
+    color: #ff0000;
+    text-shadow: 0px 0px 10px #ff0000;
+    }
+
+    footer .social-media a #discord:hover{
+    color: #5865F2;
+    text-shadow: 0px 0px 10px #5865F2;
+    }
+
+    footer .social-media a #upwork:hover{
+    color: #0feb1a;
+    text-shadow: 0px 0px 10px #0feb1a;
+    }
+
+
+
+
+
+
+
+    footer h3{
+    font-size: 25px;
+    margin: 10px 0px 0px 0px;
+    font-weight: lighter;
+    font-family: "Rubik Glitch", system-ui;
+    margin-bottom: 40px;
+    color: rgb(255, 255, 255);
+    text-shadow: 0px 0px 10px #0feb1a;
+    letter-spacing: 2px;
+    word-spacing: 3px;
+    text-align: center;
+    }
+
+
+    /* Footer-text */
+    .footer-text {
+        margin-top: 0px;
+        padding: 20px;
+        text-align: center;
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        font-size: 0.9rem;
+        color: rgba(255, 255, 255, 0.5);
+        border-top: 1px solid rgba(15, 235, 26, 0.2);
+    }
+
+    .footer-text a {
+        color: rgb(15, 235, 26);
+        text-decoration: none;
+        transition: all 0.3s ease;
+    }
+
+    .footer-text a:hover {
+        color: white;
+        text-shadow: 0 0 5px rgb(15, 235, 26);
+    }
+
+
+    @keyframes heartbeat {
+        0% { transform: scale(1); }
+        25% { transform: scale(1.1); }
+        40% { transform: scale(1); }
+        60% { transform: scale(1.2); }
+        100% { transform: scale(1); }
+    }
+
+    .heart-icon {
+        color: rgb(235, 15, 15);
+        font-size: 1rem;
+        display: inline-block;
+        margin: 0 6px;
+        animation: heartbeat 1.2s infinite;
+        text-shadow: 0 0 10px rgba(255, 58, 58, 0.7);
+    }
+
+
+
+
+
+
+
+
+
+
+    /* Responsive adjustments */
+    @media (max-width: 770px) {
+
+        .video{
+            width: 95%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 80px auto;
+            overflow: hidden;
+            box-shadow: 0px 0px 30px rgb(15, 235, 26), 0px 0px 30px rgb(15, 235, 26);
+            border-radius: 15px;
         }
 
+        .proof iframe {
+            width: 450px;
+            height: 250px;
+            border-radius: 15px;
+            border: none;
+            margin-top: 20px;
+            box-shadow: 0px 0px 30px rgb(15, 235, 26), 0px 0px 30px rgb(15, 235, 26);
+            max-width: 100%;
+        }
+
+
+        .text-content h2 {
+            font-family: 'Rubik Glitch', system-ui;
+            font-size: 2.3rem;
+            color: white;
+            margin-bottom: 20px;
+            font-weight: lighter;
+            text-shadow: 0 0 10px rgba(15, 235, 26, 0.5);
+        }
+
+
+        .payment-popup-footer {
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .payment-popup-note {
+            max-width: 100%;
+            text-align: center;
+            margin-bottom: 5px;
+        }
+        
+        .payment-popup-button {
+            width: 100%;
+            text-align: center;
+        }
+
+
         footer h3 {
-            font-size: 18px;
+            font-size: 20px;
+            margin-bottom: 30px;
         }
 
         footer .social-media {
-            font-size: 24px;
-            gap: 12px;
+            font-size: 26px;
+            gap: 15px;
         }
 
         .footer-text {
-            font-size: 0.75rem;
+            font-size: 0.85rem;
+            padding: 15px;
+        }
+    }
+
+    @media (max-width: 540px) {
+
+        .title {
+            font-family: 'Rubik Glitch', system-ui;
+            font-size: 2.5rem;
+            font-weight: lighter;
+            color: #ffffff;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            margin-bottom: 10px;
+            text-shadow: 0 0 10px rgba(15, 235, 26, 0.7), 0 0 20px rgba(15, 235, 26, 0.5);
+            text-align: center;
+            position: relative;
+        }
+
+        .subtitle-text {
+            font-size: 1rem;
+            margin: 0 auto;
+            text-align: center;
+            font-size: 20px;
+            font-weight: bolder;
+        }
+
+        .subtitle {
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            font-size: 1rem;
+            color: rgb(15, 235, 26);
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .video{
+            width: 95%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 80px auto;
+            overflow: hidden;
+            box-shadow: 0px 0px 30px rgb(15, 235, 26), 0px 0px 30px rgb(15, 235, 26);
+            border-radius: 15px;
+        }
+
+
+        .proof iframe {
+            width: fit-content;
+            height: fit-content;
+            border-radius: 15px;
+            border: none;
+            margin-top: 20px;
+            box-shadow: 0px 0px 30px rgb(15, 235, 26), 0px 0px 30px rgb(15, 235, 26);
+            max-width: 100%;
+        }
+
+
+
+
+        .text-content h2 {
+            font-family: 'Rubik Glitch', system-ui;
+            font-size: 1.6rem;
+            color: white;
+            margin-bottom: 20px;
+            font-weight: lighter;
+            text-shadow: 0 0 10px rgba(15, 235, 26, 0.5);
+        }
+
+
+        .payment-popup {
+            padding: 20px;
+        }
+
+        /* Enhanced close button */
+        .payment-popup-close {
+            position: absolute;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 30px;
+            height: 30px;
+            background-color: rgba(0, 0, 0, 0.7);
+            border: 2px solid rgb(15, 235, 26);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            color: rgb(15, 235, 26);
+            font-size: 16px;
+            box-shadow: 0 0 10px rgba(15, 235, 26, 0.3);
+        }
+        
+        .payment-popup-title {
+            font-size: 1.5rem;
+        }
+        
+        .payment-info-container {
+            padding: 15px;
         }
 
     }
 
 
 
-.payment-video-container {
-    width: 100%;
-    margin: 20px 0;
-    text-align: center;
-}
+        @media (max-width: 480px) {
+            .up-button {
+                width: 45px;
+                height: 45px;
+                font-size: 20px;
+                bottom: 15px;
+                right: 15px;
+            }
 
-.payment-video-wrapper {
-    position: relative;
-    width: 100%;
-    max-width: 480px;
-    margin: 0 auto;
-    border-radius: 10px;
-    overflow: hidden;
-    box-shadow: 0 0 20px rgba(15, 235, 26, 0.4);
-    cursor: pointer;
-}
+            footer h3 {
+                font-size: 18px;
+            }
 
-.payment-explanation-video {
-    width: 100%;
-    display: block;
-    background: #000;
-    border: 2px solid rgb(15, 235, 26);
-    border-radius: 10px;
-}
+            footer .social-media {
+                font-size: 24px;
+                gap: 12px;
+            }
 
-.video-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.6);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    transition: all 0.3s ease;
-}
+            .footer-text {
+                font-size: 0.75rem;
+            }
 
-.video-overlay:hover {
-    background: rgba(0, 0, 0, 0.4);
-}
-
-.video-overlay-text {
-    color: white;
-    text-align: center;
-}
-
-.video-overlay-text i {
-    font-size: 3rem;
-    color: rgb(15, 235, 26);
-    margin-bottom: 10px;
-    display: block;
-    text-shadow: 0 0 15px rgba(15, 235, 26, 0.8);
-}
-
-.video-overlay-text span {
-    font-family: 'Rubik Glitch', system-ui;
-    font-size: 1.2rem;
-    display: block;
-}
-
-.video-caption {
-    margin-top: 10px;
-    color: rgb(15, 235, 26);
-    font-size: 0.9rem;
-}
+        }
 
 
-    </style>
-</head>
+
+    .payment-video-container {
+        width: 100%;
+        margin: 20px 0;
+        text-align: center;
+    }
+
+    .payment-video-wrapper {
+        position: relative;
+        width: 100%;
+        max-width: 480px;
+        margin: 0 auto;
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: 0 0 20px rgba(15, 235, 26, 0.4);
+        cursor: pointer;
+    }
+
+    .payment-explanation-video {
+        width: 100%;
+        display: block;
+        background: #000;
+        border: 2px solid rgb(15, 235, 26);
+        border-radius: 10px;
+    }
+
+    .video-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.6);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transition: all 0.3s ease;
+    }
+
+    .video-overlay:hover {
+        background: rgba(0, 0, 0, 0.4);
+    }
+
+    .video-overlay-text {
+        color: white;
+        text-align: center;
+    }
+
+    .video-overlay-text i {
+        font-size: 3rem;
+        color: rgb(15, 235, 26);
+        margin-bottom: 10px;
+        display: block;
+        text-shadow: 0 0 15px rgba(15, 235, 26, 0.8);
+    }
+
+    .video-overlay-text span {
+        font-family: 'Rubik Glitch', system-ui;
+        font-size: 1.2rem;
+        display: block;
+    }
+
+    .video-caption {
+        margin-top: 10px;
+        color: rgb(15, 235, 26);
+        font-size: 0.9rem;
+    }
+
+
+        </style>
+    </head>
 <body>
     <div class="grid-lines"></div>
     <div class="noise"></div>
